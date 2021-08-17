@@ -10,9 +10,9 @@ import UIKit
 class DiscoverVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -23,14 +23,14 @@ extension DiscoverVC : UICollectionViewDelegate {
     }
 }
 
-
 extension DiscoverVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.cell, for: indexPath) else {fatalError()}
         
         return cell
     }
