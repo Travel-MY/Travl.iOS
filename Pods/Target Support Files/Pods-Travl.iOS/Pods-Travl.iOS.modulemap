@@ -1,0 +1,6 @@
+framework module Pods_Travl_iOS {
+  umbrella header "Pods-Travl.iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
