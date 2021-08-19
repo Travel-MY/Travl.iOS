@@ -12,36 +12,32 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     private let urlSession = URLSession(configuration: .default)
-    private let baseNewsUrl = "https://gnews.io/api/v4/search?q="
+    private let baseNewsUrl = "https://travl-api.herokuapp.com/"
     
+    private var locationResponse : [Location] = []
     
-    func getNews(for topic : String, at page : Int, completed : @escaping (Result<[Any],TError>) -> Void ) {
+    func getLocations(for location: String = "locations", completed : @escaping (Result<[Location],TError>) -> Void) {
         
-        guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else { fatalError("No API_KEY found")}
+        let endpoint = baseNewsUrl + "\(location)"
+        print(endpoint)
         
-        let endPoint = baseNewsUrl + "\(topic)&lang=en&page=\(page)&token=\(apiKey)"
-        print(endPoint)
-        
-        //var newsCollection : [News] = []
-        
-        guard let url = URL(string: endPoint) else {
-            // Specifically specify failure case for the result type
+        guard let url = URL(string: endpoint) else {
             completed(.failure(.invalidTopic))
             return
         }
         
-        let task = urlSession.dataTask(with: url) { (data, response, error) in
+        let task = urlSession.dataTask(with: url) { data, response, error in
             
             if let _ = error {
                 completed(.failure(.unableToComplete))
-                //print(error?.localizedDescription)
-                //completed(error?.localizedDescription)
                 return
             }
+            
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 completed(.failure(.invalidResponse))
                 return
             }
+            
             guard let safeData = data else {
                 completed(.failure(.invalidData))
                 return
@@ -49,21 +45,18 @@ class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                // Decode the array of news response
-                //let newsDecode = try decoder.decode(NewsResponse.self, from: safeData)
                 
-                // Looping each article in list of newsResponse
+                let locationDecode = try decoder.decode(LocationsResponse.self, from: safeData)
                 
-                //                for article in newsDecode.articles {
-                //                    newsCollection.append(article)
-                //                }
-                //                print("News : \(newsDecode)")
-                
-                // Specifically specify success case for the result type
-                //completed(.success(newsCollection))
+                for location in locationDecode.locations {
+                   // print(location.id)
+                   // print(location.image)
+                    self.locationResponse.append(location)
+                }
+                completed(.success(self.locationResponse))
             } catch {
                 completed(.failure(.invalidData))
+                print(error.localizedDescription)
             }
         }
         task.resume()
