@@ -11,6 +11,8 @@
 		7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728426CBE70A00318991 /* NetworkManager.swift */; };
 		7F13728726CBE72B00318991 /* TError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728626CBE72B00318991 /* TError.swift */; };
 		7F13728A26CBEA5100318991 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728926CBEA5100318991 /* Result.swift */; };
+		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
+		7F717FB326CE3C480066183C /* LocationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F717FB226CE3C480066183C /* LocationsResponse.swift */; };
 		7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */; };
 		7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */; };
 		7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */; };
@@ -29,6 +31,8 @@
 		7F13728426CBE70A00318991 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F13728626CBE72B00318991 /* TError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TError.swift; sourceTree = "<group>"; };
 		7F13728926CBEA5100318991 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		7F717FB226CE3C480066183C /* LocationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsResponse.swift; sourceTree = "<group>"; };
 		7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travl.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		7F529F8326CEB74B006E7FB7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F717FB126CE3C170066183C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F717FB226CE3C480066183C /* LocationsResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7FCF5E6026C338F000FF7E18 = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +140,10 @@
 				7F13728026CBDC4C00318991 /* R.generated.swift */,
 				7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */,
 				7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */,
+				7F717FB126CE3C170066183C /* Model */,
 				7F13728326CBE6F200318991 /* Networking */,
 				7F13728226CBDCD400318991 /* Controller */,
+				7F529F8326CEB74B006E7FB7 /* Extensions */,
 				7FCF5E8426C3398300FF7E18 /* View */,
 				7FCF5E7526C338F800FF7E18 /* Assets.xcassets */,
 				7FCF5E7A26C338F800FF7E18 /* Info.plist */,
@@ -280,8 +302,10 @@
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
 				7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */,
+				7F717FB326CE3C480066183C /* LocationsResponse.swift in Sources */,
 				7F13728126CBDC4C00318991 /* R.generated.swift in Sources */,
 				7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */,
+				7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */,
 				7F13728A26CBEA5100318991 /* Result.swift in Sources */,
 				7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */,
 			);
