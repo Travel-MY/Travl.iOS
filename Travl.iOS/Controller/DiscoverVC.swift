@@ -10,6 +10,7 @@ import UIKit
 class DiscoverVC : UIViewController {
     
     var locationResult = [Location]()
+    private var selectedAtRow : Int!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -18,6 +19,9 @@ class DiscoverVC : UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         getLocations()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.title = ""
     }
     
     func getLocations(location : String = "locations") {
@@ -48,7 +52,19 @@ class DiscoverVC : UIViewController {
 //MARK:- Delegate
 extension DiscoverVC : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+        selectedAtRow = indexPath.row
+        self.performSegue(withIdentifier: R.segue.discoverVC.goToDetails, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destinationVC = segue.destination as? DiscoverDetail else { return}
+        guard let indexPath = collectionView.indexPathsForSelectedItems else {return}
+        destinationVC.imageURL = locationResult[selectedAtRow].image
+        // Remove tab bar when push to other vc
+        destinationVC.hidesBottomBarWhenPushed = true
+        //destinationVC.locationDetails = locationResult
+       // destinationVC.backgroundImage = locationResult[selectedAtRow].image
     }
 }
 
