@@ -80,11 +80,49 @@
                     <navigationItem key="navigationItem" title="Discover" id="Ykd-xM-Uoz"/>
                     <connections>
                         <outlet property="collectionView" destination="01k-cY-aLJ" id="O1L-e0-toa"/>
+                        <segue destination="Pcy-NL-ews" kind="show" identifier="goToDetails" id="2Ts-8z-4pb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zx7-kv-jYX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1382.608695652174" y="-14.0625"/>
+        </scene>
+        <!--  -->
+        <scene sceneID="MGL-T5-ej9">
+            <objects>
+                <viewController id="Pcy-NL-ews" customClass="DiscoverDetail" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zxq-VB-ISR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-Zx-xKA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FtP-Mf-DxJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ngo-Zx-xKA" firstAttribute="top" secondItem="Zxq-VB-ISR" secondAttribute="top" id="7wq-R2-MHB"/>
+                            <constraint firstItem="Ngo-Zx-xKA" firstAttribute="trailing" secondItem="FtP-Mf-DxJ" secondAttribute="trailing" id="Cj5-bY-3nD"/>
+                            <constraint firstAttribute="bottom" secondItem="Ngo-Zx-xKA" secondAttribute="bottom" id="ikc-Rc-o6I"/>
+                            <constraint firstItem="Ngo-Zx-xKA" firstAttribute="leading" secondItem="FtP-Mf-DxJ" secondAttribute="leading" id="yHx-ab-xRN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="  " id="HSA-B7-7pX">
+                        <barButtonItem key="backBarButtonItem" title=" &quot; &quot;" id="fTO-Kh-4zZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="+ Save" id="59L-0E-8sZ">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Pcy-NL-ews" id="j05-kt-cSO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backgroundImage" destination="Ngo-Zx-xKA" id="8E6-bk-y2J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oeg-2n-7qq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353.6231884057975" y="-14.0625"/>
         </scene>
         <!--Discover-->
         <scene sceneID="USN-FN-lvk">
@@ -95,6 +133,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QuP-4G-zAu">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
