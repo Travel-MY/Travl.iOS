@@ -14,19 +14,18 @@ enum CardState {
 
 class DiscoverDetail: UIViewController {
     
-  
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    var cardVC : CardVC!
+    var cardVC : CardView!
     var visualEffectView : UIVisualEffectView!
-    
-    var locationDetails = [Location]()
     var imageURL : URL!
     
+    var locationDetails = [Location]()
+   
     private var runningAnimations = [UIViewPropertyAnimator]()
-    
     private var animationProgressWhenInterupted : CGFloat = 0
     private var cardVisible = false
+    private let cardHandleAreaHeight : CGFloat = 65
     
     private var deviceHeight : CGFloat {
         get {
@@ -45,34 +44,52 @@ class DiscoverDetail: UIViewController {
             return .expanded
         }
     }
-    
-    private let cardHandleAreaHeight : CGFloat = 65
-    
+    //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCard()
         setupView()
-        self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
+        // Saved Itenary In Core Data
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+}
+
+//MARK:- Private methods
+extension DiscoverDetail {
+    private func setupView() {
+        backgroundImage.downloaded(from: imageURL)
+        backgroundImage.contentMode = .scaleAspectFill
+    }
+    
+    private func setupCard() {
+        
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = self.view.frame
+        self.view.addSubview(visualEffectView)
+        
+        cardVC = CardView(nibName: R.nib.cardView.name, bundle: nil)
+        self.addChild(cardVC)
+        self.view.addSubview(cardVC.view)
+        
+        cardVC.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight, width: self.view.bounds.width, height: cardHeight)
+        cardVC.view.clipsToBounds = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognizer:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
+        
+        cardVC.handlerArea.addGestureRecognizer(tapGestureRecognizer)
+        cardVC.handlerArea.addGestureRecognizer(panGestureRecognizer)
+    }
+    
     
 }
 
 
 //MARK:- Handler Methods
+
 extension DiscoverDetail {
     
     @objc  func handleCardTap(recognizer : UITapGestureRecognizer) {
@@ -205,32 +222,3 @@ extension DiscoverDetail {
     }
 }
 
-//MARK:- Private methods
-extension DiscoverDetail {
-    private func setupView() {
-        backgroundImage.downloaded(from: imageURL)
-        backgroundImage.contentMode = .scaleAspectFill
-    }
-    
-    private func setupCard() {
-        
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        self.view.addSubview(visualEffectView)
-        
-        cardVC = CardVC(nibName: R.nib.cardVC.name, bundle: nil)
-        self.addChild(cardVC)
-        self.view.addSubview(cardVC.view)
-        
-        cardVC.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight, width: self.view.bounds.width, height: cardHeight)
-        cardVC.view.clipsToBounds = true
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(recognizer:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handleCardPan(recognizer:)))
-        
-        cardVC.handlerArea.addGestureRecognizer(tapGestureRecognizer)
-        cardVC.handlerArea.addGestureRecognizer(panGestureRecognizer)
-    }
-    
-    
-}
