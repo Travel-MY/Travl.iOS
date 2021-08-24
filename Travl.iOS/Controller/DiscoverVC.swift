@@ -20,9 +20,6 @@ class DiscoverVC : UIViewController {
         collectionView.dataSource = self
         getLocations()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationItem.title = ""
-    }
     
     func getLocations(location : String = "locations") {
         
@@ -44,9 +41,7 @@ class DiscoverVC : UIViewController {
             self?.locationResult.append(contentsOf: locations)
             self?.collectionView.reloadData()
         }
-       
     }
-    
 }
 
 //MARK:- Delegate
@@ -82,14 +77,10 @@ extension DiscoverVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.cell, for: indexPath)!
         let listOfLocations = locationResult[indexPath.row]
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.cell, for: indexPath)!
-        
-        
-        cell.locationImage.downloaded(from: listOfLocations.image)
-        cell.locationImage.contentMode = .scaleToFill
-        cell.locationLabel.text = listOfLocations.location_name
+        cell.cellContent(for: listOfLocations)
         
         return cell
     }
