@@ -12,7 +12,7 @@ enum CardState {
     case collapsed
 }
 
-class DiscoverDetail: UIViewController {
+class DiscoverDetailVC: UIViewController {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -20,7 +20,12 @@ class DiscoverDetail: UIViewController {
     var visualEffectView : UIVisualEffectView!
     var imageURL : URL!
     
-    var locationDetails = [Location]()
+    var locationDetails: Location! {
+        didSet {
+            getItenaries()
+        }
+    }
+    var itenaries = [[Days]]()
    
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressWhenInterupted : CGFloat = 0
@@ -55,10 +60,24 @@ class DiscoverDetail: UIViewController {
         // Saved Itenary In Core Data
     }
     
+    func getItenaries(at itenaries : String = "Melaka"){
+        NetworkManager.shared.getItenaries(for: itenaries) { [weak self] itenary in
+            switch itenary {
+            
+            case .success(let itenary):
+                //print(itenary)
+                self?.itenaries.append(contentsOf: itenary)
+                print(itenaries.count)
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
+    }
+    
 }
 
 //MARK:- Private methods
-extension DiscoverDetail {
+extension DiscoverDetailVC {
     private func setupView() {
         backgroundImage.downloaded(from: imageURL)
         backgroundImage.contentMode = .scaleAspectFill
@@ -82,6 +101,9 @@ extension DiscoverDetail {
         
         cardVC.handlerArea.addGestureRecognizer(tapGestureRecognizer)
         cardVC.handlerArea.addGestureRecognizer(panGestureRecognizer)
+        
+        cardVC.cityLabel.text = locationDetails.locationName
+        cardVC.sloganLabel.text = locationDetails.slogan
     }
     
     
@@ -90,7 +112,7 @@ extension DiscoverDetail {
 
 //MARK:- Handler Methods
 
-extension DiscoverDetail {
+extension DiscoverDetailVC {
     
     @objc  func handleCardTap(recognizer : UITapGestureRecognizer) {
         //Determine tap gesture state
@@ -109,7 +131,7 @@ extension DiscoverDetail {
         
         case .began:
             startInteractiveTransition(state: nextState, duration: 0.9)
-            
+            print(itenaries)
         case .changed :
             // Check current translation of the recognizer, allow to calculate the complete fraction
             let translation = recognizer.translation(in: self.cardVC.handlerArea)
@@ -128,7 +150,7 @@ extension DiscoverDetail {
 }
 
 //MARK:- Animation Methods
-extension DiscoverDetail {
+extension DiscoverDetailVC {
     
     /// Real animation part, being call when every time animation needed or to check if animation need
     func animateTranstionIfNeeded(state : CardState, duration : TimeInterval) {

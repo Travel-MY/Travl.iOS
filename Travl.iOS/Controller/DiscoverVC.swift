@@ -28,7 +28,7 @@ class DiscoverVC : UIViewController {
             switch location {
             case .success(let locations):
                 self?.updateDiscoverUI(with: locations)
-                print(locations)
+//                print(locations)
             case .failure(let error):
                 print(error.rawValue)
             }
@@ -53,8 +53,10 @@ extension DiscoverVC : UICollectionViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let destinationVC = segue.destination as? DiscoverDetail else { return}
+        guard let destinationVC = segue.destination as? DiscoverDetailVC else { return}
         guard let indexPath = collectionView.indexPathsForSelectedItems else {return}
+        
+        destinationVC.locationDetails = locationResult[selectedAtRow]
         destinationVC.imageURL = locationResult[selectedAtRow].image
         // Remove tab bar when push to other vc
         destinationVC.hidesBottomBarWhenPushed = true
