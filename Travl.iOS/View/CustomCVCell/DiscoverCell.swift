@@ -21,7 +21,7 @@ class DiscoverCell: UICollectionViewCell {
         locationImage.downloaded(from: location.image)
         locationImage.contentMode = .scaleAspectFill
         
-        locationLabel.text = location.location_name
+        locationLabel.text = location.locationName
     }
     
     func configureCell() {
