@@ -8,9 +8,6 @@
 import Foundation
 
 struct Itenaries : Codable {
-    enum CodingKeys : String,CodingKey {
-        case itenaries
-    }
     let itenaries : Itenary
 }
 
@@ -19,22 +16,24 @@ struct Itenary : Codable {
 }
 
 struct Days : Codable {
-    enum CodingKeys : String, CodingKey {
-        case website,address,state,postcode
-        
-        case itenary_location_name = "locationName"
-        case itenary_description = "description"
-        case itenary_image = "image"
-        case itenary_coordinate = "coordinate"
-        case phone_number = "phone_number"
-    }
-    let itenary_location_name : String
-    let itenary_description : String
-    let itenary_image : URL
-    let website : URL
-    let phone_number : String
-    let itenary_coordinate : Coordinate
+    
+    let locationName : String
+    let description : String
+    let image : URL
+    let website : String
+    let phoneNumber : String
+    let coordinate : Coordinate
     let address: String
     let state : String
     let postcode : String
+    
+    enum CodingKeys : String, CodingKey {
+        case website,address,state,postcode
+        
+        case  locationName = "itenary_location_name"
+        case  description =  "itenary_description"
+        case  image = "itenary_image"
+        case  coordinate  = "itenary_coordinate"
+        case  phoneNumber = "phone_number"
+    }
 }

@@ -12,20 +12,23 @@ struct LocationsResponse : Codable {
 }
 
 struct Location : Codable {
-    enum CodingKeys : String, CodingKey {
-        case id,image,slogan, description, coordinate
-        case location_name = "locationName"
-    }
+   
     let id : Int
-    let location_name : String
+    let locationName : String
     let image : URL
     let slogan : String
     let description : String
     let coordinate : Coordinate
+    
+    enum CodingKeys : String, CodingKey {
+        case id,image,slogan, description, coordinate
+        case locationName = "location_name"
+    }
 }
 
 struct Coordinate : Codable {
-
+   
     let lon : Double
     let lat : Double
+    
 }
