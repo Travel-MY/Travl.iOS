@@ -12,9 +12,24 @@ class CardView: UIViewController {
     @IBOutlet weak var handlerArea: UIView!
     @IBOutlet weak var sloganLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var cityDescription: UITextView!
+    @IBOutlet weak var cityDescHC : NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var tableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Make taxtview size dynamic based on it contents
+        cityDescHC.constant = self.cityDescription.contentSize.height
+        
+        // Register custom cell for tv in itenary cell
+        tableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)
+        tableView.showsVerticalScrollIndicator = false
+        tableView.rowHeight = 80
+        
+        scrollView.showsVerticalScrollIndicator = false
 
     }
     

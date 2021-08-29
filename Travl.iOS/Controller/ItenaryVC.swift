@@ -12,7 +12,7 @@ enum CardState {
     case collapsed
 }
 
-class DiscoverDetailVC: UIViewController {
+class ItenaryVC: UIViewController {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -22,7 +22,7 @@ class DiscoverDetailVC: UIViewController {
     
     var locationDetails: Location! {
         didSet {
-            getItenaries()
+            getItenaries(at: locationDetails.itenaryName)
         }
     }
     var itenaries = [[Days]]()
@@ -30,7 +30,12 @@ class DiscoverDetailVC: UIViewController {
     private var runningAnimations = [UIViewPropertyAnimator]()
     private var animationProgressWhenInterupted : CGFloat = 0
     private var cardVisible = false
-    private let cardHandleAreaHeight : CGFloat = 65
+    
+    private var cardHandleAreaHeight : CGFloat {
+        get {
+            return deviceHeight * 0.12
+        }
+    }
     
     private var deviceHeight : CGFloat {
         get {
@@ -39,7 +44,7 @@ class DiscoverDetailVC: UIViewController {
     }
     private var cardHeight : CGFloat {
         get {
-            return (deviceHeight/2) * 1.4
+            return (deviceHeight/2) * 1.6
         }
     }
     private var nextState : CardState {
@@ -65,7 +70,7 @@ class DiscoverDetailVC: UIViewController {
             switch itenary {
             
             case .success(let itenary):
-                //print(itenary)
+                print(itenary)
                 self?.itenaries.append(contentsOf: itenary)
                 print(itenaries.count)
             case .failure(let error):
@@ -77,7 +82,7 @@ class DiscoverDetailVC: UIViewController {
 }
 
 //MARK:- Private methods
-extension DiscoverDetailVC {
+extension ItenaryVC {
     private func setupView() {
         backgroundImage.downloaded(from: imageURL)
         backgroundImage.contentMode = .scaleAspectFill
@@ -102,17 +107,48 @@ extension DiscoverDetailVC {
         cardVC.handlerArea.addGestureRecognizer(tapGestureRecognizer)
         cardVC.handlerArea.addGestureRecognizer(panGestureRecognizer)
         
+        // Assign self as data source, delegate at cardView
+        cardVC.tableView.delegate = self
+        cardVC.tableView.dataSource = self
+        
         cardVC.cityLabel.text = locationDetails.locationName
         cardVC.sloganLabel.text = locationDetails.slogan
+        
+        
+            
     }
     
     
 }
 
+//MARK:- DataSource
+extension ItenaryVC : UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = cardVC.tableView.dequeueReusableCell(withIdentifier: R.nib.itenaryCell.identifier, for: indexPath) as! ItenaryCell
+        cell.headerLabel.text = "Testing"
+     //cell.textLabel?.text = "hello"
+        return cell
+    }
+    
+}
+
+//MARK:- Delegate
+extension ItenaryVC : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
 
 //MARK:- Handler Methods
 
-extension DiscoverDetailVC {
+extension ItenaryVC {
     
     @objc  func handleCardTap(recognizer : UITapGestureRecognizer) {
         //Determine tap gesture state
@@ -150,7 +186,7 @@ extension DiscoverDetailVC {
 }
 
 //MARK:- Animation Methods
-extension DiscoverDetailVC {
+extension ItenaryVC {
     
     /// Real animation part, being call when every time animation needed or to check if animation need
     func animateTranstionIfNeeded(state : CardState, duration : TimeInterval) {
