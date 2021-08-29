@@ -19,9 +19,12 @@ struct Location : Codable {
     let slogan : String
     let description : String
     let coordinate : Coordinate
+    let itenaryName : String
     
     enum CodingKeys : String, CodingKey {
         case id,image,slogan, description, coordinate
+        
+        case itenaryName = "itenary"
         case locationName = "location_name"
     }
 }
