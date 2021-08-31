@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItenaryCell: UITableViewCell {
+final class ItenaryCell: UITableViewCell {
 
     //MARK:- Outlets
     @IBOutlet weak var headerLabel: UILabel!
@@ -18,10 +18,21 @@ class ItenaryCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    override func prepareForReuse() {
+        headerLabel.text = nil
+        descLabel.text = nil
+        iconImage.image = nil
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    func cellContent(for itenary : Days) {
+        headerLabel.text = itenary.locationName
+        descLabel.text = itenary.description
+        //iconImage.downloaded(from: itenary.image)
+        iconImage.image = nil
+    }
 
 }
