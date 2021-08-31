@@ -21,14 +21,13 @@ class DiscoverVC : UIViewController {
         getLocations()
     }
     
-    func renderView() {
-        
+    private func renderView() {
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    func getLocations(location : String = "locations") {
+     private func getLocations(location : String = "locations") {
         
         NetworkManager.shared.getLocations(for: location) {  [weak self] location in
             
@@ -42,7 +41,7 @@ class DiscoverVC : UIViewController {
         }
     }
     
-    func updateDiscoverUI(with locations : [Location]) {
+    private func updateDiscoverUI(with locations : [Location]) {
         
         DispatchQueue.main.async { [weak self] in
             self?.locationResult.append(contentsOf: locations)
@@ -95,5 +94,20 @@ extension DiscoverVC : UICollectionViewDataSource {
     }
 }
 
+//MARK:- FlowLayoutDelegate
+extension DiscoverVC : UICollectionViewDelegateFlowLayout {
+    
+    // Ask delegate for size of specified cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = view.frame.size.width
+        let heigt = view.frame.size.height
+        return CGSize(width: width * 0.4, height: heigt * 0.25)
+    }
+    // Ask delegate for margin to apply to content in specific section
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+    }
+}
 
 

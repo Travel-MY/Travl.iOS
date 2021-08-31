@@ -39,7 +39,8 @@ final class DiscoverCell: UICollectionViewCell {
         contentView.contentMode = .scaleAspectFill
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 15
-        dropShadow()
+        //dropShadow()
+    
     }
     
    
