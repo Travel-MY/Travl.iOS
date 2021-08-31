@@ -5,7 +5,7 @@
 //  Created by Ikmal Azman on 19/08/2021.
 //
 
-import UIKit
+import UIKit.UIImage
 
 extension UIImageView {
     

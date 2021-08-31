@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,14 @@
 		7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728426CBE70A00318991 /* NetworkManager.swift */; };
 		7F13728726CBE72B00318991 /* TError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728626CBE72B00318991 /* TError.swift */; };
 		7F13728A26CBEA5100318991 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728926CBEA5100318991 /* Result.swift */; };
+		7F1E3C0026DDB14C0027583A /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1E3BFF26DDB14C0027583A /* FloatingPanel */; };
+		7F1E3C0226DDB2F40027583A /* ItenaryFP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E3C0126DDB2F40027583A /* ItenaryFP.swift */; };
+		7F38229526D8397F00E7F8A3 /* ItenaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */; };
+		7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */; };
+		7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */; };
+		7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
-		7F717FB326CE3C480066183C /* LocationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F717FB226CE3C480066183C /* LocationsResponse.swift */; };
+		7F717FB326CE3C480066183C /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F717FB226CE3C480066183C /* Locations.swift */; };
 		7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */; };
 		7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */; };
 		7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */; };
@@ -21,6 +27,9 @@
 		7FCF5E7926C338F800FF7E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7726C338F800FF7E18 /* LaunchScreen.storyboard */; };
 		7FCF5E8F26C33BB400FF7E18 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF5E8D26C33BB400FF7E18 /* Discover.storyboard */; };
 		7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E9226C33D5700FF7E18 /* DiscoverCell.swift */; };
+		7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */; };
+		7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9B05F26D4D036007E385B /* Itenaries.swift */; };
+		7FE5F84926DD99650083F350 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5F84826DD99650083F350 /* Constants.swift */; };
 		A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A30EBDD2DEBA2261601004 /* Pods_Travl_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +40,13 @@
 		7F13728426CBE70A00318991 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F13728626CBE72B00318991 /* TError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TError.swift; sourceTree = "<group>"; };
 		7F13728926CBEA5100318991 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		7F1E3C0126DDB2F40027583A /* ItenaryFP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryFP.swift; sourceTree = "<group>"; };
+		7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryCell.swift; sourceTree = "<group>"; };
+		7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItenaryCell.xib; sourceTree = "<group>"; };
+		7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
+		7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
-		7F717FB226CE3C480066183C /* LocationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsResponse.swift; sourceTree = "<group>"; };
+		7F717FB226CE3C480066183C /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travl.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +57,9 @@
 		7FCF5E7A26C338F800FF7E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FCF5E8E26C33BB400FF7E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Travl.iOS/View/Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
 		7FCF5E9226C33D5700FF7E18 /* DiscoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
+		7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryVC.swift; sourceTree = "<group>"; };
+		7FD9B05F26D4D036007E385B /* Itenaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itenaries.swift; sourceTree = "<group>"; };
+		7FE5F84826DD99650083F350 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9CBD587F16BCBD11297A4B31 /* Pods-Travl.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travl.iOS.debug.xcconfig"; path = "Target Support Files/Pods-Travl.iOS/Pods-Travl.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */,
+				7F1E3C0026DDB14C0027583A /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */,
+				7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */,
+				7FDCE6E126DE64E100EA1B54 /* FloatingPanel */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -100,10 +120,20 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		7F38229726D8398800E7F8A3 /* ItenaryCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */,
+				7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */,
+			);
+			path = ItenaryCell;
+			sourceTree = "<group>";
+		};
 		7F529F8326CEB74B006E7FB7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */,
+				7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -111,7 +141,8 @@
 		7F717FB126CE3C170066183C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7F717FB226CE3C480066183C /* LocationsResponse.swift */,
+				7F717FB226CE3C480066183C /* Locations.swift */,
+				7FD9B05F26D4D036007E385B /* Itenaries.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,17 +168,18 @@
 		7FCF5E6B26C338F000FF7E18 /* Travl.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7FE5F84826DD99650083F350 /* Constants.swift */,
 				7F13728026CBDC4C00318991 /* R.generated.swift */,
+				7F13728826CBE73600318991 /* Utilities */,
+				7F529F8326CEB74B006E7FB7 /* Extensions */,
 				7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */,
 				7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */,
 				7F717FB126CE3C170066183C /* Model */,
 				7F13728326CBE6F200318991 /* Networking */,
 				7F13728226CBDCD400318991 /* Controller */,
-				7F529F8326CEB74B006E7FB7 /* Extensions */,
 				7FCF5E8426C3398300FF7E18 /* View */,
 				7FCF5E7526C338F800FF7E18 /* Assets.xcassets */,
 				7FCF5E7A26C338F800FF7E18 /* Info.plist */,
-				7F13728826CBE73600318991 /* Utilities */,
 			);
 			path = Travl.iOS;
 			sourceTree = "<group>";
@@ -158,9 +190,43 @@
 				7FCF5E8D26C33BB400FF7E18 /* Discover.storyboard */,
 				7FCF5E7226C338F000FF7E18 /* Main.storyboard */,
 				7FCF5E7726C338F800FF7E18 /* LaunchScreen.storyboard */,
-				7FCF5E9226C33D5700FF7E18 /* DiscoverCell.swift */,
+				7FDCE6E326DE652300EA1B54 /* CollectionViewCell */,
+				7FDCE6E226DE651800EA1B54 /* TableViewCell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7FD9716126D0D6CA00F7D71C /* DiscoverCell */ = {
+			isa = PBXGroup;
+			children = (
+				7FCF5E9226C33D5700FF7E18 /* DiscoverCell.swift */,
+				7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */,
+			);
+			path = DiscoverCell;
+			sourceTree = "<group>";
+		};
+		7FDCE6E126DE64E100EA1B54 /* FloatingPanel */ = {
+			isa = PBXGroup;
+			children = (
+				7F1E3C0126DDB2F40027583A /* ItenaryFP.swift */,
+			);
+			path = FloatingPanel;
+			sourceTree = "<group>";
+		};
+		7FDCE6E226DE651800EA1B54 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7F38229726D8398800E7F8A3 /* ItenaryCell */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		7FDCE6E326DE652300EA1B54 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7FD9716126D0D6CA00F7D71C /* DiscoverCell */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +248,9 @@
 			dependencies = (
 			);
 			name = Travl.iOS;
+			packageProductDependencies = (
+				7F1E3BFF26DDB14C0027583A /* FloatingPanel */,
+			);
 			productName = Travl.iOS;
 			productReference = 7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +278,9 @@
 				Base,
 			);
 			mainGroup = 7FCF5E6026C338F000FF7E18;
+			packageReferences = (
+				7F1E3BFE26DDB14C0027583A /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+			);
 			productRefGroup = 7FCF5E6A26C338F000FF7E18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -223,7 +295,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */,
 				7FCF5E7926C338F800FF7E18 /* LaunchScreen.storyboard in Resources */,
+				7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */,
 				7FCF5E8F26C33BB400FF7E18 /* Discover.storyboard in Resources */,
 				7FCF5E7626C338F800FF7E18 /* Assets.xcassets in Resources */,
 				7FCF5E7426C338F000FF7E18 /* Main.storyboard in Resources */,
@@ -299,15 +373,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */,
+				7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */,
+				7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */,
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
 				7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */,
-				7F717FB326CE3C480066183C /* LocationsResponse.swift in Sources */,
+				7FE5F84926DD99650083F350 /* Constants.swift in Sources */,
+				7F38229526D8397F00E7F8A3 /* ItenaryCell.swift in Sources */,
+				7F717FB326CE3C480066183C /* Locations.swift in Sources */,
 				7F13728126CBDC4C00318991 /* R.generated.swift in Sources */,
+				7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */,
 				7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */,
 				7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */,
 				7F13728A26CBEA5100318991 /* Result.swift in Sources */,
 				7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */,
+				7F1E3C0226DDB2F40027583A /* ItenaryFP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +605,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F1E3BFE26DDB14C0027583A /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F1E3BFF26DDB14C0027583A /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F1E3BFE26DDB14C0027583A /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7FCF5E6126C338F000FF7E18 /* Project object */;
 }
