@@ -7,11 +7,14 @@
 
 import UIKit
 
+
+
 class DiscoverVC : UIViewController {
     //MARK:- IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var locationResult = [Location]()
+    
+    private var locationResult = [Location]()
     private var selectedAtRow : Int!
     
     //MARK:- Life Cycle
@@ -19,22 +22,28 @@ class DiscoverVC : UIViewController {
         super.viewDidLoad()
         renderView()
         getLocations()
+        
+  
     }
     
     private func renderView() {
+        
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
     }
     
-     private func getLocations(location : String = "locations") {
+    private func getLocations(location : String = "locations") {
         
         NetworkManager.shared.getLocations(for: location) {  [weak self] location in
             
             switch location {
+            
             case .success(let locations):
                 self?.updateDiscoverUI(with: locations)
-            //                print(locations)
+                
             case .failure(let error):
                 print(error.rawValue)
             }
@@ -53,21 +62,23 @@ class DiscoverVC : UIViewController {
 //MARK:- Delegate
 extension DiscoverVC : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         selectedAtRow = indexPath.row
         self.performSegue(withIdentifier: R.segue.discoverVC.goToDetails, sender: self)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let destinationVC = segue.destination as? ItenaryVC else { return}
-        guard let indexPath = collectionView.indexPathsForSelectedItems else {return}
         
         destinationVC.locationDetails = locationResult[selectedAtRow]
         destinationVC.imageURL = locationResult[selectedAtRow].image
+        destinationVC.getItenaries(at: locationResult[selectedAtRow].itenaryName)
+        
         // Remove tab bar when push to other vc
         destinationVC.hidesBottomBarWhenPushed = true
-        //destinationVC.locationDetails = locationResult
-        // destinationVC.backgroundImage = locationResult[selectedAtRow].image
+        
     }
 }
 
