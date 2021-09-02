@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItenaryFP: UIViewController{
+class ItenaryFP: UIViewController {
     
     //MARK:- Outlets
     @IBOutlet weak var sloganLabel: UILabel!
@@ -17,38 +17,26 @@ class ItenaryFP: UIViewController{
     
     @IBOutlet weak var locDescHC: NSLayoutConstraint!
     
-    var itenaries = [[Days]]()
-    var location : Location!
-    var locationName : String!
+    private var itenaries = [[Days]]()
+    private var location : Location?
+    //var locationName : String!
     
+    //MARK:- : Life Cycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         renderView()
-        
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        itenaries = []
     }
     
-    func renderView() {
-        itenaryTableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)
-        
-        itenaryTableView.dataSource = self
-        itenaryTableView.delegate = self
-        
-        locDescHC.constant = locDesc.contentSize.height
-        
-        locationLabel.text = location.locationName
-        locDesc.text = location.description
-        sloganLabel.text = location.slogan
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        self.itenaries.removeAll()
+        self.location = nil
     }
 }
 
-//MARK:- Data source
+//MARK:- TableView Data source
 extension ItenaryFP : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         return itenaries.count
     }
     
@@ -57,16 +45,18 @@ extension ItenaryFP : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell : ItenaryCell = itenaryTableView.dequeueReusableCell(withIdentifier: R.nib.itenaryCell.identifier, for: indexPath) as! ItenaryCell
         
         let listOfItenaries = itenaries[indexPath.section][indexPath.row]
+        
         cell.cellContent(for: listOfItenaries)
         
         return cell
     }
 }
 
-//MARK:- Delegate
+//MARK:- TableView Delegate
 extension ItenaryFP : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -91,14 +81,34 @@ extension ItenaryFP : UITableViewDelegate {
 //MARK:- ItenaryVC Delegate
 extension ItenaryFP : ItenaryVCDelegate {
     
-    func didSendItenaryData(_ itenaryVC: ItenaryVC, with itenary: [[Days]]) {
-        DispatchQueue.main.async {
-            //print(itenary)
-            self.itenaries.append(contentsOf: itenary)
-            self.itenaryTableView.reloadData()
-            print("itenary \(self.itenaries.count)")
+    func didSendLocationData(_ itenaryVC: ItenaryVC, with location: Location) { 
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.locationLabel.text = location.locationName
+            self?.locDesc.text = location.description
+            self?.sloganLabel.text = location.slogan
         }
     }
     
     
+    func didSendItenaryData(_ itenaryVC: ItenaryVC, with itenary: [[Days]]) {
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.itenaries = itenary
+            self?.itenaryTableView.reloadData()
+        }
+    }
+}
+
+//MARK:- Private methods
+extension ItenaryFP {
+    
+    private func renderView() {
+        itenaryTableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)
+        
+        itenaryTableView.dataSource = self
+        itenaryTableView.delegate = self
+        
+        locDescHC.constant = locDesc.contentSize.height
+    }
 }
