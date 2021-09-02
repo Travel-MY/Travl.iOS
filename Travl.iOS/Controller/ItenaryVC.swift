@@ -11,17 +11,19 @@ import FloatingPanel
 
 protocol ItenaryVCDelegate : AnyObject {
     func didSendItenaryData(_ itenaryVC : ItenaryVC, with itenary : [[Days]])
+    func didSendLocationData(_ itenaryVC : ItenaryVC, with location : Location) 
 }
 
-class ItenaryVC: UIViewController {
+class ItenaryVC : UIViewController {
     
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    var imageURL : URL!
-    var locationDetails: Location!
-    var itenaries = [[Days]]()
+    var imageURL : URL?
+    var locationName: Location?
     
     weak var delegate : ItenaryVCDelegate?
+    
+    private var fpc : FloatingPanelController!
     
     //MARK:- Life Cycle
     override func viewDidLoad() {
@@ -30,63 +32,25 @@ class ItenaryVC: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Call API for data
+        getItenaries(at: locationName!.itenaryName)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         // Saved Itenary In Core Data
     }
     
 }
 
-//MARK:- Network Request
-extension ItenaryVC {
-    
-    func getItenaries(at itenaries : String = "Melaka"){
-        NetworkManager.shared.getItenaries(for: itenaries) { [weak self] itenary in
-            switch itenary {
-            
-            case .success(let itenary):
-                // print(itenary)
-                DispatchQueue.main.async {
-                    self?.itenaries.append(contentsOf: itenary)
-                    self?.delegate?.didSendItenaryData(self! , with: itenary)
-                }
-                
-                print(itenaries.count)
-            case .failure(let error):
-                print(error.rawValue)
-            }
-        }
-    }
-}
-
-//MARK:- Private methods
-extension ItenaryVC {
-    
-    private func setupView() {
-        backgroundImage.downloaded(from: imageURL)
-        backgroundImage.contentMode = .scaleAspectFill
-    }
-    
-    private func setupCard() {
-        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: "itenaryPanel") as? ItenaryFP else { return}
-        // Initliase delegate to Floating Panel, create strong reference to Panel
-        self.delegate = itenaryFlotingPanelVC
-        // Passing Location to Float Panle
-        itenaryFlotingPanelVC.location = locationDetails
-        
-        let fpc = FloatingPanelController()
-        fpc.set(contentViewController: itenaryFlotingPanelVC)
-        fpc.addPanel(toParent: self)
-        fpc.delegate = self
-        fpc.layout = self
-    }
-}
-
-
+//MARK:- Floating Panel Delegate
 extension ItenaryVC : FloatingPanelControllerDelegate {
     
 }
 
+//MARK:- Floating Panel Layout
 extension ItenaryVC : FloatingPanelLayout {
+    
     var position: FloatingPanelPosition {
         .bottom
     }
@@ -102,7 +66,49 @@ extension ItenaryVC : FloatingPanelLayout {
             .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea)
         ]
     }
-    
-    
 }
 
+//MARK:- Private methods
+extension ItenaryVC {
+    
+    private func setupView() {
+        
+        backgroundImage.downloaded(from: imageURL!)
+        backgroundImage.contentMode = .scaleAspectFill
+        // Passing data to itenaryFP
+        delegate?.didSendLocationData(self, with: locationName!)
+    }
+    
+    private func setupCard() {
+        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: "itenaryPanel") as? ItenaryFP else { return}
+        // Initliase delegate to Floating Panel, create strong reference to Panel
+        self.delegate = itenaryFlotingPanelVC
+        
+        fpc = FloatingPanelController()
+        fpc.set(contentViewController: itenaryFlotingPanelVC)
+        fpc.addPanel(toParent: self)
+        fpc.delegate = self
+        // declare layout to self with weak ARC, instead of self
+        fpc.layout = ItenaryVC() as FloatingPanelLayout
+    }
+    
+    private func getItenaries(at itenaries : String = "Melaka") {
+        
+        NetworkManager.shared.getItenaries(for: itenaries) { [weak self] itenary in
+            
+            switch itenary {
+            
+            case .success(let itenary):
+                // print(itenary)
+                DispatchQueue.main.async { [weak self] in
+                    // Passing data to itenaryFP
+                    self?.delegate?.didSendItenaryData(self! , with: itenary)
+                }
+                print(itenaries.count)
+                
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
+    }
+}
