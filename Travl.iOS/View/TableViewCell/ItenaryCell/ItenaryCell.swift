@@ -10,22 +10,19 @@ import UIKit
 final class ItenaryCell: UITableViewCell {
 
     //MARK:- Outlets
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet private weak var headerLabel: UILabel!
+    @IBOutlet private weak var descLabel: UILabel!
+    @IBOutlet private weak var iconImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    
     override func prepareForReuse() {
-        headerLabel.text = nil
-        descLabel.text = nil
-        iconImage.image = nil
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        super.prepareForReuse()
+        self.headerLabel.text = nil
+        self.descLabel.text = nil
+        self.iconImage.image = nil
     }
     
     func cellContent(for itenary : Days) {
