@@ -14,11 +14,10 @@ class NetworkManager {
     private let urlSession = URLSession(configuration: .default)
     private let baseNewsUrl = "https://travl-api.herokuapp.com/"
     
-    private var locationResponse : [Location] = []
-    private var itenaryResponse : [[Days]] = []
-    
     //MARK:- Locations
     func getLocations(for location: String = "locations", completed : @escaping (Result<[Location],TError>) -> Void) {
+        
+        var locationResponse : [Location] = []
         
         let endpoint = baseNewsUrl + "\(location)"
         print(endpoint)
@@ -51,12 +50,12 @@ class NetworkManager {
                 let locationDecode = try decoder.decode(LocationsResponse.self, from: safeData)
                 
                 for location in locationDecode.locations {
-                   print( location.coordinate)
-                   // print(location.id)
-                   // print(location.image)
-                    self.locationResponse.append(location)
+                    print( location.coordinate)
+                    // print(location.id)
+                    // print(location.image)
+                    locationResponse.append(location)
                 }
-                completed(.success(self.locationResponse))
+                completed(.success(locationResponse))
             } catch {
                 completed(.failure(.invalidData))
                 print(error.localizedDescription)
@@ -67,6 +66,8 @@ class NetworkManager {
     
     //MARK:- Itenaries
     func getItenaries(for itenaries: String, completed : @escaping (Result<[[Days]],TError>) -> Void) {
+        
+        var itenaryResponse : [[Days]] = []
         
         let endpoint = baseNewsUrl + "itenaries-" + "\(itenaries)"
         print(endpoint)
@@ -100,12 +101,12 @@ class NetworkManager {
                 let itenaries = try decoder.decode(Itenaries.self, from: safeData)
                 
                 for itenary in itenaries.itenaries.days {
-                    self.itenaryResponse.append(itenary)
+                    itenaryResponse.append(itenary)
                     //print(itenary)
                 }
-              
-
-                completed(.success(self.itenaryResponse))
+                
+                
+                completed(.success(itenaryResponse))
             } catch {
                 completed(.failure(.invalidData))
                 print(error.localizedDescription)
