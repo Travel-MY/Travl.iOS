@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItenaryFP: UIViewController {
+final class ItenaryBottomVC: UIViewController {
     
     //MARK:- Outlets
     @IBOutlet weak var sloganLabel: UILabel!
@@ -19,7 +19,9 @@ class ItenaryFP: UIViewController {
     
     private var itenaries = [[Days]]()
     private var location : Location?
-    //var locationName : String!
+    
+    private var selectedAtSection : Int!
+    private var selectedAtRow : Int!
     
     //MARK:- : Life Cycle
     override func viewDidLoad() {
@@ -34,7 +36,7 @@ class ItenaryFP: UIViewController {
 }
 
 //MARK:- TableView Data source
-extension ItenaryFP : UITableViewDataSource {
+extension ItenaryBottomVC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return itenaries.count
@@ -57,7 +59,7 @@ extension ItenaryFP : UITableViewDataSource {
 }
 
 //MARK:- TableView Delegate
-extension ItenaryFP : UITableViewDelegate {
+extension ItenaryBottomVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Day \(section + 1)"
@@ -72,14 +74,27 @@ extension ItenaryFP : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedAtSection = indexPath.section
+        selectedAtRow = indexPath.row
+        print("Section \(indexPath.section), at cell \(indexPath.row)")
         // Remove highlight when cell selected
         itenaryTableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: R.segue.itenaryBottomVC.goToItenaryDetails.identifier, sender: self)
+    }
+    
+    //MARK:- Prepare Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let selectedAtItenary = itenaries[selectedAtSection][selectedAtRow]
+        
+        guard let destinationVC = segue.destination as? ItenaryDetailsVC else {return}
+        destinationVC.selectedItenary = selectedAtItenary
     }
 }
 
 
 //MARK:- ItenaryVC Delegate
-extension ItenaryFP : ItenaryVCDelegate {
+extension ItenaryBottomVC : ItenaryVCDelegate {
     
     func didSendLocationData(_ itenaryVC: ItenaryVC, with location: Location) { 
         
@@ -101,7 +116,7 @@ extension ItenaryFP : ItenaryVCDelegate {
 }
 
 //MARK:- Private methods
-extension ItenaryFP {
+extension ItenaryBottomVC {
     
     private func renderView() {
         itenaryTableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)

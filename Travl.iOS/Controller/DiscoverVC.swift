@@ -7,10 +7,11 @@
 
 import UIKit
 
-class DiscoverVC : UIViewController {
+final class DiscoverVC : UIViewController {
     //MARK:- IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //MARK:- Variables
     private var locationResult = [Location]()
     private var selectedAtRow : Int!
     
@@ -32,6 +33,7 @@ extension DiscoverVC : UICollectionViewDelegate {
         
     }
     
+    //MARK:- Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let destinationVC = segue.destination as? ItenaryVC else { return}
@@ -71,12 +73,12 @@ extension DiscoverVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = view.frame.size.width
-        let heigt = view.frame.size.height
-        return CGSize(width: width * 0.4, height: heigt * 0.25)
+        let height = view.frame.size.height
+        return CGSize(width: width * 0.4, height: height * 0.3)
     }
     // Ask delegate for margin to apply to content in specific section
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
     }
 }
 
@@ -94,7 +96,7 @@ extension DiscoverVC {
         NetworkManager.shared.getLocations(for: location) {  [weak self] location in
             
             switch location {
-            
+                
             case .success(let locations):
                 self?.updateDiscoverUI(with: locations)
                 

@@ -8,16 +8,17 @@
 import UIKit
 import FloatingPanel
 
-
 protocol ItenaryVCDelegate : AnyObject {
     func didSendItenaryData(_ itenaryVC : ItenaryVC, with itenary : [[Days]])
     func didSendLocationData(_ itenaryVC : ItenaryVC, with location : Location) 
 }
 
-class ItenaryVC : UIViewController {
+final class ItenaryVC : UIViewController {
     
+    //MARK:- Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     
+    //MARK:- Variables
     var imageURL : URL?
     var locationName: Location?
     
@@ -37,6 +38,7 @@ class ItenaryVC : UIViewController {
         getItenaries(at: locationName!.itenaryName)
     }
     
+    //MARK:- Action
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         // Saved Itenary In Core Data
     }
@@ -44,9 +46,7 @@ class ItenaryVC : UIViewController {
 }
 
 //MARK:- Floating Panel Delegate
-extension ItenaryVC : FloatingPanelControllerDelegate {
-    
-}
+extension ItenaryVC : FloatingPanelControllerDelegate {}
 
 //MARK:- Floating Panel Layout
 extension ItenaryVC : FloatingPanelLayout {
@@ -80,7 +80,7 @@ extension ItenaryVC {
     }
     
     private func setupCard() {
-        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: "itenaryPanel") as? ItenaryFP else { return}
+        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: R.storyboard.discover.itenaryPanel.identifier) as? ItenaryBottomVC else { return}
         // Initliase delegate to Floating Panel, create strong reference to Panel
         self.delegate = itenaryFlotingPanelVC
         
