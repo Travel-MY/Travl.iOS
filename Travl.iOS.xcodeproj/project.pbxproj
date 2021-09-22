@@ -15,8 +15,8 @@
 		7F1E3C0226DDB2F40027583A /* ItenaryBottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E3C0126DDB2F40027583A /* ItenaryBottomVC.swift */; };
 		7F217A1526E910870057A40C /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1326E910870057A40C /* DescriptionCell.swift */; };
 		7F217A1626E910870057A40C /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1426E910870057A40C /* DescriptionCell.xib */; };
-		7F217A1B26E914210057A40C /* InfoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1926E914210057A40C /* InfoCollectionCell.swift */; };
-		7F217A1C26E914210057A40C /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1A26E914210057A40C /* CollectionCell.xib */; };
+		7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1926E914210057A40C /* ItenaryInfoCollectionCell.swift */; };
+		7F217A1C26E914210057A40C /* ItenaryInfoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1A26E914210057A40C /* ItenaryInfoCollectionCell.xib */; };
 		7F217A1F26E916540057A40C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1D26E916540057A40C /* InfoCell.swift */; };
 		7F217A2026E916540057A40C /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1E26E916540057A40C /* InfoCell.xib */; };
 		7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */; };
@@ -53,8 +53,8 @@
 		7F1E3C0126DDB2F40027583A /* ItenaryBottomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryBottomVC.swift; sourceTree = "<group>"; };
 		7F217A1326E910870057A40C /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		7F217A1426E910870057A40C /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
-		7F217A1926E914210057A40C /* InfoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionCell.swift; sourceTree = "<group>"; };
-		7F217A1A26E914210057A40C /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		7F217A1926E914210057A40C /* ItenaryInfoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryInfoCollectionCell.swift; sourceTree = "<group>"; };
+		7F217A1A26E914210057A40C /* ItenaryInfoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItenaryInfoCollectionCell.xib; sourceTree = "<group>"; };
 		7F217A1D26E916540057A40C /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		7F217A1E26E916540057A40C /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryDetailsVC.swift; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 		7F217A1826E914030057A40C /* InfoCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				7F217A1926E914210057A40C /* InfoCollectionCell.swift */,
-				7F217A1A26E914210057A40C /* CollectionCell.xib */,
+				7F217A1926E914210057A40C /* ItenaryInfoCollectionCell.swift */,
+				7F217A1A26E914210057A40C /* ItenaryInfoCollectionCell.xib */,
 			);
 			path = InfoCollectionCell;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 				7FCF5E7626C338F800FF7E18 /* Assets.xcassets in Resources */,
 				7F217A1626E910870057A40C /* DescriptionCell.xib in Resources */,
 				7FCF5E7426C338F000FF7E18 /* Main.storyboard in Resources */,
-				7F217A1C26E914210057A40C /* CollectionCell.xib in Resources */,
+				7F217A1C26E914210057A40C /* ItenaryInfoCollectionCell.xib in Resources */,
 				7F45C5E426EE3485008A27C1 /* MapPreviewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +442,7 @@
 				7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */,
 				7F217A1526E910870057A40C /* DescriptionCell.swift in Sources */,
 				7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */,
-				7F217A1B26E914210057A40C /* InfoCollectionCell.swift in Sources */,
+				7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */,
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
 				7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */,
