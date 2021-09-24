@@ -25,6 +25,7 @@
 		7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */; };
 		7F45C5E326EE3485008A27C1 /* MapPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C5E126EE3485008A27C1 /* MapPreviewCell.swift */; };
 		7F45C5E426EE3485008A27C1 /* MapPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F45C5E226EE3485008A27C1 /* MapPreviewCell.xib */; };
+		7F49508D26FDEBB600A7E4F8 /* BasePlannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49508C26FDEBB600A7E4F8 /* BasePlannerVC.swift */; };
 		7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */; };
 		7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
@@ -63,6 +64,7 @@
 		7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItenaryCell.xib; sourceTree = "<group>"; };
 		7F45C5E126EE3485008A27C1 /* MapPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewCell.swift; sourceTree = "<group>"; };
 		7F45C5E226EE3485008A27C1 /* MapPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPreviewCell.xib; sourceTree = "<group>"; };
+		7F49508C26FDEBB600A7E4F8 /* BasePlannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerVC.swift; sourceTree = "<group>"; };
 		7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
 		7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
@@ -116,11 +118,7 @@
 		7F13728226CBDCD400318991 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7FDCE6E126DE64E100EA1B54 /* FloatingPanel */,
-				7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */,
-				7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */,
-				7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */,
-				7F34A02626F0B88E0074F139 /* MapViewVC.swift */,
+				7F49508A26FDEB8E00A7E4F8 /* Module */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +185,35 @@
 			path = MapPreviewCell;
 			sourceTree = "<group>";
 		};
+		7F49508926FDEB5600A7E4F8 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */,
+				7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */,
+				7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */,
+				7F34A02626F0B88E0074F139 /* MapViewVC.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		7F49508A26FDEB8E00A7E4F8 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				7F49508B26FDEB9800A7E4F8 /* Planner */,
+				7FDCE6E126DE64E100EA1B54 /* FloatingPanel */,
+				7F49508926FDEB5600A7E4F8 /* Discover */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		7F49508B26FDEB9800A7E4F8 /* Planner */ = {
+			isa = PBXGroup;
+			children = (
+				7F49508C26FDEBB600A7E4F8 /* BasePlannerVC.swift */,
+			);
+			path = Planner;
+			sourceTree = "<group>";
+		};
 		7F529F8326CEB74B006E7FB7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,12 +262,12 @@
 		7FCF5E6B26C338F000FF7E18 /* Travl.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */,
+				7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */,
 				7FE5F84826DD99650083F350 /* Constants.swift */,
 				7F13728026CBDC4C00318991 /* R.generated.swift */,
 				7F13728826CBE73600318991 /* Utilities */,
 				7F529F8326CEB74B006E7FB7 /* Extensions */,
-				7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */,
-				7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */,
 				7F717FB126CE3C170066183C /* Model */,
 				7F13728326CBE6F200318991 /* Networking */,
 				7F13728226CBDCD400318991 /* Controller */,
@@ -442,6 +469,7 @@
 				7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */,
 				7F217A1526E910870057A40C /* DescriptionCell.swift in Sources */,
 				7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */,
+				7F49508D26FDEBB600A7E4F8 /* BasePlannerVC.swift in Sources */,
 				7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */,
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,

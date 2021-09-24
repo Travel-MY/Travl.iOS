@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Travl.iOS/View/Base.lproj/Planner.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:Travl.iOS.xcodeproj">
    </FileRef>
    <FileRef
