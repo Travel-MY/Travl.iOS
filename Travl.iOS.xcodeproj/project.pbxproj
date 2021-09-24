@@ -26,6 +26,7 @@
 		7F45C5E326EE3485008A27C1 /* MapPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C5E126EE3485008A27C1 /* MapPreviewCell.swift */; };
 		7F45C5E426EE3485008A27C1 /* MapPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F45C5E226EE3485008A27C1 /* MapPreviewCell.xib */; };
 		7F49508D26FDEBB600A7E4F8 /* BasePlannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49508C26FDEBB600A7E4F8 /* BasePlannerVC.swift */; };
+		7F49508F26FDEC6D00A7E4F8 /* Planner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F49508E26FDEC6D00A7E4F8 /* Planner.storyboard */; };
 		7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */; };
 		7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
@@ -65,6 +66,7 @@
 		7F45C5E126EE3485008A27C1 /* MapPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewCell.swift; sourceTree = "<group>"; };
 		7F45C5E226EE3485008A27C1 /* MapPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapPreviewCell.xib; sourceTree = "<group>"; };
 		7F49508C26FDEBB600A7E4F8 /* BasePlannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerVC.swift; sourceTree = "<group>"; };
+		7F49508E26FDEC6D00A7E4F8 /* Planner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Planner.storyboard; sourceTree = "<group>"; };
 		7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
 		7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		7FCF5E8426C3398300FF7E18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F49508E26FDEC6D00A7E4F8 /* Planner.storyboard */,
 				7FCF5E8D26C33BB400FF7E18 /* Discover.storyboard */,
 				7FCF5E7226C338F000FF7E18 /* Main.storyboard */,
 				7FCF5E7726C338F800FF7E18 /* LaunchScreen.storyboard */,
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */,
+				7F49508F26FDEC6D00A7E4F8 /* Planner.storyboard in Resources */,
 				7FCF5E7926C338F800FF7E18 /* LaunchScreen.storyboard in Resources */,
 				7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */,
 				7FCF5E8F26C33BB400FF7E18 /* Discover.storyboard in Resources */,

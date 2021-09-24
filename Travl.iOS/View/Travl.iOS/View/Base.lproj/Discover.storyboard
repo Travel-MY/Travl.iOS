@@ -148,10 +148,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3w-oD-q3D">
-                                <rect key="frame" x="364" y="21" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3w-oD-q3D">
+                                <rect key="frame" x="364" y="25" width="30" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="X"/>
+                                <state key="normal" title="X" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="oO0-Zy-vaK" eventType="touchUpInside" id="PWZ-Gw-Tfe"/>
                                 </connections>
@@ -198,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem id="TB1-on-pQw">
-                                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="MV3-JQ-caf">
+                                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="MV3-JQ-caf">
                                             <connections>
                                                 <action selector="undoButtonPressed:" destination="Dwu-kW-prJ" id="22b-MQ-D9A"/>
                                             </connections>
