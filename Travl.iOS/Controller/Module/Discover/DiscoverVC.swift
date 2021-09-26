@@ -14,12 +14,12 @@ final class DiscoverVC : UIViewController {
     //MARK:- Variables
     private var locationResult = [Location]()
     private var selectedAtRow : Int!
+    private let presenter = DiscoverPresenter()
     
     //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
-        getLocations()
     }
 }
 
@@ -27,10 +27,8 @@ final class DiscoverVC : UIViewController {
 extension DiscoverVC : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        selectedAtRow = indexPath.row
-        self.performSegue(withIdentifier: R.segue.discoverVC.goToDetails, sender: self)
-        
+    
+        presenter.didTapLocation(atIndex : indexPath.row)
     }
     
     //MARK:- Prepare Segue
@@ -43,7 +41,6 @@ extension DiscoverVC : UICollectionViewDelegate {
         
         // Remove tab bar when push to other vc
         destinationVC.hidesBottomBarWhenPushed = true
-        
     }
 }
 
@@ -82,35 +79,32 @@ extension DiscoverVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK:- DiscoverPresenterDelegate
+extension DiscoverVC : DiscoverPresenterDelegate {
+    
+    func presentToNextScreen(atCellNumber: Int) {
+        selectedAtRow = atCellNumber
+        self.performSegue(withIdentifier: R.segue.discoverVC.goToDetails, sender: self)
+    }
+    
+
+    func presentLocation(data: [Location]) {
+        locationResult = data
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+}
+
 //MARK:- Private methods
 extension DiscoverVC {
     
     private func renderView() {
+        presenter.setViewDelegate(delegate: self)
+        presenter.getLocations()
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    private func getLocations(location : String = "locations") {
-        
-        NetworkManager.shared.getLocations(for: location) {  [weak self] location in
-            
-            switch location {
-                
-            case .success(let locations):
-                self?.updateDiscoverUI(with: locations)
-                
-            case .failure(let error):
-                print(error.rawValue)
-            }
-        }
-    }
-    
-    private func updateDiscoverUI(with locations : [Location]) {
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.locationResult = locations
-            self?.collectionView.reloadData()
-        }
     }
 }

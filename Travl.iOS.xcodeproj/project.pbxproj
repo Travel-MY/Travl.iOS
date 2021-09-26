@@ -30,6 +30,7 @@
 		7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */; };
 		7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
+		7F53D6C22700A2FD00970CEE /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53D6C12700A2FD00970CEE /* DiscoverPresenter.swift */; };
 		7F717FB326CE3C480066183C /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F717FB226CE3C480066183C /* Locations.swift */; };
 		7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */; };
 		7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */; };
@@ -70,6 +71,7 @@
 		7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
 		7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		7F53D6C12700A2FD00970CEE /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
 		7F717FB226CE3C480066183C /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travl.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */,
+				7F53D6C12700A2FD00970CEE /* DiscoverPresenter.swift */,
 				7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */,
 				7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */,
 				7F34A02626F0B88E0074F139 /* MapViewVC.swift */,
@@ -486,6 +489,7 @@
 				7F717FB326CE3C480066183C /* Locations.swift in Sources */,
 				7F13728126CBDC4C00318991 /* R.generated.swift in Sources */,
 				7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */,
+				7F53D6C22700A2FD00970CEE /* DiscoverPresenter.swift in Sources */,
 				7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */,
 				7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */,
 				7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */,
