@@ -32,10 +32,30 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Trips" id="ZOO-SQ-4Ne"/>
+                    <connections>
+                        <outlet property="basePlannerTableView" destination="3Rf-kL-P0C" id="uVF-AN-Qse"/>
+                        <segue destination="hAd-eC-Pei" kind="show" identifier="goToCreatePlanner" id="R2A-FV-0pP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsu-Y2-Fkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1686.9565217391305" y="131.91964285714286"/>
+        </scene>
+        <!--Set PlannerVC-->
+        <scene sceneID="9Ep-4M-kqx">
+            <objects>
+                <viewController id="hAd-eC-Pei" customClass="SetPlannerVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yal-FC-PmR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="egS-aa-4Su"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="krh-6y-dwy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxH-ex-VNs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2455" y="-425"/>
         </scene>
         <!--Planner-->
         <scene sceneID="XnJ-Gn-x05">
