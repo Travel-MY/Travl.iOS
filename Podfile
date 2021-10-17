@@ -8,5 +8,6 @@ target 'Travl.iOS' do
   # Pods for Travl.iOS
   
   pod 'R.swift'
+  pod 'JTAppleCalendar'
 
 end
