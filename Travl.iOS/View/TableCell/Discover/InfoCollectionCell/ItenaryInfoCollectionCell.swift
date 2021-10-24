@@ -50,9 +50,7 @@ extension ItenaryInfoCollectionCell : UICollectionViewDataSource {
             return cell
             
         }
-        
     }
-    
 }
 //MARK:- CV Delegate
 extension ItenaryInfoCollectionCell : UICollectionViewDelegate {

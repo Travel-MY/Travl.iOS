@@ -281,8 +281,7 @@
 		7FABD23026E8EB0900A68E65 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				7FD9716126D0D6CA00F7D71C /* DiscoverCell */,
-				7F45C5DF26EE33C6008A27C1 /* InfoCell */,
+				7FC05ABB27259976008724B6 /* Discover */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -322,6 +321,36 @@
 				7FBE4C29270723ED004E26A9 /* ImageSliderFooter.xib */,
 			);
 			path = ImageSliderFooter;
+			sourceTree = "<group>";
+		};
+		7FC05AB927259935008724B6 /* Planner */ = {
+			isa = PBXGroup;
+			children = (
+				7F7159492725826A0077F46E /* PlannerItemsCell */,
+				7FBE4C3727073220004E26A9 /* ImageSliderFooter */,
+				7FBE4C27270723A8004E26A9 /* CreateATripHeader */,
+			);
+			path = Planner;
+			sourceTree = "<group>";
+		};
+		7FC05ABA2725994A008724B6 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				7F45C5E026EE33E1008A27C1 /* MapPreviewCell */,
+				7F217A1826E914030057A40C /* InfoCollectionCell */,
+				7F38229726D8398800E7F8A3 /* ItenaryCell */,
+				7F217A1726E9108C0057A40C /* DescriptionCell */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		7FC05ABB27259976008724B6 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				7FD9716126D0D6CA00F7D71C /* DiscoverCell */,
+				7F45C5DF26EE33C6008A27C1 /* InfoCell */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		7FCF5E6026C338F000FF7E18 = {
@@ -387,13 +416,8 @@
 		7FDCE6E226DE651800EA1B54 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				7F7159492725826A0077F46E /* PlannerItemsCell */,
-				7FBE4C3727073220004E26A9 /* ImageSliderFooter */,
-				7FBE4C27270723A8004E26A9 /* CreateATripHeader */,
-				7F45C5E026EE33E1008A27C1 /* MapPreviewCell */,
-				7F217A1826E914030057A40C /* InfoCollectionCell */,
-				7F38229726D8398800E7F8A3 /* ItenaryCell */,
-				7F217A1726E9108C0057A40C /* DescriptionCell */,
+				7FC05ABA2725994A008724B6 /* Discover */,
+				7FC05AB927259935008724B6 /* Planner */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
