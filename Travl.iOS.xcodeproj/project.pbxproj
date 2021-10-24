@@ -22,7 +22,7 @@
 		7F217A1F26E916540057A40C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1D26E916540057A40C /* InfoCell.swift */; };
 		7F217A2026E916540057A40C /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1E26E916540057A40C /* InfoCell.xib */; };
 		7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */; };
-		7F34A02826F0B88E0074F139 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F34A02626F0B88E0074F139 /* MapViewVC.swift */; };
+		7F34A02826F0B88E0074F139 /* ItenaryMapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F34A02626F0B88E0074F139 /* ItenaryMapViewVC.swift */; };
 		7F38229526D8397F00E7F8A3 /* ItenaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */; };
 		7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */; };
 		7F45C5E326EE3485008A27C1 /* MapPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45C5E126EE3485008A27C1 /* MapPreviewCell.swift */; };
@@ -33,7 +33,7 @@
 		7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */; };
 		7F5139FF2707C2AA002D6880 /* ItenaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
-		7F53D6C22700A2FD00970CEE /* DiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53D6C12700A2FD00970CEE /* DiscoverPresenter.swift */; };
+		7F53D6C22700A2FD00970CEE /* BaseDiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */; };
 		7F715946272508290077F46E /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F715945272508290077F46E /* Planner.swift */; };
 		7F715948272560F60077F46E /* CreatePlannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F715947272560F60077F46E /* CreatePlannerPresenter.swift */; };
 		7F71594C2725829D0077F46E /* PlannerItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71594A2725829D0077F46E /* PlannerItemsCell.swift */; };
@@ -48,7 +48,7 @@
 		7FBE4C39270732B2004E26A9 /* CreatePlannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE4C38270732B2004E26A9 /* CreatePlannerVC.swift */; };
 		7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */; };
 		7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */; };
-		7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */; };
+		7FCF5E7126C338F000FF7E18 /* BaseDiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7026C338F000FF7E18 /* BaseDiscoverVC.swift */; };
 		7FCF5E7426C338F000FF7E18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7226C338F000FF7E18 /* Main.storyboard */; };
 		7FCF5E7626C338F800FF7E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7526C338F800FF7E18 /* Assets.xcassets */; };
 		7FCF5E7926C338F800FF7E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7726C338F800FF7E18 /* LaunchScreen.storyboard */; };
@@ -77,7 +77,7 @@
 		7F217A1D26E916540057A40C /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		7F217A1E26E916540057A40C /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
 		7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryDetailsVC.swift; sourceTree = "<group>"; };
-		7F34A02626F0B88E0074F139 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
+		7F34A02626F0B88E0074F139 /* ItenaryMapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryMapViewVC.swift; sourceTree = "<group>"; };
 		7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryCell.swift; sourceTree = "<group>"; };
 		7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItenaryCell.xib; sourceTree = "<group>"; };
 		7F45C5E126EE3485008A27C1 /* MapPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewCell.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryPresenter.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
-		7F53D6C12700A2FD00970CEE /* DiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPresenter.swift; sourceTree = "<group>"; };
+		7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDiscoverPresenter.swift; sourceTree = "<group>"; };
 		7F715945272508290077F46E /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
 		7F715947272560F60077F46E /* CreatePlannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreatePlannerPresenter.swift; path = /Users/esikmalazman/Desktop/Development/FYP/Travl.iOS/Travl.iOS/Controller/Module/Planner/CreatePlannerPresenter.swift; sourceTree = "<absolute>"; };
 		7F71594A2725829D0077F46E /* PlannerItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerItemsCell.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travl.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
+		7FCF5E7026C338F000FF7E18 /* BaseDiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDiscoverVC.swift; sourceTree = "<group>"; };
 		7FCF5E7326C338F000FF7E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FCF5E7526C338F800FF7E18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FCF5E7826C338F800FF7E18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -220,12 +220,12 @@
 		7F49508926FDEB5600A7E4F8 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				7FCF5E7026C338F000FF7E18 /* DiscoverVC.swift */,
-				7F53D6C12700A2FD00970CEE /* DiscoverPresenter.swift */,
+				7FCF5E7026C338F000FF7E18 /* BaseDiscoverVC.swift */,
+				7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */,
 				7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */,
 				7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */,
 				7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */,
-				7F34A02626F0B88E0074F139 /* MapViewVC.swift */,
+				7F34A02626F0B88E0074F139 /* ItenaryMapViewVC.swift */,
 				7F1E3C0126DDB2F40027583A /* ItenarySheetVC.swift */,
 			);
 			path = Discover;
@@ -564,8 +564,8 @@
 				7FBE4C39270732B2004E26A9 /* CreatePlannerVC.swift in Sources */,
 				7FBE4C2A270723ED004E26A9 /* ImageSliderFooter.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
-				7FCF5E7126C338F000FF7E18 /* DiscoverVC.swift in Sources */,
-				7F34A02826F0B88E0074F139 /* MapViewVC.swift in Sources */,
+				7FCF5E7126C338F000FF7E18 /* BaseDiscoverVC.swift in Sources */,
+				7F34A02826F0B88E0074F139 /* ItenaryMapViewVC.swift in Sources */,
 				7FE5F84926DD99650083F350 /* Constants.swift in Sources */,
 				7F18981A27071CD7007AA48F /* CreateATripHeader.swift in Sources */,
 				7F715948272560F60077F46E /* CreatePlannerPresenter.swift in Sources */,
@@ -577,7 +577,7 @@
 				7F717FB326CE3C480066183C /* Locations.swift in Sources */,
 				7F13728126CBDC4C00318991 /* R.generated.swift in Sources */,
 				7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */,
-				7F53D6C22700A2FD00970CEE /* DiscoverPresenter.swift in Sources */,
+				7F53D6C22700A2FD00970CEE /* BaseDiscoverPresenter.swift in Sources */,
 				7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */,
 				7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */,
 				7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */,

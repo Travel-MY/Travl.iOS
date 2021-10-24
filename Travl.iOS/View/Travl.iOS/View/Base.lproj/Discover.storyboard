@@ -10,7 +10,7 @@
         <!--Discover-->
         <scene sceneID="AjM-6k-Xpu">
             <objects>
-                <viewController title="Discover" id="Fgv-o4-udn" customClass="DiscoverVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Discover" id="Fgv-o4-udn" customClass="BaseDiscoverVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KMu-YI-R6h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="4089.8550724637685" y="-13.392857142857142"/>
         </scene>
-        <!--Map ViewVC-->
+        <!--Itenary Map ViewVC-->
         <scene sceneID="jai-XG-EV4">
             <objects>
-                <viewController id="Dwu-kW-prJ" customClass="MapViewVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dwu-kW-prJ" customClass="ItenaryMapViewVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wJg-6w-kce">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

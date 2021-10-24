@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol DiscoverPresenterDelegate : AnyObject {
+protocol BaseDiscoverPresenterDelegate : AnyObject {
     func presentLocation(data : [Location])
     func presentToNextScreen(atCellNumber : Int)
 }
 
-final class DiscoverPresenter {
+final class BaseDiscoverPresenter {
     
-    weak var delegate : DiscoverPresenterDelegate?
+    weak var delegate : BaseDiscoverPresenterDelegate?
     
-    func setViewDelegate(delegate : DiscoverPresenterDelegate) {
+    func setViewDelegate(delegate : BaseDiscoverPresenterDelegate) {
         self.delegate = delegate
     }
     

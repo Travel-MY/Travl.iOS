@@ -7,14 +7,14 @@
 
 import UIKit
 
-final class DiscoverVC : UIViewController {
+final class BaseDiscoverVC : UIViewController {
     //MARK:- IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK:- Variables
     private var locationResult = [Location]()
     private var selectedAtRow : Int!
-    private let presenter = DiscoverPresenter()
+    private let presenter = BaseDiscoverPresenter()
     
     //MARK:- Life Cycle
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ final class DiscoverVC : UIViewController {
 }
 
 //MARK:- Delegate
-extension DiscoverVC : UICollectionViewDelegate {
+extension BaseDiscoverVC : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
@@ -45,7 +45,7 @@ extension DiscoverVC : UICollectionViewDelegate {
 }
 
 //MARK:- Data Source
-extension DiscoverVC : UICollectionViewDataSource {
+extension BaseDiscoverVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -64,7 +64,7 @@ extension DiscoverVC : UICollectionViewDataSource {
 }
 
 //MARK:- FlowLayoutDelegate
-extension DiscoverVC : UICollectionViewDelegateFlowLayout {
+extension BaseDiscoverVC : UICollectionViewDelegateFlowLayout {
     
     // Ask delegate for size of specified cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -80,13 +80,12 @@ extension DiscoverVC : UICollectionViewDelegateFlowLayout {
 }
 
 //MARK:- DiscoverPresenterDelegate
-extension DiscoverVC : DiscoverPresenterDelegate {
+extension BaseDiscoverVC : BaseDiscoverPresenterDelegate {
     
     func presentToNextScreen(atCellNumber: Int) {
         selectedAtRow = atCellNumber
-        self.performSegue(withIdentifier: R.segue.discoverVC.goToDetails, sender: self)
+        self.performSegue(withIdentifier: R.segue.baseDiscoverVC.goToDetails, sender: self)
     }
-    
 
     func presentLocation(data: [Location]) {
         locationResult = data
@@ -98,7 +97,7 @@ extension DiscoverVC : DiscoverPresenterDelegate {
 }
 
 //MARK:- Private methods
-extension DiscoverVC {
+extension BaseDiscoverVC {
     
     private func renderView() {
         presenter.setViewDelegate(delegate: self)

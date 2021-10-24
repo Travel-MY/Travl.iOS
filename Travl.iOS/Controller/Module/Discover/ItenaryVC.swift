@@ -91,7 +91,7 @@ extension ItenaryVC {
     
     private func setupCard() {
         
-        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: R.storyboard.discover.itenaryPanel.identifier) as? ItenaryBottomVC else { return}
+        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: R.storyboard.discover.itenaryPanel.identifier) as? ItenarySheetVC else { return}
         // Initliase delegate to Floating Panel, create strong reference to Panel
         self.delegate = itenaryFlotingPanelVC
         
