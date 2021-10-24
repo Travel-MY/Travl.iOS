@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateATripHeader" rowHeight="320" id="KGk-i7-Jjw" customClass="CreateATripHeader" customModule="Travl_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-qs-KXy">
+                        <rect key="frame" x="120" y="22.5" width="80" height="75.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rgd-qs-KXy" secondAttribute="height" multiplier="1:1" id="VVZ-mF-SDw"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi, travellers !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de9-y2-o3L">
+                        <rect key="frame" x="51" y="125" width="218" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prepare your trip by planning your activities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glX-ia-61d">
+                        <rect key="frame" x="10" y="165.5" width="300" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB0-GE-EWc">
+                        <rect key="frame" x="46" y="241.5" width="228" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Create a trip"/>
+                        <connections>
+                            <action selector="createTripPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qnK-tg-Ci9"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                <constraints>
+                    <constraint firstItem="PB0-GE-EWc" firstAttribute="top" secondItem="glX-ia-61d" secondAttribute="bottom" constant="35" id="6PS-B5-jqJ"/>
+                    <constraint firstItem="rgd-qs-KXy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="AXl-LC-N15"/>
+                    <constraint firstItem="de9-y2-o3L" firstAttribute="top" secondItem="rgd-qs-KXy" secondAttribute="bottom" constant="25" id="BiT-8R-7DC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PB0-GE-EWc" secondAttribute="trailing" constant="30" id="Ni8-ng-uke"/>
+                    <constraint firstAttribute="trailing" secondItem="rgd-qs-KXy" secondAttribute="trailing" constant="120" id="Nok-k7-f1d"/>
+                    <constraint firstItem="rgd-qs-KXy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="120" id="Qcq-zk-ShF"/>
+                    <constraint firstItem="PB0-GE-EWc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="UdC-W9-WMh"/>
+                    <constraint firstItem="glX-ia-61d" firstAttribute="top" secondItem="de9-y2-o3L" secondAttribute="bottom" constant="20" id="Y1D-8c-TAt"/>
+                    <constraint firstItem="glX-ia-61d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="div-nS-0Kd"/>
+                    <constraint firstAttribute="trailing" secondItem="glX-ia-61d" secondAttribute="trailing" constant="10" id="l0c-Pp-V7W"/>
+                    <constraint firstItem="de9-y2-o3L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="35" id="tf0-iu-Gd5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="de9-y2-o3L" secondAttribute="trailing" constant="35" id="uaY-Ia-KgQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="131.8840579710145" y="169.41964285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pencil.slash" catalog="system" width="128" height="113"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

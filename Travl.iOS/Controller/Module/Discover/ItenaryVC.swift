@@ -24,6 +24,7 @@ final class ItenaryVC : UIViewController {
     
     weak var delegate : ItenaryVCDelegate?
     
+    private var presenter = ItenaryPresenter()
     private var fpc : FloatingPanelController!
     
     //MARK:- Life Cycle
@@ -35,7 +36,7 @@ final class ItenaryVC : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // Call API for data
-        getItenaries(at: locationName!.itenaryName)
+        presenter.getItenaries(for: locationName?.itenaryName ?? "")
     }
     
     //MARK:- Action
@@ -43,6 +44,14 @@ final class ItenaryVC : UIViewController {
         // Saved Itenary In Core Data
     }
     
+}
+
+//MARK:- ItenaryPresenter Delegate
+extension ItenaryVC : ItenaryPresenterDelegate {
+    
+    func presentItenaryData(with data: [[Days]]) {
+        self.delegate?.didSendItenaryData(self, with: data)
+    }
 }
 
 //MARK:- Floating Panel Delegate
@@ -77,10 +86,12 @@ extension ItenaryVC {
         backgroundImage.contentMode = .scaleAspectFill
         // Passing data to itenaryFP
         delegate?.didSendLocationData(self, with: locationName!)
+        presenter.setViewDelegate(delegate: self)
     }
     
     private func setupCard() {
-        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: R.storyboard.discover.itenaryPanel.identifier) as? ItenaryBottomVC else { return}
+        
+        guard let itenaryFlotingPanelVC = storyboard?.instantiateViewController(identifier: R.storyboard.discover.itenaryPanel.identifier) as? ItenarySheetVC else { return}
         // Initliase delegate to Floating Panel, create strong reference to Panel
         self.delegate = itenaryFlotingPanelVC
         
@@ -90,25 +101,5 @@ extension ItenaryVC {
         fpc.delegate = self
         // declare layout to self with weak ARC, instead of self
         fpc.layout = ItenaryVC() as FloatingPanelLayout
-    }
-    
-    private func getItenaries(at itenaries : String = "Melaka") {
-        
-        NetworkManager.shared.getItenaries(for: itenaries) { [weak self] itenary in
-            
-            switch itenary {
-            
-            case .success(let itenary):
-                // print(itenary)
-                DispatchQueue.main.async { [weak self] in
-                    // Passing data to itenaryFP
-                    self?.delegate?.didSendItenaryData(self! , with: itenary)
-                }
-                print(itenaries.count)
-                
-            case .failure(let error):
-                print(error.rawValue)
-            }
-        }
     }
 }

@@ -44,15 +44,14 @@ class NetworkManager {
                 return
             }
             
+            print(String(data: safeData, encoding: .utf8)!)
+            
             do {
                 let decoder = JSONDecoder()
                 //decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let locationDecode = try decoder.decode(LocationsResponse.self, from: safeData)
                 
                 for location in locationDecode.locations {
-                    print( location.coordinate)
-                    // print(location.id)
-                    // print(location.image)
                     locationResponse.append(location)
                 }
                 completed(.success(locationResponse))
@@ -94,7 +93,8 @@ class NetworkManager {
                 return
             }
             
-            //print(String(data: safeData, encoding: .utf8))
+            print(String(data: safeData, encoding: .utf8)!)
+            
             do {
                 let decoder = JSONDecoder()
                 //decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -102,9 +102,7 @@ class NetworkManager {
                 
                 for itenary in itenaries.itenaries.days {
                     itenaryResponse.append(itenary)
-                    //print(itenary)
                 }
-                
                 
                 completed(.success(itenaryResponse))
             } catch {
