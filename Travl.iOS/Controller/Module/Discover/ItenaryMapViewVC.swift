@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-final class MapViewVC: UIViewController {
+final class ItenaryMapViewVC: UIViewController {
     
     //MARK:- Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -33,7 +33,7 @@ final class MapViewVC: UIViewController {
 }
 
 //MARK:- Private Methods
-extension MapViewVC {
+extension ItenaryMapViewVC {
     
     private func configureMapView(lat : Double, lon : Double) {
         

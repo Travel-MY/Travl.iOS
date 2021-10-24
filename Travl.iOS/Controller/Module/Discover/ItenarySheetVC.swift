@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ItenaryBottomVC: UIViewController {
+final class ItenarySheetVC: UIViewController {
     
     //MARK:- Outlets
     @IBOutlet weak var sloganLabel: UILabel!
@@ -36,7 +36,7 @@ final class ItenaryBottomVC: UIViewController {
 }
 
 //MARK:- TableView Data source
-extension ItenaryBottomVC : UITableViewDataSource {
+extension ItenarySheetVC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return itenaries.count
@@ -59,7 +59,7 @@ extension ItenaryBottomVC : UITableViewDataSource {
 }
 
 //MARK:- TableView Delegate
-extension ItenaryBottomVC : UITableViewDelegate {
+extension ItenarySheetVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Day \(section + 1)"
@@ -79,7 +79,7 @@ extension ItenaryBottomVC : UITableViewDelegate {
         print("Section \(indexPath.section), at cell \(indexPath.row)")
         // Remove highlight when cell selected
         itenaryTableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: R.segue.itenaryBottomVC.goToItenaryDetails.identifier, sender: self)
+        performSegue(withIdentifier: R.segue.itenarySheetVC.goToItenaryDetails.identifier, sender: self)
     }
     
     //MARK:- Prepare Segue
@@ -94,7 +94,7 @@ extension ItenaryBottomVC : UITableViewDelegate {
 
 
 //MARK:- ItenaryVC Delegate
-extension ItenaryBottomVC : ItenaryVCDelegate {
+extension ItenarySheetVC : ItenaryVCDelegate {
     
     func didSendLocationData(_ itenaryVC: ItenaryVC, with location: Location) { 
         
@@ -116,7 +116,7 @@ extension ItenaryBottomVC : ItenaryVCDelegate {
 }
 
 //MARK:- Private methods
-extension ItenaryBottomVC {
+extension ItenarySheetVC {
     
     private func renderView() {
         itenaryTableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)

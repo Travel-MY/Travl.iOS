@@ -84,7 +84,7 @@ extension ItenaryDetailsVC : UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let destinationVC = segue.destination as? MapViewVC else {return}
+        guard let destinationVC = segue.destination as? ItenaryMapViewVC else {return}
         destinationVC.logitude = selectedItenary?.coordinate.lon
         destinationVC.latitude = selectedItenary?.coordinate.lat
         destinationVC.locationName = selectedItenary?.locationName

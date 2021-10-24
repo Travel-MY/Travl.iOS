@@ -7,30 +7,28 @@
 
 import UIKit
 
-final class DiscoverVC : UIViewController {
+final class BaseDiscoverVC : UIViewController {
     //MARK:- IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK:- Variables
     private var locationResult = [Location]()
     private var selectedAtRow : Int!
+    private let presenter = BaseDiscoverPresenter()
     
     //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
-        getLocations()
     }
 }
 
 //MARK:- Delegate
-extension DiscoverVC : UICollectionViewDelegate {
+extension BaseDiscoverVC : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        selectedAtRow = indexPath.row
-        self.performSegue(withIdentifier: R.segue.discoverVC.goToDetails, sender: self)
-        
+    
+        presenter.didTapLocation(atIndex : indexPath.row)
     }
     
     //MARK:- Prepare Segue
@@ -43,12 +41,11 @@ extension DiscoverVC : UICollectionViewDelegate {
         
         // Remove tab bar when push to other vc
         destinationVC.hidesBottomBarWhenPushed = true
-        
     }
 }
 
 //MARK:- Data Source
-extension DiscoverVC : UICollectionViewDataSource {
+extension BaseDiscoverVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -67,7 +64,7 @@ extension DiscoverVC : UICollectionViewDataSource {
 }
 
 //MARK:- FlowLayoutDelegate
-extension DiscoverVC : UICollectionViewDelegateFlowLayout {
+extension BaseDiscoverVC : UICollectionViewDelegateFlowLayout {
     
     // Ask delegate for size of specified cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -82,35 +79,31 @@ extension DiscoverVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK:- DiscoverPresenterDelegate
+extension BaseDiscoverVC : BaseDiscoverPresenterDelegate {
+    
+    func presentToNextScreen(atCellNumber: Int) {
+        selectedAtRow = atCellNumber
+        self.performSegue(withIdentifier: R.segue.baseDiscoverVC.goToDetails, sender: self)
+    }
+
+    func presentLocation(data: [Location]) {
+        locationResult = data
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+}
+
 //MARK:- Private methods
-extension DiscoverVC {
+extension BaseDiscoverVC {
     
     private func renderView() {
+        presenter.setViewDelegate(delegate: self)
+        presenter.getLocations()
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    private func getLocations(location : String = "locations") {
-        
-        NetworkManager.shared.getLocations(for: location) {  [weak self] location in
-            
-            switch location {
-                
-            case .success(let locations):
-                self?.updateDiscoverUI(with: locations)
-                
-            case .failure(let error):
-                print(error.rawValue)
-            }
-        }
-    }
-    
-    private func updateDiscoverUI(with locations : [Location]) {
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.locationResult = locations
-            self?.collectionView.reloadData()
-        }
     }
 }
