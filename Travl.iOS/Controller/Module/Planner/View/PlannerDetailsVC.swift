@@ -58,10 +58,8 @@ extension PlannerDetailsVC {
         plannerTableView.delegate = self
 
         plannerTableView.register(PlannerDateCell.nib(), forCellReuseIdentifier: R.reuseIdentifier.plannerDateCell.identifier)
+        plannerTableView.register(PlannerActivityContentCell.nib(), forCellReuseIdentifier: R.nib.plannerActivityContentCell.identifier)
     
-  
-
-        
     }
 }
 
