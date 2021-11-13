@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol CreateATripHeaderDelegate : AnyObject {
+protocol BasePlannerTableHeaderDelegate : AnyObject {
     func didTapTripButton(view : Any)
 }
 
-final class CreateATripHeader: UITableViewHeaderFooterView {
+final class BasePlannerTableHeader: UITableViewHeaderFooterView {
 
-    weak var delegate : CreateATripHeaderDelegate?
+    weak var delegate : BasePlannerTableHeaderDelegate?
     
-    func setViewDelegate(delegate : CreateATripHeaderDelegate) {
+    func setViewDelegate(delegate : BasePlannerTableHeaderDelegate) {
         self.delegate = delegate
     }
     override func awakeFromNib() {

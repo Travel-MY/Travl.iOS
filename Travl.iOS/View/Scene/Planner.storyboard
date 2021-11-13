@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="soX-EY-5bt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="soX-EY-5bt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,11 +45,43 @@
                     <connections>
                         <outlet property="basePlannerTableView" destination="3Rf-kL-P0C" id="uVF-AN-Qse"/>
                         <segue destination="hAd-eC-Pei" kind="show" identifier="goToCreatePlanner" id="R2A-FV-0pP"/>
+                        <segue destination="MN0-El-oWO" kind="show" identifier="goToPlannerDetails" id="yZK-A2-DR0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsu-Y2-Fkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1686.9565217391305" y="131.91964285714286"/>
+        </scene>
+        <!--Planner DetailsVC-->
+        <scene sceneID="MzD-2z-oUu">
+            <objects>
+                <viewController id="MN0-El-oWO" customClass="PlannerDetailsVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gyD-06-V3l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NJu-qy-Ui2">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9w2-f6-hqr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NJu-qy-Ui2" firstAttribute="leading" secondItem="9w2-f6-hqr" secondAttribute="leading" id="KGf-h4-Rd2"/>
+                            <constraint firstItem="9w2-f6-hqr" firstAttribute="trailing" secondItem="NJu-qy-Ui2" secondAttribute="trailing" id="KbP-V4-qfZ"/>
+                            <constraint firstItem="NJu-qy-Ui2" firstAttribute="top" secondItem="9w2-f6-hqr" secondAttribute="top" id="Zst-SG-7Oy"/>
+                            <constraint firstItem="9w2-f6-hqr" firstAttribute="bottom" secondItem="NJu-qy-Ui2" secondAttribute="bottom" id="geK-BU-L9V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hS0-cd-Jel"/>
+                    <connections>
+                        <outlet property="plannerTableView" destination="NJu-qy-Ui2" id="2hg-Vz-xd8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1g-tu-By0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="319"/>
         </scene>
         <!--Create PlannerVC-->
         <scene sceneID="9Ep-4M-kqx">
