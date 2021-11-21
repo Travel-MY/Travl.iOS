@@ -7,13 +7,18 @@
 
 import UIKit
 
+protocol PlannerActivityContentCellDelegate  : AnyObject {
+    func didSelectAtContent(_ plannerActivityContentCell : PlannerActivityContentCell, indexPath : IndexPath)
+}
 final class PlannerActivityContentCell: UITableViewCell {
     
     //MARK: - IBOutlets
     @IBOutlet weak var activityContentCollectionView: UICollectionView!
     
-    //MARK: - Variable
-    let menuLabel = ["Your Activities", "Files"]
+    //MARK: - Variables
+    weak var delegate : PlannerActivityContentCellDelegate?
+    
+    let menuLabel = ["Add Activities", "Files"]
     let iconImage = ["plus.circle.fill", "folder.fill"]
     //MARK: - Life Cycle
     override func awakeFromNib() {
@@ -26,6 +31,10 @@ final class PlannerActivityContentCell: UITableViewCell {
     
     static func nib() -> UINib {
         return UINib(nibName: R.nib.plannerActivityContentCell.name, bundle: nil)
+    }
+    
+    func setViewDelegate(delegate : PlannerActivityContentCellDelegate) {
+        self.delegate = delegate
     }
     
 }
@@ -48,6 +57,7 @@ extension PlannerActivityContentCell : UICollectionViewDataSource {
 //MARK: - CV Delegate
 extension PlannerActivityContentCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectAtContent(self, indexPath: indexPath)
         print("Selected at row : \(indexPath.row)")
     }
 }

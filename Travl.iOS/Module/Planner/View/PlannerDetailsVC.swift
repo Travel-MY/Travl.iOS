@@ -36,6 +36,7 @@ extension PlannerDetailsVC : UITableViewDataSource {
             
         case 1 :
             let cell = plannerTableView.dequeueReusableCell(withIdentifier: R.nib.plannerActivityContentCell.identifier, for: indexPath) as! PlannerActivityContentCell
+            cell.setViewDelegate(delegate: self)
             return cell
         default:
             return UITableViewCell()
@@ -58,6 +59,17 @@ extension PlannerDetailsVC : UITableViewDelegate {
     }
     
 }
+
+extension PlannerDetailsVC : PlannerActivityContentCellDelegate {
+    func didSelectAtContent(_ plannerActivityContentCell: PlannerActivityContentCell, indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            performSegue(withIdentifier: "goToActivityMenu", sender: self)
+        }
+    }
+    
+    
+}
+//MARK: - Private methods
 extension PlannerDetailsVC {
     private func renderView() {
         plannerTableView.separatorStyle = .none
