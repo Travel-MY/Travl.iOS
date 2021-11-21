@@ -20,6 +20,7 @@
 		7F18981B27071CD7007AA48F /* BasePlannerTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F18981927071CD7007AA48F /* BasePlannerTableHeader.xib */; };
 		7F1E3C0026DDB14C0027583A /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 7F1E3BFF26DDB14C0027583A /* FloatingPanel */; };
 		7F1E3C0226DDB2F40027583A /* ItenarySheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1E3C0126DDB2F40027583A /* ItenarySheetVC.swift */; };
+		7F20F486274747B6007CA801 /* download_data_from_network_manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F20F485274747B6007CA801 /* download_data_from_network_manager.swift */; };
 		7F217A1526E910870057A40C /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1326E910870057A40C /* DescriptionCell.swift */; };
 		7F217A1626E910870057A40C /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1426E910870057A40C /* DescriptionCell.xib */; };
 		7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1926E914210057A40C /* ItenaryInfoCollectionCell.swift */; };
@@ -45,6 +46,8 @@
 		7F71594C2725829D0077F46E /* PlannerItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71594A2725829D0077F46E /* PlannerItemsCell.swift */; };
 		7F71594D2725829D0077F46E /* PlannerItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F71594B2725829D0077F46E /* PlannerItemsCell.xib */; };
 		7F717FB326CE3C480066183C /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F717FB226CE3C480066183C /* Locations.swift */; };
+		7FB4CF48274072DB0048BF0D /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4CF46274072DB0048BF0D /* MenuCollectionCell.swift */; };
+		7FB4CF49274072DB0048BF0D /* MenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB4CF47274072DB0048BF0D /* MenuCollectionCell.xib */; };
 		7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */; };
 		7FBE4C2B270723ED004E26A9 /* BasePlannerImageFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE4C29270723ED004E26A9 /* BasePlannerImageFooter.xib */; };
 		7FBE4C3127072AA8004E26A9 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE4C2E27072AA8004E26A9 /* image1.jpg */; };
@@ -66,6 +69,16 @@
 		A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A30EBDD2DEBA2261601004 /* Pods_Travl_iOS.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7F20F47F2747476C007CA801 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FCF5E6126C338F000FF7E18 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FCF5E6826C338F000FF7E18;
+			remoteInfo = Travl.iOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		71B11A562E0B40557C9152A2 /* Pods-Travl.iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travl.iOS.release.xcconfig"; path = "Target Support Files/Pods-Travl.iOS/Pods-Travl.iOS.release.xcconfig"; sourceTree = "<group>"; };
 		73A30EBDD2DEBA2261601004 /* Pods_Travl_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travl_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +94,8 @@
 		7F18981827071CD7007AA48F /* BasePlannerTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerTableHeader.swift; sourceTree = "<group>"; };
 		7F18981927071CD7007AA48F /* BasePlannerTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasePlannerTableHeader.xib; sourceTree = "<group>"; };
 		7F1E3C0126DDB2F40027583A /* ItenarySheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenarySheetVC.swift; sourceTree = "<group>"; };
+		7F20F47B2747476C007CA801 /* TravlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F20F485274747B6007CA801 /* download_data_from_network_manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = download_data_from_network_manager.swift; sourceTree = "<group>"; };
 		7F217A1326E910870057A40C /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		7F217A1426E910870057A40C /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		7F217A1926E914210057A40C /* ItenaryInfoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryInfoCollectionCell.swift; sourceTree = "<group>"; };
@@ -106,6 +121,8 @@
 		7F71594A2725829D0077F46E /* PlannerItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerItemsCell.swift; sourceTree = "<group>"; };
 		7F71594B2725829D0077F46E /* PlannerItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlannerItemsCell.xib; sourceTree = "<group>"; };
 		7F717FB226CE3C480066183C /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		7FB4CF46274072DB0048BF0D /* MenuCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
+		7FB4CF47274072DB0048BF0D /* MenuCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionCell.xib; sourceTree = "<group>"; };
 		7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerImageFooter.swift; sourceTree = "<group>"; };
 		7FBE4C29270723ED004E26A9 /* BasePlannerImageFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasePlannerImageFooter.xib; sourceTree = "<group>"; };
 		7FBE4C2E27072AA8004E26A9 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
@@ -130,6 +147,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7F20F4782747476C007CA801 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FCF5E6626C338F000FF7E18 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,6 +277,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		7F20F47C2747476C007CA801 /* TravlTests */ = {
+			isa = PBXGroup;
+			children = (
+				7F20F4842747479E007CA801 /* NetworkManager */,
+			);
+			path = TravlTests;
+			sourceTree = "<group>";
+		};
+		7F20F4842747479E007CA801 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				7F20F485274747B6007CA801 /* download_data_from_network_manager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		7F217A1726E9108C0057A40C /* DescriptionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,24 +405,9 @@
 		7F86119D272E647D00CAB4B8 /* Planner */ = {
 			isa = PBXGroup;
 			children = (
-				7F86119E272E649D00CAB4B8 /* PlannerAction */,
+				7FB4CF45274072A00048BF0D /* MenuCollectionCell */,
 			);
 			path = Planner;
-			sourceTree = "<group>";
-		};
-		7F86119E272E649D00CAB4B8 /* PlannerAction */ = {
-			isa = PBXGroup;
-			children = (
-				7F8611A0272E64CD00CAB4B8 /* MenuItemsCell */,
-			);
-			path = PlannerAction;
-			sourceTree = "<group>";
-		};
-		7F8611A0272E64CD00CAB4B8 /* MenuItemsCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MenuItemsCell;
 			sourceTree = "<group>";
 		};
 		7FABD23026E8EB0900A68E65 /* CollectionCell */ = {
@@ -392,6 +417,15 @@
 				7FC05ABB27259976008724B6 /* Discover */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		7FB4CF45274072A00048BF0D /* MenuCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				7FB4CF46274072DB0048BF0D /* MenuCollectionCell.swift */,
+				7FB4CF47274072DB0048BF0D /* MenuCollectionCell.xib */,
+			);
+			path = MenuCollectionCell;
 			sourceTree = "<group>";
 		};
 		7FBE4C27270723A8004E26A9 /* BasePlannerImageFooter */ = {
@@ -467,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				7FCF5E6B26C338F000FF7E18 /* Travl.iOS */,
+				7F20F47C2747476C007CA801 /* TravlTests */,
 				7FCF5E6A26C338F000FF7E18 /* Products */,
 				1B2ACFE70074C61C8AE10CB2 /* Pods */,
 				70FE09715EE1627C3673BBE0 /* Frameworks */,
@@ -477,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */,
+				7F20F47B2747476C007CA801 /* TravlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -531,6 +567,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7F20F47A2747476C007CA801 /* TravlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F20F4832747476C007CA801 /* Build configuration list for PBXNativeTarget "TravlTests" */;
+			buildPhases = (
+				7F20F4772747476C007CA801 /* Sources */,
+				7F20F4782747476C007CA801 /* Frameworks */,
+				7F20F4792747476C007CA801 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F20F4802747476C007CA801 /* PBXTargetDependency */,
+			);
+			name = TravlTests;
+			productName = TravlTests;
+			productReference = 7F20F47B2747476C007CA801 /* TravlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7FCF5E6826C338F000FF7E18 /* Travl.iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FCF5E7D26C338F800FF7E18 /* Build configuration list for PBXNativeTarget "Travl.iOS" */;
@@ -560,9 +614,13 @@
 		7FCF5E6126C338F000FF7E18 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					7F20F47A2747476C007CA801 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 7FCF5E6826C338F000FF7E18;
+					};
 					7FCF5E6826C338F000FF7E18 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -585,11 +643,19 @@
 			projectRoot = "";
 			targets = (
 				7FCF5E6826C338F000FF7E18 /* Travl.iOS */,
+				7F20F47A2747476C007CA801 /* TravlTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7F20F4792747476C007CA801 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FCF5E6726C338F000FF7E18 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,6 +663,7 @@
 				7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */,
 				7FBE4C3227072AA8004E26A9 /* image2.jpg in Resources */,
 				7F49508F26FDEC6D00A7E4F8 /* Planner.storyboard in Resources */,
+				7FB4CF49274072DB0048BF0D /* MenuCollectionCell.xib in Resources */,
 				7F237889274027C700D4F013 /* PlannerActivityContentCell.xib in Resources */,
 				7FCF5E7926C338F800FF7E18 /* LaunchScreen.storyboard in Resources */,
 				7F18981B27071CD7007AA48F /* BasePlannerTableHeader.xib in Resources */,
@@ -681,10 +748,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7F20F4772747476C007CA801 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F20F486274747B6007CA801 /* download_data_from_network_manager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FCF5E6526C338F000FF7E18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB4CF48274072DB0048BF0D /* MenuCollectionCell.swift in Sources */,
 				7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */,
 				7F237888274027C700D4F013 /* PlannerActivityContentCell.swift in Sources */,
 				7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */,
@@ -725,6 +801,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7F20F4802747476C007CA801 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FCF5E6826C338F000FF7E18 /* Travl.iOS */;
+			targetProxy = 7F20F47F2747476C007CA801 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7FCF5E7226C338F000FF7E18 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -753,6 +837,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7F20F4812747476C007CA801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CX2G82J2TK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esikmalazman.TravlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travl.iOS.app/Travl.iOS";
+			};
+			name = Debug;
+		};
+		7F20F4822747476C007CA801 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CX2G82J2TK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.esikmalazman.TravlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travl.iOS.app/Travl.iOS";
+			};
+			name = Release;
+		};
 		7FCF5E7B26C338F800FF7E18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -918,6 +1052,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7F20F4832747476C007CA801 /* Build configuration list for PBXNativeTarget "TravlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F20F4812747476C007CA801 /* Debug */,
+				7F20F4822747476C007CA801 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7FCF5E6426C338F000FF7E18 /* Build configuration list for PBXProject "Travl.iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
