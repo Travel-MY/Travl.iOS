@@ -252,14 +252,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		7F13728226CBDCD400318991 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7F49508A26FDEB8E00A7E4F8 /* Module */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		7F13728326CBE6F200318991 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,7 +520,7 @@
 				7F529F8326CEB74B006E7FB7 /* Extensions */,
 				7F717FB126CE3C170066183C /* Model */,
 				7FCF5E8426C3398300FF7E18 /* View */,
-				7F13728226CBDCD400318991 /* Controller */,
+				7F49508A26FDEB8E00A7E4F8 /* Module */,
 				7F13728326CBE6F200318991 /* Networking */,
 				7FBE4C2C27072A80004E26A9 /* Stubs */,
 				7FCF5E7526C338F800FF7E18 /* Assets.xcassets */,
