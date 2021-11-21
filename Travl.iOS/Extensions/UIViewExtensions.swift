@@ -20,7 +20,7 @@ extension UIView {
   }
     
     /// Add drop down shadow to view
-    func dropShadow(scale: Bool = true, radius: CGFloat = 10, opacity : Float = 0.2) {
+    func dropShadow(scale: Bool = true, radius: CGFloat = 2, opacity : Float = 0.2) {
            layer.masksToBounds = false
            layer.shadowColor = UIColor.lightGray.cgColor
            layer.shadowOpacity = opacity

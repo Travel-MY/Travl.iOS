@@ -30,6 +30,9 @@
 		7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */; };
 		7F237888274027C700D4F013 /* PlannerActivityContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F237886274027C700D4F013 /* PlannerActivityContentCell.swift */; };
 		7F237889274027C700D4F013 /* PlannerActivityContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F237887274027C700D4F013 /* PlannerActivityContentCell.xib */; };
+		7F2D26A42749D9920031B8EA /* ActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D26A32749D9920031B8EA /* ActivityCollectionCell.swift */; };
+		7F2D26A62749D9BC0031B8EA /* ActivityMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D26A52749D9BC0031B8EA /* ActivityMenuVC.swift */; };
+		7F2D26A82749DF2F0031B8EA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D26A72749DF2F0031B8EA /* Menu.swift */; };
 		7F34A02826F0B88E0074F139 /* ItenaryMapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F34A02626F0B88E0074F139 /* ItenaryMapViewVC.swift */; };
 		7F38229526D8397F00E7F8A3 /* ItenaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */; };
 		7F38229626D8397F00E7F8A3 /* ItenaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */; };
@@ -105,6 +108,9 @@
 		7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryDetailsVC.swift; sourceTree = "<group>"; };
 		7F237886274027C700D4F013 /* PlannerActivityContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerActivityContentCell.swift; sourceTree = "<group>"; };
 		7F237887274027C700D4F013 /* PlannerActivityContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlannerActivityContentCell.xib; sourceTree = "<group>"; };
+		7F2D26A32749D9920031B8EA /* ActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionCell.swift; sourceTree = "<group>"; };
+		7F2D26A52749D9BC0031B8EA /* ActivityMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMenuVC.swift; sourceTree = "<group>"; };
+		7F2D26A72749DF2F0031B8EA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		7F34A02626F0B88E0074F139 /* ItenaryMapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryMapViewVC.swift; sourceTree = "<group>"; };
 		7F38229326D8397F00E7F8A3 /* ItenaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryCell.swift; sourceTree = "<group>"; };
 		7F38229426D8397F00E7F8A3 /* ItenaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItenaryCell.xib; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 				7F49508C26FDEBB600A7E4F8 /* BasePlannerVC.swift */,
 				7F009E3C272B76F1003374A1 /* PlannerDetailsVC.swift */,
 				7FBE4C38270732B2004E26A9 /* CreatePlannerVC.swift */,
+				7F2D26A52749D9BC0031B8EA /* ActivityMenuVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +319,14 @@
 			path = PlannerActivityContentCell;
 			sourceTree = "<group>";
 		};
+		7F2D26A22749D9770031B8EA /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				7F2D26A32749D9920031B8EA /* ActivityCollectionCell.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		7F38229726D8398800E7F8A3 /* ItenaryCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +405,7 @@
 				7F717FB226CE3C480066183C /* Locations.swift */,
 				7FD9B05F26D4D036007E385B /* Itenaries.swift */,
 				7F715945272508290077F46E /* Planner.swift */,
+				7F2D26A72749DF2F0031B8EA /* Menu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +413,7 @@
 		7F86119D272E647D00CAB4B8 /* Planner */ = {
 			isa = PBXGroup;
 			children = (
+				7F2D26A22749D9770031B8EA /* Custom */,
 				7FB4CF45274072A00048BF0D /* MenuCollectionCell */,
 			);
 			path = Planner;
@@ -760,9 +777,12 @@
 				7F217A1526E910870057A40C /* DescriptionCell.swift in Sources */,
 				7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */,
 				7F49508D26FDEBB600A7E4F8 /* BasePlannerVC.swift in Sources */,
+				7F2D26A62749D9BC0031B8EA /* ActivityMenuVC.swift in Sources */,
 				7F715946272508290077F46E /* Planner.swift in Sources */,
 				7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */,
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
+				7F2D26A42749D9920031B8EA /* ActivityCollectionCell.swift in Sources */,
+				7F2D26A82749DF2F0031B8EA /* Menu.swift in Sources */,
 				7FBE4C39270732B2004E26A9 /* CreatePlannerVC.swift in Sources */,
 				7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
