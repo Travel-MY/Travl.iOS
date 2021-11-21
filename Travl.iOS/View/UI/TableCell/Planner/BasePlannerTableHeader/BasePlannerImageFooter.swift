@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ImageSliderFooter: UITableViewHeaderFooterView {
+final class BasePlannerImageFooter: UITableViewHeaderFooterView {
 
     //MARK:- Variables
     @IBOutlet weak var sliderScollView: UIScrollView!
@@ -27,7 +27,7 @@ final class ImageSliderFooter: UITableViewHeaderFooterView {
 }
 
 //MARK:- UIScrollView Delegate
-extension ImageSliderFooter : UIScrollViewDelegate {
+extension BasePlannerImageFooter : UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuCollectionCell" id="gTV-IL-0wX" customClass="MenuCollectionCell" customModule="Travl_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLH-49-jDi">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDq-Tg-vab">
+                                <rect key="frame" x="8" y="58" width="134" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="xxa-iY-XxT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="Hzx-8A-qit">
+                                <rect key="frame" x="52.5" y="8" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="JcQ-6t-2TN"/>
+                                    <constraint firstAttribute="height" constant="45" id="eD6-ni-0Ir"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="CcL-u5-krd"/>
+                            <constraint firstAttribute="height" constant="100" id="LcE-VK-G37"/>
+                            <constraint firstItem="Hzx-8A-qit" firstAttribute="centerX" secondItem="ZLH-49-jDi" secondAttribute="centerX" id="Mh7-2j-dsr"/>
+                            <constraint firstItem="Hzx-8A-qit" firstAttribute="top" secondItem="ZLH-49-jDi" secondAttribute="top" constant="8" id="PLC-lT-kkB"/>
+                            <constraint firstAttribute="trailing" secondItem="DDq-Tg-vab" secondAttribute="trailing" constant="8" id="UWB-sr-JSa"/>
+                            <constraint firstItem="DDq-Tg-vab" firstAttribute="top" secondItem="Hzx-8A-qit" secondAttribute="bottom" constant="5" id="d5L-ne-axM"/>
+                            <constraint firstItem="DDq-Tg-vab" firstAttribute="leading" secondItem="ZLH-49-jDi" secondAttribute="leading" constant="8" id="d5f-xo-5gL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZLH-49-jDi" secondAttribute="trailing" id="Mui-2P-Syz"/>
+                <constraint firstItem="ZLH-49-jDi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UFK-2b-To1"/>
+                <constraint firstAttribute="bottom" secondItem="ZLH-49-jDi" secondAttribute="bottom" id="thf-qh-4ul"/>
+                <constraint firstItem="ZLH-49-jDi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yFR-p3-1qJ"/>
+            </constraints>
+            <connections>
+                <outlet property="iconImage" destination="Hzx-8A-qit" id="5OQ-T7-XGd"/>
+                <outlet property="itemLabel" destination="DDq-Tg-vab" id="gSR-pQ-z26"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="61.607142857142854"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="food" width="60" height="60"/>
+    </resources>
+</document>

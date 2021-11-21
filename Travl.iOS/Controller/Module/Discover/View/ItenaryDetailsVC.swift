@@ -54,7 +54,6 @@ extension ItenaryDetailsVC : UITableViewDataSource {
             return cell
             
         case 1:
-            
             guard let cell = detailsTableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.collectionCell.identifier, for: indexPath) as? ItenaryInfoCollectionCell else { fatalError("Could not load InfoCollectionCell")}
             cell.configureCell(with: forItenary)
             return cell

@@ -14,7 +14,7 @@ class NetworkManager {
     private let urlSession = URLSession(configuration: .default)
     private let baseNewsUrl = "https://travl-api.herokuapp.com/"
     
-    //MARK:- Locations
+    //MARK: - Locations
     func getLocations(for location: String = "locations", completed : @escaping (Result<[Location],TError>) -> Void) {
         
         var locationResponse : [Location] = []
@@ -63,7 +63,7 @@ class NetworkManager {
         task.resume()
     }
     
-    //MARK:- Itenaries
+    //MARK: - Itenaries
     func getItenaries(for itenaries: String, completed : @escaping (Result<[[Days]],TError>) -> Void) {
         
         var itenaryResponse : [[Days]] = []
@@ -75,7 +75,7 @@ class NetworkManager {
             completed(.failure(.invalidTopic))
             return
         }
-        
+        print("Itenaries : \(itenaries)")
         let task = urlSession.dataTask(with: url) { data, response, error in
             
             if let _ = error {
