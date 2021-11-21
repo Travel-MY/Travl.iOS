@@ -19,6 +19,12 @@ final class PlannerDateCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        renderView()
+    }
+    
     static func nib() -> UINib {
         return UINib(nibName: R.nib.plannerDateCell.name, bundle: nil)
     }
@@ -35,6 +41,11 @@ final class PlannerDateCell: UITableViewCell {
         endDateLabel.text = nil
     }
 
-    
+    private func renderView() {
+        let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        contentView.frame = contentView.frame.inset(by: padding)
+        contentView.layer.cornerRadius = 15
+        self.selectionStyle = .none
+    }
     
 }

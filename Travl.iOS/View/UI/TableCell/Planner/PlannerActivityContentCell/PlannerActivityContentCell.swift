@@ -13,10 +13,14 @@ final class PlannerActivityContentCell: UITableViewCell {
     @IBOutlet weak var activityContentCollectionView: UICollectionView!
     
     //MARK: - Variable
-    
+    let menuLabel = ["Your Activities", "Files"]
+    let iconImage = ["plus.circle.fill", "folder.fill"]
     //MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func layoutSubviews() {
         renderView()
     }
     
@@ -29,16 +33,16 @@ final class PlannerActivityContentCell: UITableViewCell {
 //MARK: - CV Datasource
 extension PlannerActivityContentCell : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        switch indexPath.row {
-            
-        default :
-            return UICollectionViewCell()
-        }
+        let menuList = menuLabel[indexPath.row]
+        let iconList = iconImage[indexPath.row]
+        let cell =  activityContentCollectionView.dequeueReusableCell(withReuseIdentifier: R.nib.menuCollectionCell.identifier, for: indexPath) as! MenuCollectionCell
+        cell.setCell(icon: iconList, label: menuList)
+        return cell
     }
+    
 }
 
 //MARK: - CV Delegate
@@ -52,6 +56,9 @@ extension PlannerActivityContentCell : UICollectionViewDelegate {
 extension PlannerActivityContentCell {
     
     private func renderView() {
+        let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        contentView.frame = contentView.frame.inset(by: padding)
+        activityContentCollectionView.register(MenuCollectionCell.nib(), forCellWithReuseIdentifier: R.nib.menuCollectionCell.identifier)
         activityContentCollectionView.delegate = self
         activityContentCollectionView.dataSource = self
     }

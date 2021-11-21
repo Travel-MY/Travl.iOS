@@ -25,13 +25,17 @@ extension PlannerDetailsVC : UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
+        switch indexPath.row {
         case 0 :
             let cell = plannerTableView.dequeueReusableCell(withIdentifier: R.nib.plannerDateCell.identifier, for: indexPath) as! PlannerDateCell
             cell.setCell(data: selectedPlanner)
+            return cell
+            
+        case 1 :
+            let cell = plannerTableView.dequeueReusableCell(withIdentifier: R.nib.plannerActivityContentCell.identifier, for: indexPath) as! PlannerActivityContentCell
             return cell
         default:
             return UITableViewCell()
@@ -50,10 +54,13 @@ extension PlannerDetailsVC : UITableViewDataSource {
 }
 extension PlannerDetailsVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }
 extension PlannerDetailsVC {
     private func renderView() {
+        plannerTableView.separatorStyle = .none
         plannerTableView.dataSource = self
         plannerTableView.delegate = self
 
