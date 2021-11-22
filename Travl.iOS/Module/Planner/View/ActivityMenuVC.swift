@@ -14,6 +14,7 @@ final class ActivityMenuVC: UIViewController {
     
     //MARK: - Variables
     var menuItem = [Menu]()
+    var selectedRow = 0
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -44,6 +45,30 @@ extension ActivityMenuVC : UICollectionViewDataSource {
 extension ActivityMenuVC : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         debugPrint("selected activity at row : \(indexPath.row)")
+        switch indexPath.row {
+        case 0 :
+            selectedRow = indexPath.row
+            performSegue(withIdentifier: "goToTourMenu", sender: self)
+        case 1 :
+            return
+        case 2 :
+            selectedRow = indexPath.row
+            performSegue(withIdentifier: "goToTourMenu", sender: self)
+        case 3 :
+            return
+            
+        default :
+            return
+        }
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTourMenu" {
+            let selectedActivity = menuItem[selectedRow]
+            let destinationVC = segue.destination as! TourMenuVC
+            destinationVC.navBarLabel = selectedActivity.label
+        }
     }
 }
 
