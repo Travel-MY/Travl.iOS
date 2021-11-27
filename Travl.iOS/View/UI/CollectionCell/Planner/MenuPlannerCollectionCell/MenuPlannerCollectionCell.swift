@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MenuCollectionCell: UICollectionViewCell {
+final class MenuPlannerCollectionCell: UICollectionViewCell {
     
     //MARK: - Outlets
     @IBOutlet weak var iconImage: UIImageView!
@@ -29,7 +29,7 @@ final class MenuCollectionCell: UICollectionViewCell {
     }
     
     static func nib() -> UINib {
-        return UINib(nibName: R.nib.menuCollectionCell.name, bundle: nil)
+        return UINib(nibName: R.nib.menuPlannerCollectionCell.name, bundle: nil)
     }
     
     func setCell(icon : String, label : String) {
@@ -39,7 +39,7 @@ final class MenuCollectionCell: UICollectionViewCell {
 }
 
 //MARK: - Private Methods
-extension MenuCollectionCell {
+extension MenuPlannerCollectionCell {
     
     private func renderView() {
         let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)

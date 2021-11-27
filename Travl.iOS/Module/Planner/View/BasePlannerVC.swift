@@ -77,7 +77,7 @@ extension BasePlannerVC : BasePlannerTableHeaderDelegate {
 extension BasePlannerVC {
     
     private func renderView() {
-        let sampleData = Planner(destination: "Doha", startDate: "1/1/2021", endDate: "5/1/2021")
+        let sampleData = Planner(destination: "Doha", startDate: "Nov 20, 2021", endDate: "Nov 30, 2021")
         plannerData.append(sampleData)
         
         basePlannerTableView.delegate = self
