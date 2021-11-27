@@ -40,7 +40,7 @@ final class CreatePlannerVC : UIViewController {
     //MARK: - Action
     @IBAction func createPlannerTap(_ sender: UIBarButtonItem) {
         if let destination = destinationTextfield.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
-            let planner = Planner(destination: destination, startDate: startDate, endDate: endDate)
+            let planner = Planner(destination: destination, startDate: startDate ,endDate: endDate)
             print(planner)
             delegate?.didCreatePlanner(self, data: planner)
             
