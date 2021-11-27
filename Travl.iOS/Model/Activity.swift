@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Tour {
+struct Activity {
+    let category : String?
     let name : String
     let address : String?
     let startDate : String
