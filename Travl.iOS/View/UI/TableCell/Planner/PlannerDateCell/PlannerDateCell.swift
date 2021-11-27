@@ -10,7 +10,7 @@ import UIKit
 final class PlannerDateCell: UITableViewCell {
 
     //MARK: - IBOutlets
-    @IBOutlet weak var numberDaysLabel: UILabel!
+    @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
@@ -31,12 +31,13 @@ final class PlannerDateCell: UITableViewCell {
     
     //MARK: - TODO : Add number of days property in Planner model
     func setCell(data : Planner) {
+        self.destinationLabel.text = data.destination
         self.startDateLabel.text = data.startDate
         self.endDateLabel.text = data.endDate
     }
     
     override func prepareForReuse() {
-        numberDaysLabel.text = nil
+        destinationLabel.text = nil
         startDateLabel.text = nil
         endDateLabel.text = nil
     }
