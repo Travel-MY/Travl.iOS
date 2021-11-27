@@ -10,7 +10,6 @@ import XCTest
 
 class download_data_from_network_manager: XCTestCase {
 
-
     var urlSession : URLSession?
     var networkManager : NetworkManager?
     
