@@ -13,13 +13,13 @@ protocol CreatePlannerDelegate : AnyObject {
 
 final class CreatePlannerVC : UIViewController {
 
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet weak var destinationTextfield: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
     @IBOutlet weak var endDateTextField: UITextField!
     @IBOutlet weak var createButton: UIBarButtonItem!
     
-    //MARK:- Variables
+    //MARK: - Variables
     private let datePicker = UIDatePicker()
     private var dateFormatter : DateFormatter = {
         let formatter = DateFormatter()
@@ -30,14 +30,14 @@ final class CreatePlannerVC : UIViewController {
     
     weak var delegate : CreatePlannerDelegate?
     
-    //MARK:- LifeCycle
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         destinationTextfield.delegate = self
         configureDatePicker()
     }
     
-    //MARK:- Action
+    //MARK: - Action
     @IBAction func createPlannerTap(_ sender: UIBarButtonItem) {
         if let destination = destinationTextfield.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
             let planner = Planner(destination: destination, startDate: startDate, endDate: endDate)
@@ -47,7 +47,6 @@ final class CreatePlannerVC : UIViewController {
         }
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
     
     func setViewDelegate(delegate : CreatePlannerDelegate) {
         self.delegate = delegate
@@ -70,7 +69,7 @@ final class CreatePlannerVC : UIViewController {
 
 }
 
-
+//MARK: - Private Methods
 extension CreatePlannerVC {
     
     private func configureDatePicker() {
@@ -109,7 +108,7 @@ extension CreatePlannerVC {
     }
 }
 
-//MARK:- UITextField delegate
+//MARK: - UITextField delegate
 extension CreatePlannerVC : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

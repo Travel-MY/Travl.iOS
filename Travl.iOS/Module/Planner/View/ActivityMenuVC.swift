@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol ActivityMenuVCDelegate : AnyObject {
+    func presentNewActivity(_ activityMenuVC : ActivityMenuVC, data : Activity)
+}
 final class ActivityMenuVC: UIViewController {
 
     //MARK: - Outlets
@@ -15,14 +18,32 @@ final class ActivityMenuVC: UIViewController {
     //MARK: - Variables
     var menuItem = [Menu]()
     var selectedRow = 0
+    var data : Planner?
+    weak var delegate : ActivityMenuVCDelegate?
+    private var newActivity : Activity? {
+        didSet {
+            observerActions()
+        }
+    }
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
+        NotificationCenter.default.addObserver(self, selector: #selector(observerActions), name: Notification.Name(rawValue: "Dismiss"), object: nil)
     }
     //MARK: - Actions
     @IBAction func cancelButtonTap(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        if let newActivity = newActivity {
+            delegate?.presentNewActivity(self, data: newActivity)
+        }
+    }
+    
+    @objc func observerActions() {
+        navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
 }
@@ -50,25 +71,34 @@ extension ActivityMenuVC : UICollectionViewDelegate {
             selectedRow = indexPath.row
             performSegue(withIdentifier: "goToTourMenu", sender: self)
         case 1 :
-            return
-        case 2 :
             selectedRow = indexPath.row
             performSegue(withIdentifier: "goToTourMenu", sender: self)
+        case 2 :
+            return
         case 3 :
             return
-            
         default :
             return
         }
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTourMenu" {
             let selectedActivity = menuItem[selectedRow]
             let destinationVC = segue.destination as! TourMenuVC
+            destinationVC.plannerData = data
             destinationVC.navBarLabel = selectedActivity.label
+            destinationVC.delegate = self
         }
+    }
+}
+
+//MARK: - TourVC Delegate
+extension ActivityMenuVC : TourMenuVCDelegate {
+    func presentTourActivity(_ tourVC: TourMenuVC, activity: Activity) {
+        newActivity = activity
+        print("RECEIVEDDDD from ActivityMenuVC, newActivity : \(newActivity!)")
+       
     }
 }
 
@@ -80,8 +110,8 @@ extension ActivityMenuVC {
         
         menuItem =  [
             Menu(image: "map.circle.fill", label: "Location"),
-            Menu(image: "bed.double.circle.fill", label: "Lodging"),
             Menu(image: "fork.knife.circle.fill", label: "Restaurant"),
+            Menu(image: "bed.double.circle.fill", label: "Lodging"),
             Menu(image: "airplane.circle.fill", label: "Flight")
         ]
     }
