@@ -21,9 +21,6 @@ final class ActivityCollectionCell : UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.layer.cornerRadius = 15
