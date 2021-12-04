@@ -6,6 +6,7 @@
 //
 
 import UIKit.UIView
+import CoreGraphics
 
 extension UIView {
     
@@ -33,6 +34,14 @@ extension UIView {
            layer.rasterizationScale = scale ? UIScreen.main.scale : 1
        }
     
+    func addRoundedCorners(radius : CGFloat = 15) {
+        layer.cornerRadius = radius
+    }
+    
+    func addCellPadding(top : CGFloat, left : CGFloat = 20, bottom : CGFloat = 10, right : CGFloat = 20) {
+        let padding = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+        frame = frame.inset(by: padding)
+    }
 
     class func fromNib<T: UIView>() -> T {
         return Bundle(for: T.self).loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
