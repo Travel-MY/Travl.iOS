@@ -48,6 +48,7 @@
 		7F5139FF2707C2AA002D6880 /* ItenaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
 		7F53D6C22700A2FD00970CEE /* BaseDiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */; };
+		7F6C44C0275C296300B9EC04 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7F6C44BF275C296300B9EC04 /* Kingfisher */; };
 		7F715946272508290077F46E /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F715945272508290077F46E /* Planner.swift */; };
 		7F71594C2725829D0077F46E /* PlannerItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71594A2725829D0077F46E /* PlannerItemsCell.swift */; };
 		7F71594D2725829D0077F46E /* PlannerItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F71594B2725829D0077F46E /* PlannerItemsCell.xib */; };
@@ -178,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F6C44C0275C296300B9EC04 /* Kingfisher in Frameworks */,
 				A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */,
 				7F1E3C0026DDB14C0027583A /* FloatingPanel in Frameworks */,
 				7F9F9839274CE5EE000E7CD6 /* IQKeyboardManagerSwift in Frameworks */,
@@ -643,6 +645,7 @@
 			packageProductDependencies = (
 				7F1E3BFF26DDB14C0027583A /* FloatingPanel */,
 				7F9F9838274CE5EE000E7CD6 /* IQKeyboardManagerSwift */,
+				7F6C44BF275C296300B9EC04 /* Kingfisher */,
 			);
 			productName = Travl.iOS;
 			productReference = 7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */;
@@ -678,6 +681,7 @@
 			packageReferences = (
 				7F1E3BFE26DDB14C0027583A /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				7F9F9837274CE5EE000E7CD6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7F6C44BE275C296300B9EC04 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7FCF5E6A26C338F000FF7E18 /* Products */;
 			projectDirPath = "";
@@ -1140,6 +1144,14 @@
 				minimumVersion = 2.4.0;
 			};
 		};
+		7F6C44BE275C296300B9EC04 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		7F9F9837274CE5EE000E7CD6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1155,6 +1167,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F1E3BFE26DDB14C0027583A /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
+		};
+		7F6C44BF275C296300B9EC04 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F6C44BE275C296300B9EC04 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		7F9F9838274CE5EE000E7CD6 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
