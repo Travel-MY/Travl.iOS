@@ -9,28 +9,27 @@ import UIKit
 
 final class ItenaryDetailsVC: UIViewController {
     
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var streetAddressLabel: UILabel!
     @IBOutlet weak var detailsTableView: UITableView!
     
-    //MARK:- Variables
+    //MARK: - Variables
     var selectedItenary : Days?
     
-    //MARK:- Life Cycle
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
     }
     
-    //MARK:- Action
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+    //MARK: - Action
+    @IBAction func cancelButtonTap(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
-//MARK:- TV DataSource
+//MARK: - TV DataSource
 extension ItenaryDetailsVC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
