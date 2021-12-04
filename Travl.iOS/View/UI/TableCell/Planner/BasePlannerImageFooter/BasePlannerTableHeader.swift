@@ -25,8 +25,8 @@ final class BasePlannerTableHeader: UITableViewHeaderFooterView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20))
-        contentView.layer.cornerRadius = 25
+        contentView.addRoundedCorners()
+        contentView.addCellPadding(top: 10)
     }
     
     @IBAction func createTripPressed(_ sender: UIButton) {
