@@ -27,11 +27,17 @@ final class ActivityListCell: UITableViewCell {
         return UINib(nibName: R.nib.activityListCell.name, bundle: nil)
     }
     
+    func configureCell(data : Activity) {
+        activityName.text = data.name
+        address.text = data.category
+        date.text = data.startDate
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        contentView.frame = contentView.frame.inset(by: padding)
-        contentView.layer.cornerRadius = 15
+        contentView.addRoundedCorners()
+        contentView.addCellPadding(top: 10)
+        selectionStyle = .none
     }
     
     
