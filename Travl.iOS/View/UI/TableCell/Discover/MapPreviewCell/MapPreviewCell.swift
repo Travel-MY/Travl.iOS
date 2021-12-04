@@ -9,12 +9,18 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol MapPreviewCellDelegate : AnyObject {
+    func presentCoordinateFromQuery(_ vc : MapPreviewCell, latitude : Double, longitude : Double, coordinate : CLLocationCoordinate2D)
+}
 final class MapPreviewCell: UITableViewCell {
     
     //MARK:- Outlets
     @IBOutlet weak var previewImage: UIImageView!
     
     //MARK:- Variables
+    static let identifier = "MapPreviewCell"
+    weak var delegate : MapPreviewCellDelegate?
+    
     static func nib() -> UINib {
         return UINib(nibName: R.nib.mapPreviewCell.name, bundle: nil)
     }
@@ -30,12 +36,47 @@ final class MapPreviewCell: UITableViewCell {
         previewImage.image = nil
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.addRoundedCorners()
+        contentView.addCellPadding(top: 10)
+        selectionStyle = .none
+    }
+    
     
     func configureCell(with data: Days) {
         let coordinate = CLLocationCoordinate2D(latitude: data.coordinate.lat, longitude: data.coordinate.lon)
         let span = MKCoordinateSpan(latitudeDelta: 0.0055, longitudeDelta: 0.0055)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         
+
+        let mapSnapOptions = createMapSnapshotOptions(withRegion: region)
+        createSnapshot(with : mapSnapOptions)
+    }
+    
+    func configureCell(fromQuery query: String) {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = query
+        searchRequest.resultTypes = .pointOfInterest
+        
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { [weak self] response, error in
+            guard error == nil else {
+                return
+            }
+            guard let location = response?.mapItems.first?.placemark else {return}
+            let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let span = MKCoordinateSpan(latitudeDelta: 0.0055, longitudeDelta: 0.0055)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            let mapSnapshotOptions = self?.createMapSnapshotOptions(withRegion: region)
+            self?.delegate?.presentCoordinateFromQuery(self!, latitude: coordinate.latitude, longitude: coordinate.longitude, coordinate: coordinate)
+            self?.createSnapshot(with: mapSnapshotOptions!)
+        }
+        
+        
+    }
+    
+    private func createMapSnapshotOptions(withRegion region : MKCoordinateRegion) -> MKMapSnapshotter.Options {
         mapSnapshotOptions.region = region
         
         mapSnapshotOptions.scale = UIScreen.main.scale
@@ -43,8 +84,7 @@ final class MapPreviewCell: UITableViewCell {
         
         mapSnapshotOptions.showsBuildings = true
         mapSnapshotOptions.pointOfInterestFilter = .includingAll
-        
-        createSnapshot(with : mapSnapshotOptions)
+        return mapSnapshotOptions
     }
     
     private func createSnapshot(with snapOptions: MKMapSnapshotter.Options) {
@@ -58,3 +98,6 @@ final class MapPreviewCell: UITableViewCell {
         
     }
 }
+
+
+
