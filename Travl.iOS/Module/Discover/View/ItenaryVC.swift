@@ -81,8 +81,9 @@ extension ItenaryVC : FloatingPanelLayout {
 extension ItenaryVC {
     
     private func setupView() {
-        
-        backgroundImage.downloaded(from: imageURL!)
+        if let url = imageURL {
+            backgroundImage.loadImage(url: url)
+        }
         backgroundImage.contentMode = .scaleAspectFill
         // Passing data to itenaryFP
         delegate?.didSendLocationData(self, with: locationName!)

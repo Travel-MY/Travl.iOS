@@ -9,7 +9,7 @@ import Foundation
 
 protocol CreatePlannerPresenterDelegate : AnyObject {}
 
-class CreatePlannerPresenter {
+final class CreatePlannerPresenter {
     
     weak var delegate : CreatePlannerPresenterDelegate?
     

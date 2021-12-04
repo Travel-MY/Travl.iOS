@@ -17,8 +17,6 @@ final class ALDetailsViewController: UIViewController {
     var longitude : Double?
     var coordinate  : CLLocationCoordinate2D?
     
-
-    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,6 @@ final class ALDetailsViewController: UIViewController {
     @IBAction func dismissTap(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 

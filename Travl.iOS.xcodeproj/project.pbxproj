@@ -471,8 +471,8 @@
 		7FBE4C27270723A8004E26A9 /* BasePlannerImageFooter */ = {
 			isa = PBXGroup;
 			children = (
-				7F18981827071CD7007AA48F /* BasePlannerTableHeader.swift */,
-				7F18981927071CD7007AA48F /* BasePlannerTableHeader.xib */,
+				7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */,
+				7FBE4C29270723ED004E26A9 /* BasePlannerImageFooter.xib */,
 			);
 			path = BasePlannerImageFooter;
 			sourceTree = "<group>";
@@ -500,8 +500,8 @@
 		7FBE4C3727073220004E26A9 /* BasePlannerTableHeader */ = {
 			isa = PBXGroup;
 			children = (
-				7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */,
-				7FBE4C29270723ED004E26A9 /* BasePlannerImageFooter.xib */,
+				7F18981827071CD7007AA48F /* BasePlannerTableHeader.swift */,
+				7F18981927071CD7007AA48F /* BasePlannerTableHeader.xib */,
 			);
 			path = BasePlannerTableHeader;
 			sourceTree = "<group>";

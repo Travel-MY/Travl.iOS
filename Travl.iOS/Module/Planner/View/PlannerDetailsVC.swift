@@ -100,7 +100,6 @@ extension PlannerDetailsVC : UITableViewDelegate {
 
 //MARK: - ActivityMenuVCDelegate
 extension PlannerDetailsVC : ActivityMenuVCDelegate {
-#warning("Handle data activity that created by TourMenuVC")
     func presentNewActivity(_ activityMenuVC: ActivityMenuVC, data: Activity) {
         activityData.append(data)
         plannerTableView.reloadData()
