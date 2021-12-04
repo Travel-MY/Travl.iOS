@@ -117,8 +117,8 @@ extension TourMenuVC {
         
         let endDate = dateFormatter.date(from: plannerData!.endDate)
         let startDate = dateFormatter.date(from: plannerData!.startDate)
-        print("START DATE : \(startDate!)")
-        print("END DATE : \(endDate!)")
+//        print("START DATE : \(startDate!)")
+//        print("END DATE : \(endDate!)")
         datePicker.minimumDate = startDate
         datePicker.maximumDate = endDate
         
