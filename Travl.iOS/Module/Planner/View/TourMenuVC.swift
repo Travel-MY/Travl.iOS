@@ -22,6 +22,7 @@ final class TourMenuVC: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextField!
+    @IBOutlet weak var saveBtn: UIButton!
     
     //MARK: - Variables
     private var datePicker = UIDatePicker()
@@ -88,6 +89,14 @@ extension TourMenuVC : UITextFieldDelegate {
             return false
         }
     }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if nameTextField.text!.isEmpty || addressTextField.text!.isEmpty || startDateTextField.text!.isEmpty || endsDateTextField.text!.isEmpty {
+            saveBtn.isEnabled = false
+        } else {
+            saveBtn.isEnabled = true
+        }
+    }
 }
 
 
@@ -117,8 +126,6 @@ extension TourMenuVC {
         
         let endDate = dateFormatter.date(from: plannerData!.endDate)
         let startDate = dateFormatter.date(from: plannerData!.startDate)
-//        print("START DATE : \(startDate!)")
-//        print("END DATE : \(endDate!)")
         datePicker.minimumDate = startDate
         datePicker.maximumDate = endDate
         
