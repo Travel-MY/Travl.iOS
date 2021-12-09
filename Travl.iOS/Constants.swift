@@ -17,3 +17,11 @@ struct Constants {
         }
     }
 }
+
+
+extension UIColor {
+    static let primarySeaBlue = UIColor(hex: "0077B6")!
+    static let secondaryLightTurqoise = UIColor(hex: "00B4D8")!
+    static let headingBlackLabel = UIColor.black
+    static let subtitleGrayLabel = UIColor(hex: "808080")!
+}

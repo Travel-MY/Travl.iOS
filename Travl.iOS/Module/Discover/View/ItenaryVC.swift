@@ -15,10 +15,10 @@ protocol ItenaryVCDelegate : AnyObject {
 
 final class ItenaryVC : UIViewController {
     
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    //MARK:- Variables
+    //MARK: - Variables
     var imageURL : URL?
     var locationName: Location?
     
@@ -27,7 +27,7 @@ final class ItenaryVC : UIViewController {
     private var presenter = ItenaryPresenter()
     private var fpc : FloatingPanelController!
     
-    //MARK:- Life Cycle
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCard()
@@ -35,7 +35,6 @@ final class ItenaryVC : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Call API for data
         presenter.getItenaries(for: locationName?.itenaryName ?? "")
     }
     
@@ -46,7 +45,7 @@ final class ItenaryVC : UIViewController {
     
 }
 
-//MARK:- ItenaryPresenter Delegate
+//MARK: - ItenaryPresenter Delegate
 extension ItenaryVC : ItenaryPresenterDelegate {
     
     func presentItenaryData(with data: [[Days]]) {

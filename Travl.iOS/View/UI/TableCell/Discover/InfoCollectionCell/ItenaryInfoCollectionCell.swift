@@ -16,10 +16,16 @@ final class ItenaryInfoCollectionCell: UITableViewCell {
     }
     
     var selectedDays : Days?
+    private var cellLabel = ["Phone Number", "Website"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         renderView()
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.addRoundedCorners()
+//        contentView.addCellPadding(top: 10)
     }
     
     func configureCell(with data : Days) {
@@ -39,20 +45,18 @@ extension ItenaryInfoCollectionCell : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.infoCell.identifier, for: indexPath) as! InfoCell
         
         switch indexPath.row {
-        
         case 0:
-            cell.configureCell(label: "Phone Number", context: selectedDays!.phoneNumber)
+            cell.configureCell(label: "Phone Number", data: selectedDays?.phoneNumber ?? "")
             return cell
         case 1:
-            cell.configureCell(label: "Website", context: selectedDays!.website)
+            cell.configureCell(label: "Website", data: selectedDays?.website ?? "N/A")
             return cell
         default:
             return cell
-            
         }
     }
 }
-//MARK:- CV Delegate
+//MARK: - CV Delegate
 extension ItenaryInfoCollectionCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Selected")
@@ -60,12 +64,12 @@ extension ItenaryInfoCollectionCell : UICollectionViewDelegate {
 }
 
 extension ItenaryInfoCollectionCell : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = frame.size.width
-        let height = frame.size.height
-        return CGSize(width: width * 0.4, height: height * 0.8)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        let width = frame.size.width
+//        let height = frame.size.height
+//        return CGSize(width: width * 0.4, height: height * 0.8)
+//    }
     
 
     
@@ -76,10 +80,11 @@ extension ItenaryInfoCollectionCell : UICollectionViewDelegateFlowLayout {
 
 extension ItenaryInfoCollectionCell {
     private func renderView() {
-        //MARK:- Register CustomCV cells
+        //MARK: - Register CustomCV cells
         collectionView.register(InfoCell.nib(), forCellWithReuseIdentifier: R.reuseIdentifier.infoCell.identifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
+
     }
 }

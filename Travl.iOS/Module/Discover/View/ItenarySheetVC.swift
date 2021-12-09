@@ -23,7 +23,7 @@ final class ItenarySheetVC: UIViewController {
     private var selectedAtSection : Int!
     private var selectedAtRow : Int!
     
-    //MARK:- : Life Cycle
+    //MARK: - : Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
@@ -119,8 +119,13 @@ extension ItenarySheetVC : ItenaryVCDelegate {
 extension ItenarySheetVC {
     
     private func renderView() {
-        itenaryTableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)
+        view.layer.cornerRadius = 15
         
+        sloganLabel.textColor = .primarySeaBlue
+        locationLabel.textColor = .subtitleGrayLabel
+        locDesc.textColor = .headingBlackLabel
+        
+        itenaryTableView.register(UINib(nibName: R.nib.itenaryCell.name, bundle: nil), forCellReuseIdentifier: R.nib.itenaryCell.identifier)
         itenaryTableView.dataSource = self
         itenaryTableView.delegate = self
         

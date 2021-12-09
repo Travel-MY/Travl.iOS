@@ -12,24 +12,48 @@ protocol BasePlannerTableHeaderDelegate : AnyObject {
 }
 
 final class BasePlannerTableHeader: UITableViewHeaderFooterView {
-
+    
+    //MARK: - Outlets
+    @IBOutlet weak var greetingsLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var createTripBtn: UIButton!
+    @IBOutlet weak var image: UIImageView!
+    
+    //MARK: - Variables
     weak var delegate : BasePlannerTableHeaderDelegate?
     
-    func setViewDelegate(delegate : BasePlannerTableHeaderDelegate) {
-        self.delegate = delegate
-    }
+    
+    
+    //MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.addRoundedCorners()
-        contentView.addCellPadding(top: 10)
+        renderView()
     }
     
+    func setViewDelegate(delegate : BasePlannerTableHeaderDelegate) {
+        self.delegate = delegate
+    }
+    
+    //MARK: - Actions
     @IBAction func createTripPressed(_ sender: UIButton) {
         delegate?.didTapTripButton(view: self)
+    }
+}
+//MARK: - Private Methods
+extension BasePlannerTableHeader {
+    private func renderView() {
+        contentView.addRoundedCorners()
+        contentView.addCellPadding(top: 10)
+        contentView.backgroundColor = .secondaryLightTurqoise
+        greetingsLabel.textColor = .white
+        descriptionLabel.textColor = .white
+        createTripBtn.backgroundColor = .white
+        createTripBtn.tintColor = .headingBlackLabel
+        createTripBtn.addRoundedCorners()
+        image.tintColor = .white
     }
 }

@@ -8,23 +8,17 @@
 import UIKit
 
 final class PlannerItemsCell: UITableViewCell {
-
-    static func nib() -> UINib {
-        return UINib(nibName: R.nib.plannerItemsCell.name, bundle: nil)
-    }
     
-    //MARK:- Outles
+    //MARK: - Outles
     @IBOutlet weak private var destinationLabel: UILabel!
     @IBOutlet weak private var startLabel: UILabel!
     @IBOutlet weak private var endLabel: UILabel!
+    @IBOutlet weak var iconImage: UIImageView!
     
-    //MARK:- Life Cycle
+    
+    //MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     override func prepareForReuse() {
@@ -35,9 +29,11 @@ final class PlannerItemsCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20))
-        contentView.layer.cornerRadius = 10
-        self.selectionStyle = .none
+        renderView()
+    }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: R.nib.plannerItemsCell.name, bundle: nil)
     }
     
     func configureCell(data : Planner) {
@@ -45,5 +41,18 @@ final class PlannerItemsCell: UITableViewCell {
         startLabel.text = "\(data.startDate)"
         endLabel.text = "\(data.endDate)"
     }
-    
+}
+
+//MARK: - Private Methods
+extension PlannerItemsCell {
+    private func renderView() {
+        self.selectionStyle = .none
+        contentView.addRoundedCorners()
+        contentView.addCellPadding(top: 10)
+        contentView.backgroundColor = .secondaryLightTurqoise
+        destinationLabel.textColor = .white
+        startLabel.textColor = .white
+        endLabel.textColor = .white
+        iconImage.tintColor = .white
+    }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 final class DescriptionCell: UITableViewCell {
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet weak var itenaryDescription : UILabel!
     
     static func nib() -> UINib {
@@ -18,9 +18,13 @@ final class DescriptionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.addCellPadding(top: 10)
+    }
 
     func configureCell(with data : String) {
         itenaryDescription.text = data
     }
-    
 }

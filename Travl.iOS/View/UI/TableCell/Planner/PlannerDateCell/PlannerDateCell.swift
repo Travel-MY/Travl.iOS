@@ -25,27 +25,29 @@ final class PlannerDateCell: UITableViewCell {
         renderView()
     }
     
-    static func nib() -> UINib {
-        return UINib(nibName: R.nib.plannerDateCell.name, bundle: nil)
-    }
-    
-    //MARK: - TODO : Add number of days property in Planner model
-    func setCell(data : Planner) {
-        self.destinationLabel.text = data.destination
-        self.startDateLabel.text = data.startDate
-        self.endDateLabel.text = data.endDate
-    }
-    
     override func prepareForReuse() {
         destinationLabel.text = nil
         startDateLabel.text = nil
         endDateLabel.text = nil
     }
+    
+    static func nib() -> UINib {
+        return UINib(nibName: R.nib.plannerDateCell.name, bundle: nil)
+    }
+    
+    func setCell(data : Planner) {
+        self.destinationLabel.text = data.destination
+        self.startDateLabel.text = data.startDate
+        self.endDateLabel.text = data.endDate
+    }
 
     private func renderView() {
-        let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        contentView.frame = contentView.frame.inset(by: padding)
-        contentView.layer.cornerRadius = 15
+        contentView.addCellPadding(top: 0)
+        contentView.addRoundedCorners()
+        destinationLabel.textColor = .primarySeaBlue
+        startDateLabel.textColor = .headingBlackLabel
+        endDateLabel.textColor = .headingBlackLabel
+        iconImageView.tintColor = .subtitleGrayLabel
         self.selectionStyle = .none
     }
     

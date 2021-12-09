@@ -26,6 +26,8 @@ final class ItenaryCell: UITableViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
+        headerLabel.textColor = .headingBlackLabel
+        descLabel.textColor = .subtitleGrayLabel
         iconImage.addRoundedCorners()
     }
     

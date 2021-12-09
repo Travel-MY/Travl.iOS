@@ -8,7 +8,7 @@
 import UIKit
 
 final class InfoCell: UICollectionViewCell {
-    //MARK:- Outlet
+    //MARK: - Outlet
     @IBOutlet weak var infoLabel : UILabel!
     @IBOutlet weak var infoContext : UILabel!
     
@@ -19,9 +19,18 @@ final class InfoCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func configureCell(label : String, context : String) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.addRoundedCorners()
+        contentView.backgroundColor = .secondaryLightTurqoise
+        infoLabel.textColor = .white
+        infoContext.textColor = .white
+        
+    }
+    
+    func configureCell(label : String, data : String) {
         infoLabel.text = label
-        infoContext.text = context
+        infoContext.text = data
     }
 
 }

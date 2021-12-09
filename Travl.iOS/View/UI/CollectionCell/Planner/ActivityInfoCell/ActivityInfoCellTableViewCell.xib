@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +23,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9b-pC-7NR">
                                 <rect key="frame" x="0.0" y="0.0" width="265" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="tGP-4Q-pOC"/>
+                                    <constraint firstAttribute="height" constant="75" id="tGP-4Q-pOC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -71,7 +70,6 @@
                         </subviews>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" name="TouchBarBezel"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Php-Rr-OJT" secondAttribute="bottom" constant="10" id="AwL-j0-eLm"/>
                     <constraint firstItem="aNz-W7-bX4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="MpY-a8-mY8"/>
@@ -87,6 +85,9 @@
                 <outlet property="addressLabel" destination="c9b-pC-7NR" id="pHE-38-mfP"/>
                 <outlet property="phoneNumberLabel" destination="hX0-Ao-97p" id="4i9-mI-mUL"/>
                 <outlet property="websiteLabel" destination="Vrv-HM-yDu" id="6AH-UJ-44p"/>
+                <outletCollection property="iconImage" destination="U5I-AV-lKZ" collectionClass="NSMutableArray" id="PBm-d4-HRR"/>
+                <outletCollection property="iconImage" destination="OV5-2q-Mii" collectionClass="NSMutableArray" id="UHG-eY-ZHQ"/>
+                <outletCollection property="iconImage" destination="HMi-4I-ulB" collectionClass="NSMutableArray" id="edg-R0-aBG"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="136.60714285714286"/>
         </tableViewCell>
@@ -95,8 +96,5 @@
         <image name="mappin" catalog="system" width="105" height="128"/>
         <image name="phone.fill" catalog="system" width="128" height="114"/>
         <image name="safari.fill" catalog="system" width="128" height="121"/>
-        <namedColor name="TouchBarBezel">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

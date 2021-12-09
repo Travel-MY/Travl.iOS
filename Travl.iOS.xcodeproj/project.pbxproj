@@ -45,6 +45,7 @@
 		7F49508F26FDEC6D00A7E4F8 /* Planner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F49508E26FDEC6D00A7E4F8 /* Planner.storyboard */; };
 		7F4CE93E26DB7DC200CCBCC0 /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */; };
 		7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */; };
+		7F4D059B275E42F700B254DF /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4D059A275E42F700B254DF /* UIColor+Extensions.swift */; };
 		7F5139FF2707C2AA002D6880 /* ItenaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
 		7F53D6C22700A2FD00970CEE /* BaseDiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */; };
@@ -53,7 +54,7 @@
 		7F71594C2725829D0077F46E /* PlannerItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71594A2725829D0077F46E /* PlannerItemsCell.swift */; };
 		7F71594D2725829D0077F46E /* PlannerItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F71594B2725829D0077F46E /* PlannerItemsCell.xib */; };
 		7F717FB326CE3C480066183C /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F717FB226CE3C480066183C /* Locations.swift */; };
-		7F8142B627590BC70039E7AB /* ALDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8142B527590BC70039E7AB /* ALDetailsViewController.swift */; };
+		7F8142B627590BC70039E7AB /* ALDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8142B527590BC70039E7AB /* ALDetailsVC.swift */; };
 		7F8142BE275913860039E7AB /* ActivityInfoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8142BC275913860039E7AB /* ActivityInfoCellTableViewCell.swift */; };
 		7F8142BF275913860039E7AB /* ActivityInfoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8142BD275913860039E7AB /* ActivityInfoCellTableViewCell.xib */; };
 		7F9F9839274CE5EE000E7CD6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9F9838274CE5EE000E7CD6 /* IQKeyboardManagerSwift */; };
@@ -131,6 +132,7 @@
 		7F49508E26FDEC6D00A7E4F8 /* Planner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Planner.storyboard; sourceTree = "<group>"; };
 		7F4CE93D26DB7DC200CCBCC0 /* DiscoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCell.xib; sourceTree = "<group>"; };
 		7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		7F4D059A275E42F700B254DF /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryPresenter.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDiscoverPresenter.swift; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		7F71594A2725829D0077F46E /* PlannerItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerItemsCell.swift; sourceTree = "<group>"; };
 		7F71594B2725829D0077F46E /* PlannerItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlannerItemsCell.xib; sourceTree = "<group>"; };
 		7F717FB226CE3C480066183C /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
-		7F8142B527590BC70039E7AB /* ALDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALDetailsViewController.swift; sourceTree = "<group>"; };
+		7F8142B527590BC70039E7AB /* ALDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALDetailsVC.swift; sourceTree = "<group>"; };
 		7F8142BC275913860039E7AB /* ActivityInfoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInfoCellTableViewCell.swift; sourceTree = "<group>"; };
 		7F8142BD275913860039E7AB /* ActivityInfoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityInfoCellTableViewCell.xib; sourceTree = "<group>"; };
 		7FA8A7CC275206B300AF99BD /* Prototype.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Prototype.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -243,7 +245,7 @@
 				7FBE4C38270732B2004E26A9 /* CreatePlannerVC.swift */,
 				7F2D26A52749D9BC0031B8EA /* ActivityMenuVC.swift */,
 				7F2D26AB2749EC090031B8EA /* TourMenuVC.swift */,
-				7F8142B527590BC70039E7AB /* ALDetailsViewController.swift */,
+				7F8142B527590BC70039E7AB /* ALDetailsVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,6 +408,7 @@
 			children = (
 				7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */,
 				7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */,
+				7F4D059A275E42F700B254DF /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -816,12 +819,13 @@
 				7F49508D26FDEBB600A7E4F8 /* BasePlannerVC.swift in Sources */,
 				7F2D26A62749D9BC0031B8EA /* ActivityMenuVC.swift in Sources */,
 				7F715946272508290077F46E /* Planner.swift in Sources */,
-				7F8142B627590BC70039E7AB /* ALDetailsViewController.swift in Sources */,
+				7F8142B627590BC70039E7AB /* ALDetailsVC.swift in Sources */,
 				7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */,
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F2D26A42749D9920031B8EA /* ActivityCollectionCell.swift in Sources */,
 				7F2D26A82749DF2F0031B8EA /* Menu.swift in Sources */,
 				7FBE4C39270732B2004E26A9 /* CreatePlannerVC.swift in Sources */,
+				7F4D059B275E42F700B254DF /* UIColor+Extensions.swift in Sources */,
 				7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */,
 				7F1226A52755FBBF0058675F /* ActivityMenuContainerVC.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
