@@ -8,7 +8,7 @@
 import UIKit
 
 final class ActivityListCell: UITableViewCell {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var activityName: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -23,6 +23,11 @@ final class ActivityListCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        renderView()
+    }
+    
     static func nib() -> UINib {
         return UINib(nibName: R.nib.activityListCell.name, bundle: nil)
     }
@@ -31,15 +36,23 @@ final class ActivityListCell: UITableViewCell {
         activityName.text = data.name
         address.text = data.category
         date.text = data.startDate
+        if data.category == "Location" {
+            activityImageView.image = UIImage(systemName: "map.circle.fill")
+        }
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+}
+
+
+//MARK: - Private Methods
+extension ActivityListCell {
+    private func renderView() {
         contentView.addRoundedCorners()
         contentView.addCellPadding(top: 10)
+        contentView.layer.borderColor = UIColor.secondaryLightTurqoise.cgColor
+        contentView.layer.borderWidth = 1
+        activityImageView.tintColor = .secondaryLightTurqoise
+        activityName.textColor = .secondaryLightTurqoise
+        date.textColor = .subtitleGrayLabel
         selectionStyle = .none
     }
-    
-    
-    
 }

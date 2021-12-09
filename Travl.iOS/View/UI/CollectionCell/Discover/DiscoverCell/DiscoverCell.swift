@@ -28,7 +28,8 @@ final class DiscoverCell: UICollectionViewCell {
     }
     
     func cellContent(for location : Location) {
-        locationImage.downloaded(from: location.image)
+
+        locationImage.loadImage(url: location.image)
         locationImage.contentMode = .scaleAspectFill
         locationImage.layer.cornerRadius = 15
         locationLabel.text = location.locationName

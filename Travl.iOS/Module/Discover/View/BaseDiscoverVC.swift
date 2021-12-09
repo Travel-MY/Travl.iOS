@@ -8,22 +8,23 @@
 import UIKit
 
 final class BaseDiscoverVC : UIViewController {
-    //MARK:- IBOutlets
+    //MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    //MARK:- Variables
+    //MARK: - Variables
     private var locationResult = [Location]()
     private var selectedAtRow : Int!
     private let presenter = BaseDiscoverPresenter()
     
-    //MARK:- Life Cycle
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
+ 
     }
 }
 
-//MARK:- Delegate
+//MARK: - Delegate
 extension BaseDiscoverVC : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -96,10 +97,11 @@ extension BaseDiscoverVC : BaseDiscoverPresenterDelegate {
     }
 }
 
-//MARK:- Private methods
+//MARK: - Private methods
 extension BaseDiscoverVC {
     
     private func renderView() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor : UIColor.primarySeaBlue]
         presenter.setViewDelegate(delegate: self)
         presenter.getLocations()
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)

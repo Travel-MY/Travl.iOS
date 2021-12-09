@@ -11,7 +11,7 @@ protocol ItenaryPresenterDelegate : AnyObject {
     func presentItenaryData(with data : [[Days]])
 }
 
-class ItenaryPresenter {
+final class ItenaryPresenter {
     
     weak var delegate : ItenaryPresenterDelegate?
     

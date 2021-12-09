@@ -43,7 +43,6 @@ extension BasePlannerVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listOfPlanner = plannerData[indexPath.row]
-        
         let cell = basePlannerTableView.dequeueReusableCell(withIdentifier: R.nib.plannerItemsCell.identifier, for: indexPath) as! PlannerItemsCell
         cell.configureCell(data: listOfPlanner)
         return cell
@@ -59,10 +58,14 @@ extension BasePlannerVC : UITableViewDelegate {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         basePlannerTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Your Planner"
     }
 }
 
@@ -77,12 +80,13 @@ extension BasePlannerVC : BasePlannerTableHeaderDelegate {
 extension BasePlannerVC {
     
     private func renderView() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor : UIColor.primarySeaBlue]
         let sampleData = Planner(destination: "Melaka", startDate: "Nov 20, 2021", endDate: "Nov 30, 2021")
         plannerData.append(sampleData)
         
         basePlannerTableView.delegate = self
         basePlannerTableView.dataSource = self
-        
+        basePlannerTableView.separatorStyle = .none
         basePlannerTableView.estimatedRowHeight = 110
         basePlannerTableView.rowHeight = UITableView.automaticDimension
         

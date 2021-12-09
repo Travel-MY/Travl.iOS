@@ -111,8 +111,8 @@ extension ActivityMenuVC {
         menuItem =  [
             Menu(image: "map.circle.fill", label: "Location"),
             Menu(image: "fork.knife.circle.fill", label: "Restaurant"),
-            Menu(image: "bed.double.circle.fill", label: "Lodging"),
-            Menu(image: "airplane.circle.fill", label: "Flight")
+//            Menu(image: "bed.double.circle.fill", label: "Lodging"),
+//            Menu(image: "airplane.circle.fill", label: "Flight")
         ]
     }
     

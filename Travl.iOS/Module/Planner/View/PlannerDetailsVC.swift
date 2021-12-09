@@ -61,12 +61,12 @@ extension PlannerDetailsVC : UITableViewDataSource {
         case 0 :
             return 170
         case 1 :
-            return 125
+            return 135
         default :
             return 100
         }
-        
     }
+    
 }
 
 //MARK: - TV Delegate
@@ -83,7 +83,7 @@ extension PlannerDetailsVC : UITableViewDelegate {
         if let activityMenuVC = segue.destination as? ActivityMenuVC {
             activityMenuVC.data = selectedPlanner
             activityMenuVC.delegate = self
-        } else if let alDetailsVC = segue.destination  as? ALDetailsViewController {
+        } else if let alDetailsVC = segue.destination  as? ALDetailsVC {
             alDetailsVC.selectedActivity = activityData[selectedRow]
         }
     }
@@ -100,7 +100,6 @@ extension PlannerDetailsVC : UITableViewDelegate {
 
 //MARK: - ActivityMenuVCDelegate
 extension PlannerDetailsVC : ActivityMenuVCDelegate {
-#warning("Handle data activity that created by TourMenuVC")
     func presentNewActivity(_ activityMenuVC: ActivityMenuVC, data: Activity) {
         activityData.append(data)
         plannerTableView.reloadData()

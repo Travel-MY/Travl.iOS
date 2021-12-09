@@ -23,7 +23,8 @@ final class ActivityCollectionCell : UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.cornerRadius = 15
+        contentView.addRoundedCorners()
+        menuImage.tintColor = . secondaryLightTurqoise
     }
     
     func setCell(data : Menu) {

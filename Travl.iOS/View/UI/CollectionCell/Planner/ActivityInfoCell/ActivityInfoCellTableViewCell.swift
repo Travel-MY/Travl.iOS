@@ -13,6 +13,7 @@ final class ActivityInfoCellTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel : UILabel!
     @IBOutlet weak var phoneNumberLabel : UILabel!
     @IBOutlet weak var websiteLabel : UILabel!
+    @IBOutlet var iconImage: [UIImageView]!
     //MARK: - Variables
     static let identifier = "ActivityInfoCellTableViewCell"
     //MARK: - Life Cycle
@@ -22,9 +23,7 @@ final class ActivityInfoCellTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.addCellPadding(top: 10)
-        contentView.addRoundedCorners()
-        selectionStyle = .none
+        renderView()
     }
     
     static func nib() -> UINib {
@@ -36,6 +35,20 @@ final class ActivityInfoCellTableViewCell: UITableViewCell {
         phoneNumberLabel.text = data.phoneNumber
         websiteLabel.text = data.website
     }
+}
 
-    
+//MARK: - Private Methods
+extension ActivityInfoCellTableViewCell {
+    private func renderView() {
+        contentView.backgroundColor = .secondaryLightTurqoise
+        contentView.addCellPadding(top: 10)
+        contentView.addRoundedCorners()
+        addressLabel.textColor = .white
+        websiteLabel.textColor = .white
+        phoneNumberLabel.textColor = .white
+        selectionStyle = .none
+        iconImage.forEach { icon in
+            icon.tintColor = .white
+        }
+    }
 }

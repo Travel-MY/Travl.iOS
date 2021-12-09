@@ -335,7 +335,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-ld-PnQ" userLabel="Form Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-DY-TXh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-DY-TXh">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -359,7 +359,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jef-ex-5Y2" userLabel="Form Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-3p-gES">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-3p-gES">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -383,7 +383,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-W8-eJn" userLabel="Form Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwC-cY-t2u">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwC-cY-t2u">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -428,6 +428,7 @@
                         <outlet property="nameTextField" destination="x9f-Id-qj1" id="Mbc-FI-wPf"/>
                         <outlet property="notesTextField" destination="nfq-Hv-h6b" id="5fe-0X-lFP"/>
                         <outlet property="phoneTextField" destination="lPp-yf-V88" id="hFo-VC-xoT"/>
+                        <outlet property="saveBtn" destination="Dtj-8k-2gF" id="gR8-Ev-0oj"/>
                         <outlet property="selectedActivityLabel" destination="28R-1J-FRO" id="uuC-c8-JEn"/>
                         <outlet property="startDateTextField" destination="3t7-1C-YQA" id="jdW-KC-2Ng"/>
                         <outlet property="websiteTextField" destination="Vz7-xo-RBP" id="zbw-fq-mXR"/>
@@ -552,15 +553,19 @@
                             <constraint firstItem="Ge9-9f-2Nj" firstAttribute="centerY" secondItem="UPY-Qf-rA2" secondAttribute="centerY" id="y4D-86-Nqe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="iconImage" destination="VhM-ej-jSd" id="cJc-3s-KbX"/>
+                        <outlet property="textLabel" destination="Ge9-9f-2Nj" id="Ieh-gX-2U9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfX-ge-lPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2454" y="760"/>
         </scene>
-        <!--Details View Controller-->
+        <!--DetailsVC-->
         <scene sceneID="8ra-FH-tAn">
             <objects>
-                <viewController id="MuS-Be-ziZ" customClass="ALDetailsViewController" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MuS-Be-ziZ" customClass="ALDetailsVC" customModule="Travl_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKR-0n-zRh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

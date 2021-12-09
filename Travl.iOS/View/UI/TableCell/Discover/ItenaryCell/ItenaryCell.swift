@@ -24,11 +24,17 @@ final class ItenaryCell: UITableViewCell {
         self.descLabel.text = nil
         self.iconImage.image = nil
     }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        headerLabel.textColor = .headingBlackLabel
+        descLabel.textColor = .subtitleGrayLabel
+        iconImage.addRoundedCorners()
+    }
     
     func cellContent(for itenary : Days) {
         headerLabel.text = itenary.locationName
         descLabel.text = itenary.description
-        //iconImage.downloaded(from: itenary.image)
+        iconImage.loadImage(url: itenary.image)
         iconImage.image = nil
     }
 
