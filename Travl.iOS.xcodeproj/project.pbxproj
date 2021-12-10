@@ -12,6 +12,7 @@
 		7F009E3F272B770C003374A1 /* PlannerActivitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F009E3E272B770C003374A1 /* PlannerActivitiesPresenter.swift */; };
 		7F0774CA273E42AF0033853A /* PlannerDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0774C8273E42AF0033853A /* PlannerDateCell.swift */; };
 		7F0774CB273E42AF0033853A /* PlannerDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0774C9273E42AF0033853A /* PlannerDateCell.xib */; };
+		7F07BB132762FCD700BBA7C2 /* Travl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F07BB112762FCD700BBA7C2 /* Travl.xcdatamodeld */; };
 		7F1226A52755FBBF0058675F /* ActivityMenuContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1226A42755FBBF0058675F /* ActivityMenuContainerVC.swift */; };
 		7F13728126CBDC4C00318991 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728026CBDC4C00318991 /* R.generated.swift */; };
 		7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F13728426CBE70A00318991 /* NetworkManager.swift */; };
@@ -99,6 +100,7 @@
 		7F009E3E272B770C003374A1 /* PlannerActivitiesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerActivitiesPresenter.swift; sourceTree = "<group>"; };
 		7F0774C8273E42AF0033853A /* PlannerDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDateCell.swift; sourceTree = "<group>"; };
 		7F0774C9273E42AF0033853A /* PlannerDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlannerDateCell.xib; sourceTree = "<group>"; };
+		7F07BB122762FCD700BBA7C2 /* Travl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Travl.xcdatamodel; sourceTree = "<group>"; };
 		7F1226A42755FBBF0058675F /* ActivityMenuContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMenuContainerVC.swift; sourceTree = "<group>"; };
 		7F13728026CBDC4C00318991 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		7F13728426CBE70A00318991 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -235,6 +237,14 @@
 				7F0774C9273E42AF0033853A /* PlannerDateCell.xib */,
 			);
 			path = PlannerDateCell;
+			sourceTree = "<group>";
+		};
+		7F07BB142762FCE900BBA7C2 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7F07BB112762FCD700BBA7C2 /* Travl.xcdatamodeld */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		7F114BAF273E983700CEDE62 /* View */ = {
@@ -425,6 +435,7 @@
 		7F717FB126CE3C170066183C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F07BB142762FCE900BBA7C2 /* Core Data */,
 				7F717FB226CE3C480066183C /* Locations.swift */,
 				7FD9B05F26D4D036007E385B /* Itenaries.swift */,
 				7F715945272508290077F46E /* Planner.swift */,
@@ -816,6 +827,7 @@
 				7F217A1526E910870057A40C /* DescriptionCell.swift in Sources */,
 				7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */,
 				7F8142BE275913860039E7AB /* ActivityInfoCellTableViewCell.swift in Sources */,
+				7F07BB132762FCD700BBA7C2 /* Travl.xcdatamodeld in Sources */,
 				7F49508D26FDEBB600A7E4F8 /* BasePlannerVC.swift in Sources */,
 				7F2D26A62749D9BC0031B8EA /* ActivityMenuVC.swift in Sources */,
 				7F715946272508290077F46E /* Planner.swift in Sources */,
@@ -1183,6 +1195,19 @@
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		7F07BB112762FCD700BBA7C2 /* Travl.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7F07BB122762FCD700BBA7C2 /* Travl.xcdatamodel */,
+			);
+			currentVersion = 7F07BB122762FCD700BBA7C2 /* Travl.xcdatamodel */;
+			path = Travl.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7FCF5E6126C338F000FF7E18 /* Project object */;
 }
