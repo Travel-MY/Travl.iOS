@@ -16,6 +16,7 @@ struct Constants {
             return UIScreen.main.bounds.width
         }
     }
+    static var accessManageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }
 
 

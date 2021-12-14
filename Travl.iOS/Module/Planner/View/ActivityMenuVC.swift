@@ -7,9 +7,6 @@
 
 import UIKit
 
-protocol ActivityMenuVCDelegate : AnyObject {
-    func presentNewActivity(_ activityMenuVC : ActivityMenuVC, data : Activity)
-}
 final class ActivityMenuVC: UIViewController {
 
     //MARK: - Outlets
@@ -19,7 +16,7 @@ final class ActivityMenuVC: UIViewController {
     var menuItem = [Menu]()
     var selectedRow = 0
     var data : Planner?
-    weak var delegate : ActivityMenuVCDelegate?
+
     private var newActivity : Activity? {
         didSet {
             observerActions()
@@ -32,20 +29,11 @@ final class ActivityMenuVC: UIViewController {
         renderView()
         NotificationCenter.default.addObserver(self, selector: #selector(observerActions), name: Notification.Name(rawValue: "Dismiss"), object: nil)
     }
-    //MARK: - Actions
-    @IBAction func cancelButtonTap(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        if let newActivity = newActivity {
-            delegate?.presentNewActivity(self, data: newActivity)
-        }
-    }
     
     @objc func observerActions() {
         navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
     }
+
 }
 
 //MARK: - CV Datasource
@@ -86,19 +74,11 @@ extension ActivityMenuVC : UICollectionViewDelegate {
         if segue.identifier == "goToTourMenu" {
             let selectedActivity = menuItem[selectedRow]
             let destinationVC = segue.destination as! TourMenuVC
-            destinationVC.plannerData = data
+            if let destination = UserDefaults.standard.string(forKey: "parentPlanner") {
+                destinationVC.destinationName = destination
+            }
             destinationVC.navBarLabel = selectedActivity.label
-            destinationVC.delegate = self
         }
-    }
-}
-
-//MARK: - TourVC Delegate
-extension ActivityMenuVC : TourMenuVCDelegate {
-    func presentTourActivity(_ tourVC: TourMenuVC, activity: Activity) {
-        newActivity = activity
-        print("RECEIVEDDDD from ActivityMenuVC, newActivity : \(newActivity!)")
-       
     }
 }
 
