@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CreatePlannerDelegate : AnyObject {
-    func didCreatePlanner(_ CreatePlanner : CreatePlannerVC , data : Planner)
-}
-
 final class CreatePlannerVC : UIViewController {
 
     //MARK: - Outlets
@@ -28,8 +24,6 @@ final class CreatePlannerVC : UIViewController {
         return formatter
     }()
     
-    weak var delegate : CreatePlannerDelegate?
-    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +34,17 @@ final class CreatePlannerVC : UIViewController {
     //MARK: - Action
     @IBAction func createPlannerTap(_ sender: UIBarButtonItem) {
         if let destination = destinationTextfield.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
-            let planner = Planner(destination: destination, startDate: startDate ,endDate: endDate)
-            print(planner)
-            delegate?.didCreatePlanner(self, data: planner)
-            
+            let newPlanner = Planner(context: Constants.accessManageObjectContext)
+            newPlanner.destination = destination
+            newPlanner.startDate = startDate
+            newPlanner.endDate = endDate
+            self.saveObjectContext()
+            // Store data to plist as reference to pass data to unrelated VC
+             UserDefaults.standard.set(newPlanner.destination, forKey: "parentPlanner")
+            print("New Planner : \(newPlanner)")
         }
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    func setViewDelegate(delegate : CreatePlannerDelegate) {
-        self.delegate = delegate
-    }
-    
     
     @objc func selectNextDate() {
         startDateTextField.text = dateFormatter.string(from: datePicker.date)
@@ -66,7 +59,14 @@ final class CreatePlannerVC : UIViewController {
         endDateTextField.text = dateFormatter.string(from: datePicker.date)
         endDateTextField.resignFirstResponder()
     }
-
+    
+    private func saveObjectContext() {
+        do {
+            try  Constants.accessManageObjectContext.save()
+        } catch {
+            print("Fail to save created Planner in CoreData : \(error.localizedDescription)")
+        }
+    }
 }
 
 //MARK: - Private Methods

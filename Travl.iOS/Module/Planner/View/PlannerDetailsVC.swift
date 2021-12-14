@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class PlannerDetailsVC: UIViewController {
     
@@ -15,13 +16,21 @@ final class PlannerDetailsVC: UIViewController {
     
     //MARK: - Variables
     var selectedPlanner : Planner!
+
     var activityData = [Activity]()
     var selectedRow : Int!
+    var selectedPlannerIndexPath : Int!
+    var context = Constants.accessManageObjectContext
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadActivities()
+        print("Key stored in User Defaults is : \( UserDefaults.standard.string(forKey: "parentPlanner") )")
     }
 }
 
@@ -30,6 +39,7 @@ extension PlannerDetailsVC : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 1 :
@@ -37,8 +47,8 @@ extension PlannerDetailsVC : UITableViewDataSource {
         default:
             return 1
         }
-
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0 :
@@ -53,7 +63,6 @@ extension PlannerDetailsVC : UITableViewDataSource {
         default:
             return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,6 +74,17 @@ extension PlannerDetailsVC : UITableViewDataSource {
         default :
             return 100
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, didSwipe in
+            if let activityToRemove = self?.activityData[indexPath.row] {
+                self?.removeActivity(activityToRemove)
+                self?.loadActivities()
+            }
+        }
+        let swipeAction = UISwipeActionsConfiguration(actions: [action])
+        return swipeAction
     }
     
 }
@@ -80,10 +100,7 @@ extension PlannerDetailsVC : UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let activityMenuVC = segue.destination as? ActivityMenuVC {
-            activityMenuVC.data = selectedPlanner
-            activityMenuVC.delegate = self
-        } else if let alDetailsVC = segue.destination  as? ALDetailsVC {
+        if let alDetailsVC = segue.destination  as? ALDetailsVC {
             alDetailsVC.selectedActivity = activityData[selectedRow]
         }
     }
@@ -97,27 +114,40 @@ extension PlannerDetailsVC : UITableViewDelegate {
         return ""
     }
 }
-
-//MARK: - ActivityMenuVCDelegate
-extension PlannerDetailsVC : ActivityMenuVCDelegate {
-    func presentNewActivity(_ activityMenuVC: ActivityMenuVC, data: Activity) {
-        activityData.append(data)
-        plannerTableView.reloadData()
-        print("RECEIVE DATA FROM ActivityMenuVCDelegate at PlannerDetailsVC")
+#warning("Move this method to presenter")
+//MARK: - Core Data Manipulation Methods
+extension PlannerDetailsVC {
+    private func loadActivities(with request : NSFetchRequest<Activity> = Activity.fetchRequest(), predicate : NSPredicate? = nil ) {
+        let predicate = NSPredicate(format: "parentPlanner.destination MATCHES %@", selectedPlanner.destination)
+        request.predicate = predicate
+        
+        do {
+            activityData = try context.fetch(request)
+        } catch {
+            print("Error Fetch Data from Core Data : \(error.localizedDescription)")
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.plannerTableView.reloadData()
+        }
+    }
+    
+    private func removeActivity(_ activity : NSManagedObject) {
+        context.delete(activity)
+        do {
+            try context.save()
+        } catch {
+            print("Error delete context : \(error.localizedDescription)")
+        }
     }
 }
-
 //MARK: - Private methods
 extension PlannerDetailsVC {
-    
     @objc func presentToActivityMenu() {
         performSegue(withIdentifier: "goToActivityMenu", sender: self)
-        print("HELO")
     }
+    
     private func renderView() {
-        
-        let stub = Activity(category: "Restaurant", name: "Sepiring", address: "241, Suria KLCC, Kuala Lumpur City Centre, 50088 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur", startDate: "Nov 20, 2021", endDate: "", phoneNumber: "+60323822828", website: "https://www.suriaklcc.com.my/", notes: "")
-        activityData.append(stub)
         let tap = UITapGestureRecognizer(target: self, action: #selector(presentToActivityMenu))
         activityMenuContainerView.addGestureRecognizer(tap)
         

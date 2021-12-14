@@ -6,15 +6,11 @@
 //
 
 import UIKit
-
-protocol TourMenuVCDelegate : AnyObject {
-    func presentTourActivity(_ tourVC : TourMenuVC, activity : Activity)
-}
+import CoreData
 
 final class TourMenuVC: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var selectedActivityLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
@@ -22,7 +18,7 @@ final class TourMenuVC: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextField!
-    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var saveBarBtn: UIBarButtonItem!
     
     //MARK: - Variables
     private var datePicker = UIDatePicker()
@@ -33,10 +29,21 @@ final class TourMenuVC: UIViewController {
         return formatter
     }()
     
-    weak var delegate : TourMenuVCDelegate?
     var navBarLabel : String?
     var plannerData : Planner?
     
+    var destinationName : String! {
+        didSet {
+            print("KEY DESTINATION : \(String(describing: destinationName))")
+            fetchParentPlannerData()
+        }
+    }
+    
+    let context = Constants.accessManageObjectContext
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchParentPlannerData()
+    }
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -46,16 +53,19 @@ final class TourMenuVC: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func backButtonTap(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func saveButtonTap(_ sender: UIButton) {
-        let activity = Activity(category: selectedActivityLabel.text, name: nameTextField.text ?? "", address: addressTextField.text, startDate: startDateTextField.text ?? "\(Date())", endDate: endsDateTextField.text ?? "\(Date())", phoneNumber: phoneTextField.text, website: websiteTextField.text, notes: notesTextField.text)
-        print("Activity pass from TourMenuVC is : \(activity)")
-        delegate?.presentTourActivity(self, activity: activity)
+    @IBAction func saveTap(_ sender: UIBarButtonItem) {
+        
+        let activity = Activity(context: Constants.accessManageObjectContext)
+        activity.name = title!
+        activity.address = addressTextField.text!
+        activity.startDate = startDateTextField.text!
+        activity.endDate = endsDateTextField.text!
+        activity.parentPlanner = plannerData!
+        print("Planner Data : \(String(describing: plannerData))")
+        try! context.save()
+        
+        navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Dismiss"), object: nil, userInfo: [:]))
-        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -89,12 +99,12 @@ extension TourMenuVC : UITextFieldDelegate {
             return false
         }
     }
-
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if nameTextField.text!.isEmpty || addressTextField.text!.isEmpty || startDateTextField.text!.isEmpty || endsDateTextField.text!.isEmpty {
-            saveBtn.isEnabled = false
+            saveBarBtn.isEnabled = false
         } else {
-            saveBtn.isEnabled = true
+            saveBarBtn.isEnabled = true
         }
     }
 }
@@ -118,12 +128,26 @@ extension TourMenuVC {
         }
     }
     
+    func fetchParentPlannerData(with request : NSFetchRequest<Planner> = Planner.fetchRequest(), predicate : NSPredicate? = nil){
+        
+        let predicate = NSPredicate(format: "destination MATCHES %@", "\(destinationName!)")
+        request.predicate = predicate
+        
+        do {
+            let planner = try context.fetch(request)
+            plannerData = planner.first
+            
+        } catch {
+            print("Error fetch data : \(error.localizedDescription)")
+        }
+    }
+    
     private func configureDate() {
         datePicker.datePickerMode = .date
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
         }
-        
+ 
         let endDate = dateFormatter.date(from: plannerData!.endDate)
         let startDate = dateFormatter.date(from: plannerData!.startDate)
         datePicker.minimumDate = startDate
@@ -144,7 +168,8 @@ extension TourMenuVC {
     }
     
     private func renderView() {
-        selectedActivityLabel.text = navBarLabel
+        saveBarBtn.isEnabled = false
+        title = navBarLabel
         
         nameTextField.delegate = self
         addressTextField.delegate = self
