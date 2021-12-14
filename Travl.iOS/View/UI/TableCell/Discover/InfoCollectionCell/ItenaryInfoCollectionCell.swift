@@ -8,7 +8,7 @@
 import UIKit
 
 final class ItenaryInfoCollectionCell: UITableViewCell {
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet weak var collectionView : UICollectionView!
     
     static func nib() -> UINib {
@@ -25,7 +25,7 @@ final class ItenaryInfoCollectionCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.addRoundedCorners()
-//        contentView.addCellPadding(top: 10)
+        contentView.addCellPadding(top: 10)
     }
     
     func configureCell(with data : Days) {
@@ -43,13 +43,18 @@ extension ItenaryInfoCollectionCell : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.infoCell.identifier, for: indexPath) as! InfoCell
-        
         switch indexPath.row {
         case 0:
-            cell.configureCell(label: "Phone Number", data: selectedDays?.phoneNumber ?? "")
+            if let phoneNumber = selectedDays?.phoneNumber {
+                let result = (phoneNumber == "") ? "N/A" : phoneNumber
+                cell.configureCell(label: "Phone Number", data: result)
+            }
             return cell
         case 1:
-            cell.configureCell(label: "Website", data: selectedDays?.website ?? "N/A")
+            if let website = selectedDays?.website {
+                let result = (website == "") ? "N/A" : website
+                cell.configureCell(label: "Website", data: result)
+            }
             return cell
         default:
             return cell
@@ -64,15 +69,6 @@ extension ItenaryInfoCollectionCell : UICollectionViewDelegate {
 }
 
 extension ItenaryInfoCollectionCell : UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let width = frame.size.width
-//        let height = frame.size.height
-//        return CGSize(width: width * 0.4, height: height * 0.8)
-//    }
-    
-
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 40
     }
@@ -85,6 +81,6 @@ extension ItenaryInfoCollectionCell {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        
     }
 }
