@@ -9,7 +9,7 @@ import UIKit
 
 final class ItenaryCell: UITableViewCell {
 
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet private weak var headerLabel: UILabel!
     @IBOutlet private weak var descLabel: UILabel!
     @IBOutlet private weak var iconImage: UIImageView!
@@ -35,7 +35,6 @@ final class ItenaryCell: UITableViewCell {
         headerLabel.text = itenary.locationName
         descLabel.text = itenary.description
         iconImage.loadImage(url: itenary.image)
-        iconImage.image = nil
     }
 
 }

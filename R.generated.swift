@@ -993,13 +993,19 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let activityMenuContainerVC = StoryboardViewControllerResource<ActivityMenuContainerVC>(identifier: "ActivityMenuContainerVC")
+      let basePlannerVC = StoryboardViewControllerResource<BasePlannerVC>(identifier: "BasePlannerVC")
       let bundle = R.hostingBundle
       let createPlanner = StoryboardViewControllerResource<CreatePlannerVC>(identifier: "CreatePlanner")
       let name = "Planner"
       let plannerDetailsVC = StoryboardViewControllerResource<PlannerDetailsVC>(identifier: "PlannerDetailsVC")
+      let tourMenuVC = StoryboardViewControllerResource<TourMenuVC>(identifier: "TourMenuVC")
 
       func activityMenuContainerVC(_: Void = ()) -> ActivityMenuContainerVC? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: activityMenuContainerVC)
+      }
+
+      func basePlannerVC(_: Void = ()) -> BasePlannerVC? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: basePlannerVC)
       }
 
       func createPlanner(_: Void = ()) -> CreatePlannerVC? {
@@ -1010,16 +1016,21 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: plannerDetailsVC)
       }
 
+      func tourMenuVC(_: Void = ()) -> TourMenuVC? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: tourMenuVC)
+      }
+
       static func validate() throws {
-        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "chevron.backward") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'chevron.backward' is used in storyboard 'Planner', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "fun", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fun' is used in storyboard 'Planner', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus.circle.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus.circle.fill' is used in storyboard 'Planner', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "xmark") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'xmark' is used in storyboard 'Planner', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.planner().activityMenuContainerVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'activityMenuContainerVC' could not be loaded from storyboard 'Planner' as 'ActivityMenuContainerVC'.") }
+        if _R.storyboard.planner().basePlannerVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'basePlannerVC' could not be loaded from storyboard 'Planner' as 'BasePlannerVC'.") }
         if _R.storyboard.planner().createPlanner() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'createPlanner' could not be loaded from storyboard 'Planner' as 'CreatePlannerVC'.") }
         if _R.storyboard.planner().plannerDetailsVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'plannerDetailsVC' could not be loaded from storyboard 'Planner' as 'PlannerDetailsVC'.") }
+        if _R.storyboard.planner().tourMenuVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'tourMenuVC' could not be loaded from storyboard 'Planner' as 'TourMenuVC'.") }
       }
 
       fileprivate init() {}

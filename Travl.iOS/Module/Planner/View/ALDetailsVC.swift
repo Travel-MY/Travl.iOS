@@ -86,7 +86,6 @@ extension ALDetailsVC : UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let mapVC = segue.destination as? ItenaryMapViewVC {
             mapVC.latitude = latitude
             mapVC.logitude = longitude
@@ -96,7 +95,6 @@ extension ALDetailsVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-            
         case 0 :
             return 130
         case 1 :

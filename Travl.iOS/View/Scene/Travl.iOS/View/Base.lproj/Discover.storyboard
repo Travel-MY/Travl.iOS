@@ -59,13 +59,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sfr-qV-zXT">
                                 <rect key="frame" x="15" y="89" width="384" height="68"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slogan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-LT-JEo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slogan" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-LT-JEo">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQ4-eP-UB7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQ4-eP-UB7">
                                         <rect key="frame" x="0.0" y="38" width="384" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -135,16 +135,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rzr-iA-cKc">
-                                <rect key="frame" x="15" y="66" width="384" height="70"/>
+                                <rect key="frame" x="20" y="66" width="374" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVu-Dv-8Ju">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXD-YI-GsF">
-                                        <rect key="frame" x="0.0" y="40" width="384" height="30"/>
+                                        <rect key="frame" x="0.0" y="40" width="374" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -173,11 +173,11 @@
                         <constraints>
                             <constraint firstItem="YGR-5D-L5K" firstAttribute="leading" secondItem="84V-eo-ff6" secondAttribute="leading" constant="5" id="3qw-50-UrV"/>
                             <constraint firstAttribute="bottom" secondItem="YGR-5D-L5K" secondAttribute="bottom" id="6HO-RE-Pl3"/>
-                            <constraint firstItem="rzr-iA-cKc" firstAttribute="leading" secondItem="84V-eo-ff6" secondAttribute="leading" constant="15" id="9Nl-fY-glx"/>
+                            <constraint firstItem="rzr-iA-cKc" firstAttribute="leading" secondItem="84V-eo-ff6" secondAttribute="leading" constant="20" id="9Nl-fY-glx"/>
                             <constraint firstItem="xAz-nh-Ow9" firstAttribute="top" secondItem="84V-eo-ff6" secondAttribute="top" id="BWr-sc-Jjs"/>
                             <constraint firstItem="YGR-5D-L5K" firstAttribute="top" secondItem="rzr-iA-cKc" secondAttribute="bottom" constant="10" id="CBf-pm-PMT"/>
                             <constraint firstItem="84V-eo-ff6" firstAttribute="trailing" secondItem="YGR-5D-L5K" secondAttribute="trailing" constant="5" id="CDx-5T-JkR"/>
-                            <constraint firstItem="84V-eo-ff6" firstAttribute="trailing" secondItem="rzr-iA-cKc" secondAttribute="trailing" constant="15" id="ERx-0B-zUk"/>
+                            <constraint firstItem="84V-eo-ff6" firstAttribute="trailing" secondItem="rzr-iA-cKc" secondAttribute="trailing" constant="20" id="ERx-0B-zUk"/>
                             <constraint firstItem="rzr-iA-cKc" firstAttribute="top" secondItem="xAz-nh-Ow9" secondAttribute="bottom" constant="10" id="gYY-hB-oBe"/>
                             <constraint firstItem="xAz-nh-Ow9" firstAttribute="leading" secondItem="84V-eo-ff6" secondAttribute="leading" id="rRS-Bn-5sa"/>
                             <constraint firstAttribute="trailing" secondItem="xAz-nh-Ow9" secondAttribute="trailing" id="s1E-GF-scI"/>

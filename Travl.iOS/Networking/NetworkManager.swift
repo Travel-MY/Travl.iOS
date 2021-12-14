@@ -93,6 +93,7 @@ final class NetworkManager {
                 return
             }
             
+//            let a : [Itenaries] = self.decode(safeData)
             print(String(data: safeData, encoding: .utf8)!)
             
             do {

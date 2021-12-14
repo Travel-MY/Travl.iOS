@@ -9,17 +9,15 @@ import UIKit
 
 final class ItenarySheetVC: UIViewController {
     
-    //MARK:- Outlets
+    //MARK: - Outlets
     @IBOutlet weak var sloganLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locDesc: UITextView!
     @IBOutlet weak var itenaryTableView: UITableView!
-    
     @IBOutlet weak var locDescHC: NSLayoutConstraint!
     
     private var itenaries = [[Days]]()
     private var location : Location?
-    
     private var selectedAtSection : Int!
     private var selectedAtRow : Int!
     
@@ -35,7 +33,7 @@ final class ItenarySheetVC: UIViewController {
     }
 }
 
-//MARK:- TableView Data source
+//MARK: - TableView Data source
 extension ItenarySheetVC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,13 +45,9 @@ extension ItenarySheetVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell : ItenaryCell = itenaryTableView.dequeueReusableCell(withIdentifier: R.nib.itenaryCell.identifier, for: indexPath) as! ItenaryCell
-        
         let listOfItenaries = itenaries[indexPath.section][indexPath.row]
-        
         cell.cellContent(for: listOfItenaries)
-        
         return cell
     }
 }
@@ -84,9 +78,7 @@ extension ItenarySheetVC : UITableViewDelegate {
     
     //MARK:- Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let selectedAtItenary = itenaries[selectedAtSection][selectedAtRow]
-        
         guard let destinationVC = segue.destination as? ItenaryDetailsVC else {return}
         destinationVC.selectedItenary = selectedAtItenary
     }
@@ -96,8 +88,7 @@ extension ItenarySheetVC : UITableViewDelegate {
 //MARK:- ItenaryVC Delegate
 extension ItenarySheetVC : ItenaryVCDelegate {
     
-    func didSendLocationData(_ itenaryVC: ItenaryVC, with location: Location) { 
-        
+    func didSendLocationData(_ itenaryVC: ItenaryVC, with location: Location) {
         DispatchQueue.main.async { [weak self] in
             self?.locationLabel.text = location.locationName
             self?.locDesc.text = location.description
@@ -105,9 +96,7 @@ extension ItenarySheetVC : ItenaryVCDelegate {
         }
     }
     
-    
     func didSendItenaryData(_ itenaryVC: ItenaryVC, with itenary: [[Days]]) {
-        
         DispatchQueue.main.async { [weak self] in
             self?.itenaries = itenary
             self?.itenaryTableView.reloadData()
@@ -119,8 +108,7 @@ extension ItenarySheetVC : ItenaryVCDelegate {
 extension ItenarySheetVC {
     
     private func renderView() {
-        view.layer.cornerRadius = 15
-        
+        view.addRoundedCorners()
         sloganLabel.textColor = .primarySeaBlue
         locationLabel.textColor = .subtitleGrayLabel
         locDesc.textColor = .headingBlackLabel

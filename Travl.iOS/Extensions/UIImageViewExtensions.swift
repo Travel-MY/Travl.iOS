@@ -8,10 +8,22 @@
 import UIKit.UIImageView
 import Kingfisher
 
+let imageCache = NSCache<AnyObject, AnyObject>()
+
 extension UIImageView {
-    
+
     func loadImage(url: URL) {
+        image = nil
         self.kf.indicatorType = .activity
-        self.kf.setImage(with: url, placeholder: UIImage(named: "image-1"), options: [.transition(.fade(0.1)), .cacheOriginalImage])
+        self.kf.setImage(with: url) { [weak self]result in
+            switch result {
+            case .success(let response):
+                self?.image = response.image
+            case .failure(_):
+                break
+            }
+        }
     }
 }
+
+
