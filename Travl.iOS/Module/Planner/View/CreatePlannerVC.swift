@@ -33,7 +33,6 @@ final class CreatePlannerVC : UIViewController {
         formatter.dateStyle = .medium
         return formatter
     }()
-    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,6 @@ final class CreatePlannerVC : UIViewController {
         destinationTextfield.delegate = self
         configureDatePicker()
     }
-#warning("Move core data logic to presentation layer")
     //MARK: - Action
     @IBAction func createPlannerTap(_ sender: UIBarButtonItem) {
         if let destination = destinationTextfield.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {

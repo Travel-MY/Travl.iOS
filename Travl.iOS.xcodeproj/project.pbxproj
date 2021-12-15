@@ -57,6 +57,7 @@
 		7F8142BE275913860039E7AB /* ActivityInfoCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8142BC275913860039E7AB /* ActivityInfoCellTableViewCell.swift */; };
 		7F8142BF275913860039E7AB /* ActivityInfoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8142BD275913860039E7AB /* ActivityInfoCellTableViewCell.xib */; };
 		7F9F9839274CE5EE000E7CD6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9F9838274CE5EE000E7CD6 /* IQKeyboardManagerSwift */; };
+		7FA7FBBA276A2C9300D0EA63 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA7FBB9276A2C9300D0EA63 /* DiscoverInteractor.swift */; };
 		7FB4CF48274072DB0048BF0D /* MenuPlannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4CF46274072DB0048BF0D /* MenuPlannerCollectionCell.swift */; };
 		7FB4CF49274072DB0048BF0D /* MenuPlannerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB4CF47274072DB0048BF0D /* MenuPlannerCollectionCell.xib */; };
 		7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */; };
@@ -150,6 +151,7 @@
 		7F8142B527590BC70039E7AB /* ALDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALDetailsVC.swift; sourceTree = "<group>"; };
 		7F8142BC275913860039E7AB /* ActivityInfoCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInfoCellTableViewCell.swift; sourceTree = "<group>"; };
 		7F8142BD275913860039E7AB /* ActivityInfoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityInfoCellTableViewCell.xib; sourceTree = "<group>"; };
+		7FA7FBB9276A2C9300D0EA63 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
 		7FA8A7CC275206B300AF99BD /* Prototype.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Prototype.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7FB4CF46274072DB0048BF0D /* MenuPlannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPlannerCollectionCell.swift; sourceTree = "<group>"; };
 		7FB4CF47274072DB0048BF0D /* MenuPlannerCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuPlannerCollectionCell.xib; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		7F13728326CBE6F200318991 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				7FA7FBB8276A2C7B00D0EA63 /* Interactor */,
 				7F13728426CBE70A00318991 /* NetworkManager.swift */,
 			);
 			path = Networking;
@@ -457,6 +460,7 @@
 		7F717FB126CE3C170066183C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F13728326CBE6F200318991 /* Networking */,
 				7F07BB142762FCE900BBA7C2 /* Core Data */,
 				7F717FB226CE3C480066183C /* Locations.swift */,
 				7FD9B05F26D4D036007E385B /* Itenaries.swift */,
@@ -483,6 +487,14 @@
 				7FB4CF45274072A00048BF0D /* MenuPlannerCollectionCell */,
 			);
 			path = Planner;
+			sourceTree = "<group>";
+		};
+		7FA7FBB8276A2C7B00D0EA63 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7FA7FBB9276A2C9300D0EA63 /* DiscoverInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		7FABD23026E8EB0900A68E65 /* CollectionCell */ = {
@@ -605,7 +617,6 @@
 				7F717FB126CE3C170066183C /* Model */,
 				7FCF5E8426C3398300FF7E18 /* View */,
 				7F49508A26FDEB8E00A7E4F8 /* Module */,
-				7F13728326CBE6F200318991 /* Networking */,
 				7FBE4C2C27072A80004E26A9 /* Stubs */,
 				7FCF5E7526C338F800FF7E18 /* Assets.xcassets */,
 				7FCF5E7A26C338F800FF7E18 /* Info.plist */,
@@ -874,6 +885,7 @@
 				7F217A1F26E916540057A40C /* InfoCell.swift in Sources */,
 				7F38229526D8397F00E7F8A3 /* ItenaryCell.swift in Sources */,
 				7FC51B702769D0D400C63682 /* TourMenuPresenter.swift in Sources */,
+				7FA7FBBA276A2C9300D0EA63 /* DiscoverInteractor.swift in Sources */,
 				7F009E3D272B76F1003374A1 /* PlannerDetailsVC.swift in Sources */,
 				7F0774CA273E42AF0033853A /* PlannerDateCell.swift in Sources */,
 				7F009E39272B7622003374A1 /* CreatePlannerPresenter.swift in Sources */,
