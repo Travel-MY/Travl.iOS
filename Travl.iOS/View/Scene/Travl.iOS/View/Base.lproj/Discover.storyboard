@@ -280,7 +280,7 @@
         <scene sceneID="USN-FN-lvk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CK6-Vn-TH4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" id="ECG-If-Nxo"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="safari" catalog="system" id="ECG-If-Nxo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QuP-4G-zAu">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -298,6 +298,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

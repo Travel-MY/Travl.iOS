@@ -8,7 +8,7 @@
 import UIKit
 
 final class ActivityInfoCellTableViewCell: UITableViewCell {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var addressLabel : UILabel!
     @IBOutlet weak var phoneNumberLabel : UILabel!
@@ -32,8 +32,12 @@ final class ActivityInfoCellTableViewCell: UITableViewCell {
     
     func configureCell(data : Activity) {
         addressLabel.text = data.address
-        phoneNumberLabel.text = data.phoneNumber
-        websiteLabel.text = data.website
+        if let phoneNumber = data.phoneNumber, let website = data.website {
+            let filterNumber = (phoneNumber == "") ? "N/A" : phoneNumber
+            let filterWebsite = (website == "") ? "N/A" : website
+            phoneNumberLabel.text = filterNumber
+            websiteLabel.text = filterWebsite
+        }
     }
 }
 

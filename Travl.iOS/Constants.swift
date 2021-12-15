@@ -16,6 +16,15 @@ struct Constants {
             return UIScreen.main.bounds.width
         }
     }
+    struct SegueIdentifier {
+        static let goToCreatePlanner = "goToCreatePlanner"
+        static let goToPlannerDetails = "goToPlannerDetails"
+        static let goToALDetails = "goToALDetails"
+        static let goToTourMenu = "goToTourMenu"
+    }
+    struct UserDefautlsKey {
+        static let primaryKeyForPlanner = "parentPlanner"
+    }
     static var accessManageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }
 

@@ -27,8 +27,6 @@ final class ALDetailsVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-
 //MARK: - Datasource
 extension ALDetailsVC : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,10 +65,8 @@ extension ALDetailsVC : UITableViewDataSource {
             return UITableViewCell()
             
         }
-        
     }
 }
-
 //MARK: - Delegate
 extension ALDetailsVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,7 +87,6 @@ extension ALDetailsVC : UITableViewDelegate {
             mapVC.logitude = longitude
         }
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
@@ -119,11 +114,8 @@ extension ALDetailsVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
-    
 }
-
 //MARK: - MapPreviewCell Delegate
-
 extension ALDetailsVC : MapPreviewCellDelegate {
     func presentCoordinateFromQuery(_ vc: MapPreviewCell, latitude: Double, longitude: Double, coordinate : CLLocationCoordinate2D) {
         print("LATITUDE : \(latitude), LONGITUDE : \(longitude)")
@@ -131,7 +123,6 @@ extension ALDetailsVC : MapPreviewCellDelegate {
         self.longitude = longitude
     }
 }
-
 //MARK: - Private methods
 extension ALDetailsVC {
     private func renderView() {
