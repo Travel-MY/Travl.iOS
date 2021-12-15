@@ -33,12 +33,13 @@ final class ActivityListCell: UITableViewCell {
     }
     
     func configureCell(data : Activity) {
-        let parentPlanner = "\(data.parentPlanner.destination)"
-        activityName.text = parentPlanner
+        activityName.text = data.address
         address.text = data.name
         date.text = data.startDate
         if data.name == "Location" {
             activityImageView.image = UIImage(systemName: "map.circle.fill")
+        } else {
+            activityImageView.image = UIImage(systemName: "fork.knife.circle.fill")
         }
     }
 }
