@@ -33,10 +33,10 @@ final class ActivityListCell: UITableViewCell {
     }
     
     func configureCell(data : Activity) {
-        activityName.text = data.address
-        address.text = data.name
+        activityName.text = data.name
+        address.text = data.category
         date.text = data.startDate
-        if data.name == "Location" {
+        if data.category == "Location" {
             activityImageView.image = UIImage(systemName: "map.circle.fill")
         } else {
             activityImageView.image = UIImage(systemName: "fork.knife.circle.fill")
