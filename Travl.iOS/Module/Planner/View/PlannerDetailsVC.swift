@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 final class PlannerDetailsVC: UIViewController {
     
@@ -16,21 +15,26 @@ final class PlannerDetailsVC: UIViewController {
     
     //MARK: - Variables
     var selectedPlanner : Planner!
-
-    var activityData = [Activity]()
-    var selectedRow : Int!
-    var selectedPlannerIndexPath : Int!
-    var context = Constants.accessManageObjectContext
+    private var activityData = [Activity]()
+    private var selectedRow : Int!
+    private let presenter = PlannerDetailsPresenter()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
+        presenter.setViewDelegate(delegate: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadActivities()
-        print("Key stored in User Defaults is : \( UserDefaults.standard.string(forKey: "parentPlanner") )")
+        presenter.fetchActivities(forDestination: selectedPlanner.destination)
+        print("Key stored in User Defaults is : \( String(describing: UserDefaults.standard.string(forKey: "parentPlanner")))")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let alDetailsVC = segue.destination  as? ALDetailsVC {
+            alDetailsVC.selectedActivity = activityData[selectedRow]
+        }
     }
 }
 
@@ -79,30 +83,20 @@ extension PlannerDetailsVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, didSwipe in
             if let activityToRemove = self?.activityData[indexPath.row] {
-                self?.removeActivity(activityToRemove)
-                self?.loadActivities()
+                self?.presenter.removeActivity(activityToRemove)
+                self?.presenter.fetchActivities(forDestination: self!.selectedPlanner.destination)
             }
         }
         let swipeAction = UISwipeActionsConfiguration(actions: [action])
         return swipeAction
     }
-    
 }
 
 //MARK: - TV Delegate
 extension PlannerDetailsVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 1 {
-            selectedRow = indexPath.row
-            performSegue(withIdentifier: "goToALDetails", sender: self)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let alDetailsVC = segue.destination  as? ALDetailsVC {
-            alDetailsVC.selectedActivity = activityData[selectedRow]
-        }
+        presenter.didTapActivityRow(atIndex: indexPath.row, section: indexPath.section)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -114,30 +108,21 @@ extension PlannerDetailsVC : UITableViewDelegate {
         return ""
     }
 }
-#warning("Move this method to presenter")
-//MARK: - Core Data Manipulation Methods
-extension PlannerDetailsVC {
-    private func loadActivities(with request : NSFetchRequest<Activity> = Activity.fetchRequest(), predicate : NSPredicate? = nil ) {
-        let predicate = NSPredicate(format: "parentPlanner.destination MATCHES %@", selectedPlanner.destination)
-        request.predicate = predicate
-        
-        do {
-            activityData = try context.fetch(request)
-        } catch {
-            print("Error Fetch Data from Core Data : \(error.localizedDescription)")
-        }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.plannerTableView.reloadData()
+
+//MARK: - Presenter Delegate
+extension PlannerDetailsVC : PlannerDetailsPresenterDelegate {
+    func presentActivityDetails(_ PlannerDetailsPresenter: PlannerDetailsPresenter, index: Int, section: Int) {
+        print("Section : \(section), Index : \(index)")
+        if section == 1 {
+            selectedRow = index
+            performSegue(withIdentifier: Constants.SegueIdentifier.goToALDetails, sender: self)
         }
     }
     
-    private func removeActivity(_ activity : NSManagedObject) {
-        context.delete(activity)
-        do {
-            try context.save()
-        } catch {
-            print("Error delete context : \(error.localizedDescription)")
+    func presentFetchActivity(_ PlannerDetailsPresenter: PlannerDetailsPresenter, data: [Activity]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityData = data
+            self?.plannerTableView.reloadData()
         }
     }
 }

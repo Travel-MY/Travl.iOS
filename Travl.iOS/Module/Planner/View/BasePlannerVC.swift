@@ -6,32 +6,31 @@
 //
 
 import UIKit
-import CoreData
 
 final class BasePlannerVC: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var basePlannerTableView: UITableView!
-    
     //MARK: - Variables
     private var plannerData = [Planner]()
-    private var rowIndexPath : Int!
-    private var context = Constants.accessManageObjectContext
-
+    let presenter = BasePlannerPresenter()
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         renderView()
+        presenter.setViewDelegate(delegate: self)
     }
-    
     override func viewWillAppear(_ animated: Bool) {
-        fetchPlanner()
+        presenter.fetchPlanner()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.basePlannerVC.goToPlannerDetails.identifier {
             let plannerActivities = segue.destination as! PlannerDetailsVC
-            plannerActivities.selectedPlanner = plannerData[rowIndexPath]
+            // Get selected index from tableview with accessing its outlet property
+            guard let atIndex = basePlannerTableView.indexPathForSelectedRow?.row else {return}
+            plannerActivities.selectedPlanner = plannerData[atIndex]
         }
     }
 }
@@ -42,7 +41,6 @@ extension BasePlannerVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return plannerData.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listOfPlanner = plannerData[indexPath.row]
         let cell = basePlannerTableView.dequeueReusableCell(withIdentifier: R.nib.plannerItemsCell.identifier, for: indexPath) as! PlannerItemsCell
@@ -54,8 +52,7 @@ extension BasePlannerVC : UITableViewDataSource {
 //MARK: - TV Delegate
 extension BasePlannerVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        rowIndexPath = indexPath.row
-        performSegue(withIdentifier: "goToPlannerDetails", sender: self)
+        presenter.didTapPlannerRow(atIndex: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -72,8 +69,8 @@ extension BasePlannerVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
        let action =  UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, didSwipeRow in
             if let plannerToRemove = self?.plannerData[indexPath.row] {
-                self?.removePlanner(plannerToRemove)
-                self?.fetchPlanner()
+                self?.presenter.removePlanner(plannerToRemove)
+                self?.presenter.fetchPlanner()
             }
         }
         let swipeAction = UISwipeActionsConfiguration(actions: [action])
@@ -84,34 +81,21 @@ extension BasePlannerVC : UITableViewDelegate {
 //MARK: - CreateATripHeader Delegate
 extension BasePlannerVC : BasePlannerTableHeaderDelegate {
     func didTapTripButton(view: Any) {
-        performSegue(withIdentifier: "goToCreatePlanner", sender: self)
+        performSegue(withIdentifier: Constants.SegueIdentifier.goToCreatePlanner, sender: self)
     }
 }
-#warning("Separate this logic in the presenter")
-//MARK: - Core Data Manipulation Methods
-extension BasePlannerVC {
-    private func removePlanner(_ planner : NSManagedObject) {
-        context.delete(planner)
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context : \(error.localizedDescription)")
-        }
+//MARK: - Presenter Delegate
+extension BasePlannerVC : BasePlannerPresenterDelegate {
+    func presentToPlannerDetails(_ BasePlannerPresenter: BasePlannerPresenter, index: Int) {
+        performSegue(withIdentifier: Constants.SegueIdentifier.goToPlannerDetails, sender: self)
     }
     
-    private func fetchPlanner() {
-        let request = Planner.fetchRequest()
-        do {
-            let collectionOfPlanners = try Constants.accessManageObjectContext.fetch(request)
-            plannerData = collectionOfPlanners
-        } catch {
-            print("Error fetch data from Core Data : \(error.localizedDescription)")
-        }
+    func presentFetchPlanner(_ BasePlannerPresenter: BasePlannerPresenter, data: [Planner]) {
         DispatchQueue.main.async { [weak self] in
+            self?.plannerData = data
             self?.basePlannerTableView.reloadData()
         }
     }
-    
 }
 
 //MARK: - Private methods
@@ -130,8 +114,8 @@ extension BasePlannerVC {
     }
     
     private func registerCustomNib() {
-        
         basePlannerTableView.register(PlannerItemsCell.nib(), forCellReuseIdentifier: R.reuseIdentifier.plannerItemsCell.identifier)
+        
         let header = Bundle.main.loadNibNamed(R.nib.basePlannerTableHeader.name, owner: nil, options: nil)?.first as! BasePlannerTableHeader
         #warning("Update image based on image API provided")
         let footer = Bundle.main.loadNibNamed(R.nib.basePlannerImageFooter.name, owner: nil, options: nil)?.first as! BasePlannerImageFooter

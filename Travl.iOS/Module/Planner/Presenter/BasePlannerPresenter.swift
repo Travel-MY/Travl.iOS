@@ -15,7 +15,7 @@ protocol BasePlannerPresenterDelegate : AnyObject {
 
 final class BasePlannerPresenter {
     
-    weak var delegate : BasePlannerPresenterDelegate?
+    weak private var delegate : BasePlannerPresenterDelegate?
     private let coreDataManager = CoreDataManager()
     
     func setViewDelegate(delegate : BasePlannerPresenterDelegate) {
@@ -25,7 +25,6 @@ final class BasePlannerPresenter {
     func fetchPlanner() {
         coreDataManager.fetchObjectContext(Planner.self, withPredicate: nil) { [weak self] result in
             switch result {
-                
             case .success(let data):
                 let planners = data as! [Planner]
                 self?.delegate?.presentFetchPlanner(self!, data: planners)
