@@ -943,6 +943,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "safari") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'safari' is used in storyboard 'Discover', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "xmark") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'xmark' is used in storyboard 'Discover', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
@@ -980,6 +981,8 @@ struct _R: Rswift.Validatable {
       let name = "Main"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "calendar-tab-bar-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calendar-tab-bar-icon' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "discover-tab-bar-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'discover-tab-bar-icon' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -1021,6 +1024,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "calendar") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'calendar' is used in storyboard 'Planner', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "fun", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fun' is used in storyboard 'Planner', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus.circle.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus.circle.fill' is used in storyboard 'Planner', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "xmark") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'xmark' is used in storyboard 'Planner', but couldn't be loaded.") } }

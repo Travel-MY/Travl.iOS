@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1US-G0-iOO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1US-G0-iOO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,10 +11,10 @@
         <scene sceneID="dgt-xb-GAc">
             <objects>
                 <tabBarController id="1US-G0-iOO" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iF2-eA-2fZ">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iF2-eA-2fZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="HIq-31-EEw" kind="relationship" relationship="viewControllers" id="8LM-hw-vMk"/>
@@ -29,7 +29,7 @@
         <scene sceneID="EVg-Vb-gmF">
             <objects>
                 <viewControllerPlaceholder storyboardName="Discover" id="HIq-31-EEw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hoY-97-912"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover-tab-bar-icon" id="hoY-97-912"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zso-cI-Hpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,11 +39,15 @@
         <scene sceneID="LOP-zY-E7e">
             <objects>
                 <viewControllerPlaceholder storyboardName="Planner" id="Qzw-Vm-5Hs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="c4l-iZ-o5x"/>
+                    <tabBarItem key="tabBarItem" title="Planner" image="calendar-tab-bar-icon" landscapeImage="calendar-tab-bar-icon" largeContentSizeImage="calendar-tab-bar-icon" id="c4l-iZ-o5x"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opo-Ug-sCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar-tab-bar-icon" width="50" height="50"/>
+        <image name="discover-tab-bar-icon" width="50" height="50"/>
+    </resources>
 </document>

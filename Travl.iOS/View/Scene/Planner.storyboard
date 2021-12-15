@@ -176,7 +176,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="REw-P9-22L" userLabel="Vertical Stack View">
-                                <rect key="frame" x="10" y="140" width="394" height="530"/>
+                                <rect key="frame" x="10" y="140" width="394" height="673"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeX-Yt-LlJ" userLabel="Row Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
@@ -331,10 +331,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bhF-Ja-UhW" userLabel="Row Stack View">
-                                        <rect key="frame" x="0.0" y="450" width="394" height="80"/>
+                                        <rect key="frame" x="0.0" y="450" width="394" height="223"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-W8-eJn" userLabel="Form Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="223"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwC-cY-t2u">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="18"/>
@@ -343,7 +343,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-Hv-h6b">
-                                                        <rect key="frame" x="0.0" y="18" width="394" height="62"/>
+                                                        <rect key="frame" x="0.0" y="18" width="394" height="205"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -456,7 +456,7 @@
         <scene sceneID="XnJ-Gn-x05">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="soX-EY-5bt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Planner" id="Y86-7D-Wc1"/>
+                    <tabBarItem key="tabBarItem" title="Planner" image="calendar" catalog="system" id="Y86-7D-Wc1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="9Ak-4K-nMx">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -557,6 +557,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="fun" width="120" height="120"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
