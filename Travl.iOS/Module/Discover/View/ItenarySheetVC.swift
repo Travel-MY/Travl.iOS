@@ -52,7 +52,7 @@ extension ItenarySheetVC : UITableViewDataSource {
     }
 }
 
-//MARK:- TableView Delegate
+//MARK: - TableView Delegate
 extension ItenarySheetVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -76,7 +76,7 @@ extension ItenarySheetVC : UITableViewDelegate {
         performSegue(withIdentifier: R.segue.itenarySheetVC.goToItenaryDetails.identifier, sender: self)
     }
     
-    //MARK:- Prepare Segue
+    //MARK: - Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let selectedAtItenary = itenaries[selectedAtSection][selectedAtRow]
         guard let destinationVC = segue.destination as? ItenaryDetailsVC else {return}
