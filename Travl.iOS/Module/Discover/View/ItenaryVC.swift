@@ -10,11 +10,10 @@ import FloatingPanel
 
 protocol ItenaryVCDelegate : AnyObject {
     func didSendItenaryData(_ itenaryVC : ItenaryVC, with itenary : [[Days]])
-    func didSendLocationData(_ itenaryVC : ItenaryVC, with location : Location) 
+    func didSendLocationData(_ itenaryVC : ItenaryVC, with location : Location)
 }
 
 final class ItenaryVC : UIViewController {
-    
     //MARK: - Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -26,6 +25,7 @@ final class ItenaryVC : UIViewController {
     
     private var presenter = ItenaryPresenter()
     private var fpc : FloatingPanelController!
+    private let discoverInteractor = DiscoverInteractor()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -35,28 +35,26 @@ final class ItenaryVC : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        presenter.getItenaries(for: locationName?.itenaryName ?? "")
+        presenter.getItenaries(forLocation: locationName?.itenaryName ?? "")
     }
     
-    //MARK:- Action
+    //MARK: - Action
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         // Saved Itenary In Core Data
     }
-    
 }
 
-//MARK: - ItenaryPresenter Delegate
+//MARK: - Presenter Delegate
 extension ItenaryVC : ItenaryPresenterDelegate {
-    
     func presentItenaryData(with data: [[Days]]) {
         self.delegate?.didSendItenaryData(self, with: data)
     }
 }
 
-//MARK:- Floating Panel Delegate
+//MARK: - Floating Panel Delegate
 extension ItenaryVC : FloatingPanelControllerDelegate {}
 
-//MARK:- Floating Panel Layout
+//MARK: - Floating Panel Layout
 extension ItenaryVC : FloatingPanelLayout {
     
     var position: FloatingPanelPosition {
@@ -76,7 +74,7 @@ extension ItenaryVC : FloatingPanelLayout {
     }
 }
 
-//MARK:- Private methods
+//MARK: - Private methods
 extension ItenaryVC {
     
     private func setupView() {

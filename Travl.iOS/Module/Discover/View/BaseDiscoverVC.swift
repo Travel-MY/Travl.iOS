@@ -19,8 +19,8 @@ final class BaseDiscoverVC : UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.getLocations()
         renderView()
- 
     }
 }
 
@@ -28,7 +28,6 @@ final class BaseDiscoverVC : UIViewController {
 extension BaseDiscoverVC : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
         presenter.didTapLocation(atIndex : indexPath.row)
     }
     
@@ -103,7 +102,7 @@ extension BaseDiscoverVC {
     private func renderView() {
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor : UIColor.primarySeaBlue]
         presenter.setViewDelegate(delegate: self)
-        presenter.getLocations()
+        //presenter.getLocations()
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self

@@ -14,20 +14,19 @@ protocol BaseDiscoverPresenterDelegate : AnyObject {
 
 final class BaseDiscoverPresenter {
     
-    weak var delegate : BaseDiscoverPresenterDelegate?
+    weak private var delegate : BaseDiscoverPresenterDelegate?
+    private let discoverInteractor = DiscoverInteractor()
     
     func setViewDelegate(delegate : BaseDiscoverPresenterDelegate) {
         self.delegate = delegate
     }
-    
     func getLocations() {
-        NetworkManager.shared.getLocations { [weak self] location in
-            switch location {
-                
-            case .success(let locations):
-                self?.delegate?.presentLocation(data : locations )
+        discoverInteractor.fetchLocations { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.delegate?.presentLocation(data: data.locations)
             case .failure(let error):
-                print(error.rawValue)
+                print(error.localizedDescription)
             }
         }
     }
