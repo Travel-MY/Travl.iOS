@@ -35,7 +35,7 @@ final class ActivityListCell: UITableViewCell {
     func configureCell(data : Activity) {
         activityName.text = data.name
         address.text = data.category
-        date.text = data.startDate
+        date.text =  DateFormatter().convertDateToString(data.startDate)
         if data.category == "Location" {
             activityImageView.image = UIImage(systemName: "map.circle.fill")
         } else {

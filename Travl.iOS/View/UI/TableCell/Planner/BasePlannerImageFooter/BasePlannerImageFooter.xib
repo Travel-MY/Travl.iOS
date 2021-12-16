@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +58,7 @@
                         </constraints>
                     </scrollView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="E3b-ol-RcU">
-                        <rect key="frame" x="74" y="108" width="172.5" height="26"/>
+                        <rect key="frame" x="94" y="108" width="132.5" height="26"/>
                     </pageControl>
                 </subviews>
                 <constraints>
@@ -76,6 +76,10 @@
             <connections>
                 <outlet property="pageControl" destination="E3b-ol-RcU" id="cI2-un-LVj"/>
                 <outlet property="sliderScollView" destination="7XE-AW-fKa" id="fOv-Wk-nWl"/>
+                <outletCollection property="sliderImageView" destination="Zg3-jZ-Eux" collectionClass="NSMutableArray" id="A6e-Hy-HPp"/>
+                <outletCollection property="sliderImageView" destination="LNx-1A-qNF" collectionClass="NSMutableArray" id="nhR-2P-KXh"/>
+                <outletCollection property="sliderImageView" destination="8jb-pE-e4g" collectionClass="NSMutableArray" id="D0w-WG-shv"/>
+                <outletCollection property="sliderImageView" destination="k5Y-EG-OUY" collectionClass="NSMutableArray" id="a6x-eR-aS8"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="113.16964285714285"/>
         </tableViewCell>

@@ -37,8 +37,8 @@ final class PlannerDateCell: UITableViewCell {
     
     func setCell(data : Planner) {
         self.destinationLabel.text = data.destination
-        self.startDateLabel.text = data.startDate
-        self.endDateLabel.text = data.endDate
+        self.startDateLabel.text = DateFormatter().convertDateToString(data.startDate)
+        self.endDateLabel.text = DateFormatter().convertDateToString(data.endDate)
     }
 
     private func renderView() {
