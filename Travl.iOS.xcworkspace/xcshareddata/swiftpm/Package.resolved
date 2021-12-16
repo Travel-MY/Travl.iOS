@@ -27,6 +27,15 @@
           "revision": "318e319998bf555c3e914d5c3adb6da05af86a32",
           "version": "7.1.1"
         }
+      },
+      {
+        "package": "Mixpanel",
+        "repositoryURL": "https://github.com/mixpanel/mixpanel-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "cf569f790c0ec9e9f94f25e56b7ba5762198d34a",
+          "version": "2.10.4"
+        }
       }
     ]
   },

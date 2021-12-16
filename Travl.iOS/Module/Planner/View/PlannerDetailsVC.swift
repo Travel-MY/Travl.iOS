@@ -8,7 +8,6 @@
 import UIKit
 
 final class PlannerDetailsVC: UIViewController {
-    
     //MARK: - Outlets
     @IBOutlet weak var plannerTableView : UITableView!
     @IBOutlet weak var activityMenuContainerView: UIView!
@@ -25,7 +24,7 @@ final class PlannerDetailsVC: UIViewController {
         renderView()
         presenter.setViewDelegate(delegate: self)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchActivities(forDestination: selectedPlanner.destination)
         print("Key stored in User Defaults is : \( String(describing: UserDefaults.standard.string(forKey: "parentPlanner")))")
@@ -142,6 +141,9 @@ extension PlannerDetailsVC {
         
         plannerTableView.register(PlannerDateCell.nib(), forCellReuseIdentifier: R.reuseIdentifier.plannerDateCell.identifier)
         plannerTableView.register(ActivityListCell.nib(), forCellReuseIdentifier: ActivityListCell.identifier)
+        
+        UserDefaults.standard.set(selectedPlanner.startDate, forKey: Constants.UserDefautlsKey.parentStartDate)
+        UserDefaults.standard.set(selectedPlanner.endDate, forKey: Constants.UserDefautlsKey.parentEndDate)
     }
 }
 

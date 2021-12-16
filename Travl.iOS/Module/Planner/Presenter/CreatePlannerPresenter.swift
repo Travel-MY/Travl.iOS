@@ -20,9 +20,10 @@ final class CreatePlannerPresenter {
         self.delegate = delegate
     }
     
-    func didTapCreatePlanner(_ destination : String,_ startDate : String,_ endDate : String) {
+    func didTapCreatePlanner(_ destination : String,_ startDate : Date,_ endDate : Date) {
         // Store data to plist as reference to pass data to unrelated VC
         UserDefaults.standard.set(destination, forKey: Constants.UserDefautlsKey.primaryKeyForPlanner)
+//        UserDefaults.standard.set
         let newPlanner = Planner(context: coreDataManager.context)
         newPlanner.destination = destination
         newPlanner.startDate = startDate

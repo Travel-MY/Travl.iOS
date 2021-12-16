@@ -8,17 +8,18 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import Mixpanel
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         
+        Mixpanel.initialize(token: "0f6f33876a242c694022c3c26f4e5f16")
         return true
     }
     
