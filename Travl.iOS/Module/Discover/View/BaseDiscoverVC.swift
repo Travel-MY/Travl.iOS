@@ -17,6 +17,11 @@ final class BaseDiscoverVC : UIViewController {
     private let presenter = BaseDiscoverPresenter()
     
     //MARK: - Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        // Open planner tab bar when it view appear
+        self.tabBarController?.selectedIndex = 1
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.getLocations()
