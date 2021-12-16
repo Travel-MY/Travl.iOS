@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         
-        Mixpanel.initialize(token: "0f6f33876a242c694022c3c26f4e5f16")
+        if let mixPanelKey = Bundle.main.infoDictionary?["API_KEY_MIXPANEL"] as? String {
+            print("MIXPANELKEY : \(mixPanelKey)")
+            Mixpanel.initialize(token: mixPanelKey)
+        }
         return true
     }
     
