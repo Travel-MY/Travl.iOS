@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CK6-Vn-TH4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CK6-Vn-TH4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -217,6 +217,25 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URa-d4-MdG">
+                                <rect key="frame" x="324" y="708" width="70" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperplane.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1ng-0n-vnv">
+                                        <rect key="frame" x="7.5" y="8" width="55" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="Ihg-E1-SW3"/>
+                                            <constraint firstAttribute="height" constant="55" id="hyo-c5-BZ6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1ng-0n-vnv" firstAttribute="centerY" secondItem="URa-d4-MdG" secondAttribute="centerY" id="9ER-eK-bfO"/>
+                                    <constraint firstItem="1ng-0n-vnv" firstAttribute="centerX" secondItem="URa-d4-MdG" secondAttribute="centerX" id="C8y-OV-xek"/>
+                                    <constraint firstAttribute="width" constant="70" id="eIL-yf-XmC"/>
+                                    <constraint firstAttribute="height" constant="70" id="ioP-qV-27o"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="enX-ax-YCH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -224,14 +243,18 @@
                             <constraint firstItem="NyZ-u4-jNV" firstAttribute="top" secondItem="enX-ax-YCH" secondAttribute="top" id="1dm-aS-09D"/>
                             <constraint firstItem="NyZ-u4-jNV" firstAttribute="trailing" secondItem="enX-ax-YCH" secondAttribute="trailing" id="7Nm-UU-rQ6"/>
                             <constraint firstItem="7VU-K8-d3E" firstAttribute="leading" secondItem="enX-ax-YCH" secondAttribute="leading" id="9kZ-sN-6gT"/>
+                            <constraint firstItem="enX-ax-YCH" firstAttribute="trailing" secondItem="URa-d4-MdG" secondAttribute="trailing" constant="20" id="Qfc-MU-aba"/>
                             <constraint firstItem="NyZ-u4-jNV" firstAttribute="leading" secondItem="enX-ax-YCH" secondAttribute="leading" id="Tg8-9U-sN8"/>
                             <constraint firstAttribute="bottom" secondItem="7VU-K8-d3E" secondAttribute="bottom" id="XTl-hR-0kh"/>
                             <constraint firstItem="7VU-K8-d3E" firstAttribute="top" secondItem="enX-ax-YCH" secondAttribute="top" id="aCw-KN-13I"/>
                             <constraint firstItem="7VU-K8-d3E" firstAttribute="trailing" secondItem="enX-ax-YCH" secondAttribute="trailing" id="sXc-6D-nTK"/>
+                            <constraint firstItem="enX-ax-YCH" firstAttribute="bottom" secondItem="URa-d4-MdG" secondAttribute="bottom" constant="30" id="xKX-3B-rqN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ETD-vG-tJ7"/>
                     <connections>
+                        <outlet property="directionImage" destination="1ng-0n-vnv" id="WNh-Ub-GwX"/>
+                        <outlet property="directionView" destination="URa-d4-MdG" id="lI1-uY-vdg"/>
                         <outlet property="mapView" destination="7VU-K8-d3E" id="LwM-GL-IWC"/>
                     </connections>
                 </viewController>
@@ -298,6 +321,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="paperplane.circle.fill" catalog="system" width="128" height="121"/>
         <image name="safari" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

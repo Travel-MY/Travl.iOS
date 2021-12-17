@@ -943,6 +943,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "paperplane.circle.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'paperplane.circle.fill' is used in storyboard 'Discover', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "safari") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'safari' is used in storyboard 'Discover', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "xmark") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'xmark' is used in storyboard 'Discover', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
