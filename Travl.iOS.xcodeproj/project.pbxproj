@@ -54,6 +54,7 @@
 		7F5139FF2707C2AA002D6880 /* ItenaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */; };
 		7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */; };
 		7F53D6C22700A2FD00970CEE /* BaseDiscoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */; };
+		7F693E0B276D4BF90016051E /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F693E0A276D4BF90016051E /* UIAlertController+Extensions.swift */; };
 		7F6C44C0275C296300B9EC04 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7F6C44BF275C296300B9EC04 /* Kingfisher */; };
 		7F71594C2725829D0077F46E /* PlannerItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71594A2725829D0077F46E /* PlannerItemsCell.swift */; };
 		7F71594D2725829D0077F46E /* PlannerItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F71594B2725829D0077F46E /* PlannerItemsCell.xib */; };
@@ -158,6 +159,7 @@
 		7F5139FE2707C2AA002D6880 /* ItenaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryPresenter.swift; sourceTree = "<group>"; };
 		7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		7F53D6C12700A2FD00970CEE /* BaseDiscoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDiscoverPresenter.swift; sourceTree = "<group>"; };
+		7F693E0A276D4BF90016051E /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		7F71594A2725829D0077F46E /* PlannerItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerItemsCell.swift; sourceTree = "<group>"; };
 		7F71594B2725829D0077F46E /* PlannerItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlannerItemsCell.xib; sourceTree = "<group>"; };
 		7F717FB226CE3C480066183C /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */,
 				7F4D059A275E42F700B254DF /* UIColor+Extensions.swift */,
 				7F21B874276B6EEC00F57E61 /* DateFormatterExtensions.swift */,
+				7F693E0A276D4BF90016051E /* UIAlertController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				7F009E3D272B76F1003374A1 /* PlannerDetailsVC.swift in Sources */,
 				7F0774CA273E42AF0033853A /* PlannerDateCell.swift in Sources */,
 				7F21B86E276B61E100F57E61 /* Planner+CoreDataClass.swift in Sources */,
+				7F693E0B276D4BF90016051E /* UIAlertController+Extensions.swift in Sources */,
 				7F21B86F276B61E100F57E61 /* Planner+CoreDataProperties.swift in Sources */,
 				7F009E39272B7622003374A1 /* CreatePlannerPresenter.swift in Sources */,
 				7F5139FF2707C2AA002D6880 /* ItenaryPresenter.swift in Sources */,
@@ -1161,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CX2G82J2TK;
 				INFOPLIST_FILE = Travl.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1186,7 +1190,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CX2G82J2TK;
 				INFOPLIST_FILE = Travl.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
