@@ -48,8 +48,16 @@ final class ItenaryVC : UIViewController {
 
 //MARK: - Presenter Delegate
 extension ItenaryVC : ItenaryPresenterDelegate {
-    func presentItenaryData(with data: [[Days]]) {
+
+    func presentItenaryData(_ItenaryPresenter: ItenaryPresenter, with data: [[Days]]) {
         self.delegate?.didSendItenaryData(self, with: data)
+    }
+    
+    func presentFailureMessageFromItenary(_ItenaryPresenter: ItenaryPresenter, error: TError) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController().createDefaultAlertForFailure(.InternetConnection, message: error.localizedDescription)
+            self?.present(alert, animated: true)
+        }
     }
 }
 

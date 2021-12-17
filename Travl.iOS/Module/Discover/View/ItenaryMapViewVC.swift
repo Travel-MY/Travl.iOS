@@ -13,6 +13,8 @@ final class ItenaryMapViewVC: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var directionImage: UIImageView!
+    @IBOutlet weak var directionView: UIView!
     
     var latitude : Double?
     var logitude : Double?
@@ -21,6 +23,7 @@ final class ItenaryMapViewVC: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDirectionView()
         configureMapView(lat: latitude ?? 0.0, lon: logitude ?? 0.0)
     }
     //MARK: - Action
@@ -28,11 +31,27 @@ final class ItenaryMapViewVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc private func openMapsApp(_ sender : UITapGestureRecognizer) {
+        guard let latitude = latitude, let logitude = logitude, let locationName = locationName else {return}
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: logitude)
+        let placemark = MKPlacemark(coordinate: coordinate)
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let mkMapItem = MKMapItem(placemark: placemark)
+        mkMapItem.name = locationName
+        // Open maps app based on coordinate given in mkMapItem
+        mkMapItem.openInMaps(launchOptions: [MKLaunchOptionsMapSpanKey: span])
+    }
 }
 
 //MARK: - Private Methods
 extension ItenaryMapViewVC {
-    
+    private func configureDirectionView() {
+        directionView.addRoundedCorners(radius: 35)
+        directionView.backgroundColor = .secondaryLightTurqoise
+        directionImage.tintColor = .white
+        let tap = UITapGestureRecognizer(target: self, action: #selector(openMapsApp(_:)))
+        directionView.addGestureRecognizer(tap)
+    }
     private func configureMapView(lat : Double, lon : Double) {
         let span = MKCoordinateSpan(latitudeDelta: 0.0050, longitudeDelta: 0.0050)
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)

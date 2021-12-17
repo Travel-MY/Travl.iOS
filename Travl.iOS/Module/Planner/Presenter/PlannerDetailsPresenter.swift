@@ -11,6 +11,7 @@ import CoreData
 protocol PlannerDetailsPresenterDelegate : AnyObject {
     func presentFetchActivity(_ PlannerDetailsPresenter : PlannerDetailsPresenter, data : [Activity] )
     func presentActivityDetails(_ PlannerDetailsPresenter : PlannerDetailsPresenter, index : Int, section : Int)
+    func presentFailureMessageFromPlannerDetails(_PlannerDetailsPresenter : PlannerDetailsPresenter, error : String)
 }
 
 final class PlannerDetailsPresenter {
@@ -30,7 +31,7 @@ final class PlannerDetailsPresenter {
                 let activities = data as! [Activity]
                 self?.delegate?.presentFetchActivity(self!, data: activities)
             case .failure(let error):
-                break
+                self?.delegate?.presentFailureMessageFromPlannerDetails(_PlannerDetailsPresenter: self!, error: error.localizedDescription)
             }
         }
     }

@@ -12,6 +12,8 @@ protocol BasePlannerPresenterDelegate : AnyObject {
     func presentFetchPlanner(_ BasePlannerPresenter : BasePlannerPresenter, data : [Planner])
     func presentFetchImages(_ BasePlannerPresenter : BasePlannerPresenter, data : [Images])
     func presentToPlannerDetails(_ BasePlannerPresenter : BasePlannerPresenter, index : Int)
+    func presentFailureMessageFromImages(_BasePlannerPresenter : BasePlannerPresenter, error : String)
+    func presentFailureMessageFromPlanner(_BasePlannerPresenter : BasePlannerPresenter, error : String)
 }
 
 final class BasePlannerPresenter {
@@ -31,7 +33,7 @@ final class BasePlannerPresenter {
                 let planners = data as! [Planner]
                 self?.delegate?.presentFetchPlanner(self!, data: planners)
             case .failure(let error):
-                break
+                self?.delegate?.presentFailureMessageFromPlanner(_BasePlannerPresenter: self!, error: error.localizedDescription)
             }
         }
     }
@@ -47,7 +49,7 @@ final class BasePlannerPresenter {
                 let images = data.images
                 self?.delegate?.presentFetchImages(self!, data: images)
             case .failure(let error):
-                break
+                self?.delegate?.presentFailureMessageFromImages(_BasePlannerPresenter: self!, error: error.rawValue)
             }
         }
     }

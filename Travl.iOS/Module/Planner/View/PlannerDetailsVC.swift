@@ -128,6 +128,13 @@ extension PlannerDetailsVC : PlannerDetailsPresenterDelegate {
             self?.plannerTableView.reloadData()
         }
     }
+    
+    func presentFailureMessageFromPlannerDetails(_PlannerDetailsPresenter: PlannerDetailsPresenter, error: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController().createDefaultAlertForFailure(.DatabaseConnection, message: error)
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 //MARK: - Private methods
 extension PlannerDetailsVC {
