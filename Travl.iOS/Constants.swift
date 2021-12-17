@@ -24,6 +24,8 @@ struct Constants {
     }
     struct UserDefautlsKey {
         static let primaryKeyForPlanner = "parentPlanner"
+        static let parentStartDate = "parentStartDate"
+        static let parentEndDate = "parentEndDate"
     }
     static var accessManageObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }

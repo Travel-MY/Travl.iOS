@@ -2,7 +2,7 @@
 //  Planner+CoreDataProperties.swift
 //  Travl.iOS
 //
-//  Created by Ikmal Azman on 12/12/2021.
+//  Created by Ikmal Azman on 16/12/2021.
 //
 //
 
@@ -17,8 +17,8 @@ extension Planner {
     }
 
     @NSManaged public var destination: String
-    @NSManaged public var endDate: String
-    @NSManaged public var startDate: String
+    @NSManaged public var endDate: Date
+    @NSManaged public var startDate: Date
     @NSManaged public var activities: NSSet?
 
 }

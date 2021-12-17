@@ -14,6 +14,7 @@ final class ActivityMenuVC: UIViewController {
     var data : Planner?
     
     private let presenter = ActivityMenuPresenter()
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
     private var selectedRow = 0
     private var menuItem = [Menu]()
     private var newActivity : Activity? {
@@ -26,7 +27,7 @@ final class ActivityMenuVC: UIViewController {
         super.viewDidLoad()
         renderView()
         presenter.setViewDelegate(delegate: self)
-        
+        analytic.log(.selectTypeOfActivitiesScreenView)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let tourMenuVC = segue.destination as? TourMenuVC {

@@ -10,6 +10,7 @@ import Foundation
 enum Endpoint : String {
     case location = "locations"
     case itenaries = "itenaries-"
+    case images = "images"
 }
 
 final class DiscoverInteractor {

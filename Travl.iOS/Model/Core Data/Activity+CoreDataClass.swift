@@ -2,7 +2,7 @@
 //  Activity+CoreDataClass.swift
 //  Travl.iOS
 //
-//  Created by Ikmal Azman on 15/12/2021.
+//  Created by Ikmal Azman on 16/12/2021.
 //
 //
 

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Activity" representedClassName="Activity" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="category" optional="YES" attributeType="String"/>
-        <attribute name="endDate" optional="YES" attributeType="String"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
-        <attribute name="startDate" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="website" optional="YES" attributeType="String"/>
         <relationship name="parentPlanner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Planner" inverseName="activities" inverseEntity="Planner"/>
     </entity>
     <entity name="Planner" representedClassName="Planner" syncable="YES">
         <attribute name="destination" attributeType="String"/>
-        <attribute name="endDate" attributeType="String"/>
-        <attribute name="startDate" attributeType="String"/>
+        <attribute name="endDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="parentPlanner" inverseEntity="Activity"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="235.06298828125" positionY="-182.8551940917969" width="128" height="178"/>
-        <element name="Planner" positionX="60.65960693359375" positionY="-233.1573791503906" width="128" height="103"/>
+        <element name="Activity" positionX="235.06298828125" positionY="-182.8551940917969" width="128" height="164"/>
+        <element name="Planner" positionX="60.65960693359375" positionY="-233.1573791503906" width="128" height="89"/>
     </elements>
 </model>

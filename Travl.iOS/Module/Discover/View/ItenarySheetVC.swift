@@ -20,6 +20,7 @@ final class ItenarySheetVC: UIViewController {
     private var location : Location?
     private var selectedAtSection : Int!
     private var selectedAtRow : Int!
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
     
     //MARK: - : Life Cycle
     override func viewDidLoad() {
@@ -81,6 +82,7 @@ extension ItenarySheetVC : UITableViewDelegate {
         let selectedAtItenary = itenaries[selectedAtSection][selectedAtRow]
         guard let destinationVC = segue.destination as? ItenaryDetailsVC else {return}
         destinationVC.selectedItenary = selectedAtItenary
+        analytic.log(.viewSelectedItenriesFromLocations(index: selectedAtRow, name: selectedAtItenary.locationName))
     }
 }
 

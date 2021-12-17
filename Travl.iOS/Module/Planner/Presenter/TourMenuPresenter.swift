@@ -31,8 +31,8 @@ final class TourMenuPresenter {
         activity.category = category
         activity.name = name
         activity.address = address
-        activity.startDate = startDate
-        activity.endDate = endDate
+        activity.startDate = DateFormatter().convertStringToDate(startDate)
+        activity.endDate = DateFormatter().convertStringToDate(endDate)
         activity.parentPlanner = parentPlanner
         activity.phoneNumber = phoneNumber
         activity.website = website

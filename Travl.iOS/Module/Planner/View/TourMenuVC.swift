@@ -27,22 +27,28 @@ final class TourMenuVC: UIViewController {
             presenter.fetchParentPlanner(destinationName)
         }
     }
-    private var datePicker = UIDatePicker()
-    private var dateFormatter : DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = .current
-        formatter.dateFormat = "MM d, y"
-        return formatter
+    private var datePicker : UIDatePicker = {
+        let start = UserDefaults.standard.object(forKey: Constants.UserDefautlsKey.parentStartDate)  as! Date
+        let end = UserDefaults.standard.object(forKey: Constants.UserDefautlsKey.parentEndDate)  as! Date
+        let date = UIDatePicker()
+        date.minimumDate = start
+        date.maximumDate = end
+        return date
     }()
+    
+    private var dateFormatter = DateFormatter()
     private var plannerData : Planner?
     private let presenter = TourMenuPresenter()
-    
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
+
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        analytic.log(.createActivitiesScreenView)
         renderView()
         configureDate()
     }
+    
     //MARK: - Actions
     @IBAction func saveTap(_ sender: UIBarButtonItem) {
         presenter.didSaveButtonTap()
@@ -92,30 +98,27 @@ extension TourMenuVC :TourMenuPresenterDelegate {
     func presentFetchParentPlanner(_ TourMenuPresenter: TourMenuPresenter, data: Planner) {
         DispatchQueue.main.async { [weak self] in
             print("DATAAA :\(data)")
-            self!.plannerData = data
+            self?.plannerData = data
         }
     }
     
     func presentActionForSaveTap(_ TourMenuPresenter: TourMenuPresenter) {
         presenter.saveNewActivity(category :title!,name: nameTextField.text!, address: addressTextField.text!, startDate: startDateTextField.text!, endDate: endsDateTextField.text!, parentPlanner: plannerData!, phoneNumber: phoneTextField.text ?? "N/A", website: websiteTextField.text ?? "N/A", notes: notesTextField.text ?? "N/A")
-        
         navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Dismiss"), object: nil, userInfo: [:]))
+        analytic.log(.addNewActivities)
     }
 }
 
 //MARK: - Private Methods
 extension TourMenuVC {
     @objc private func doneToolBarTap(_ UIBarButtonItem : UIBarButtonItem) {
-        dateFormatter.timeStyle = .none
-        dateFormatter.dateStyle = .medium
-        
         if startDateTextField.isEditing {
-            startDateTextField.text = dateFormatter.string(from: datePicker.date)
+            startDateTextField.text = dateFormatter.convertDateToString(datePicker.date)
             endsDateTextField.becomeFirstResponder()
         } else if endsDateTextField.isEditing {
             startDateTextField.resignFirstResponder()
-            endsDateTextField.text = dateFormatter.string(from: datePicker.date)
+            endsDateTextField.text = dateFormatter.convertDateToString(datePicker.date)
             endsDateTextField.resignFirstResponder()
             phoneTextField.becomeFirstResponder()
         }
@@ -126,12 +129,6 @@ extension TourMenuVC {
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = .wheels
         }
-        print("PLANNER DATA : \(plannerData)")
-        let endDate = dateFormatter.date(from: plannerData!.endDate)
-        let startDate = dateFormatter.date(from: plannerData!.startDate)
-        datePicker.minimumDate = startDate
-        datePicker.maximumDate = endDate
-        
         startDateTextField.inputView = datePicker
         endsDateTextField.inputView = datePicker
         
@@ -139,9 +136,7 @@ extension TourMenuVC {
         dateToolbar.sizeToFit()
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(doneToolBarTap(_:)))
-        
         dateToolbar.setItems([nextButton], animated: true)
-        
         startDateTextField.inputAccessoryView = dateToolbar
         endsDateTextField.inputAccessoryView = dateToolbar
     }

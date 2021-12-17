@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Travl.iOS
+//
+//  Created by Ikmal Azman on 16/12/2021.
+// https://medium.com/swift-india/secure-secrets-in-ios-app-9f66085800b4
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY_MIXPANEL = 0f6f33876a242c694022c3c26f4e5f16

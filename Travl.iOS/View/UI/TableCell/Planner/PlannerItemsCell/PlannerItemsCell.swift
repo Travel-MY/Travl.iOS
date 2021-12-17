@@ -38,8 +38,8 @@ final class PlannerItemsCell: UITableViewCell {
     
     func configureCell(data : Planner) {
         destinationLabel.text = data.destination
-        startLabel.text = "\(data.startDate)"
-        endLabel.text = "\(data.endDate)"
+        startLabel.text = DateFormatter().convertDateToString(data.startDate)
+        endLabel.text = DateFormatter().convertDateToString(data.endDate)
     }
 }
 

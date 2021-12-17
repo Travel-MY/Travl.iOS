@@ -29,6 +29,11 @@
 		7F217A1C26E914210057A40C /* ItenaryInfoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1A26E914210057A40C /* ItenaryInfoCollectionCell.xib */; };
 		7F217A1F26E916540057A40C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F217A1D26E916540057A40C /* InfoCell.swift */; };
 		7F217A2026E916540057A40C /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F217A1E26E916540057A40C /* InfoCell.xib */; };
+		7F21B86E276B61E100F57E61 /* Planner+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21B86C276B61E100F57E61 /* Planner+CoreDataClass.swift */; };
+		7F21B86F276B61E100F57E61 /* Planner+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21B86D276B61E100F57E61 /* Planner+CoreDataProperties.swift */; };
+		7F21B875276B6EEC00F57E61 /* DateFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21B874276B6EEC00F57E61 /* DateFormatterExtensions.swift */; };
+		7F21B878276B7BC300F57E61 /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21B876276B7BC300F57E61 /* Activity+CoreDataClass.swift */; };
+		7F21B879276B7BC300F57E61 /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21B877276B7BC300F57E61 /* Activity+CoreDataProperties.swift */; };
 		7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */; };
 		7F2D26A42749D9920031B8EA /* ActivityCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D26A32749D9920031B8EA /* ActivityCollectionCell.swift */; };
 		7F2D26A62749D9BC0031B8EA /* ActivityMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D26A52749D9BC0031B8EA /* ActivityMenuVC.swift */; };
@@ -58,6 +63,9 @@
 		7F8142BF275913860039E7AB /* ActivityInfoCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8142BD275913860039E7AB /* ActivityInfoCellTableViewCell.xib */; };
 		7F9F9839274CE5EE000E7CD6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9F9838274CE5EE000E7CD6 /* IQKeyboardManagerSwift */; };
 		7FA7FBBA276A2C9300D0EA63 /* DiscoverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA7FBB9276A2C9300D0EA63 /* DiscoverInteractor.swift */; };
+		7FA7FBBE276A5EE400D0EA63 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA7FBBD276A5EE400D0EA63 /* Mixpanel */; };
+		7FAD1E09276B3AC7001B85A3 /* PlannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD1E08276B3AC7001B85A3 /* PlannerInteractor.swift */; };
+		7FAD1E0B276B3B84001B85A3 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD1E0A276B3B84001B85A3 /* Images.swift */; };
 		7FB4CF48274072DB0048BF0D /* MenuPlannerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4CF46274072DB0048BF0D /* MenuPlannerCollectionCell.swift */; };
 		7FB4CF49274072DB0048BF0D /* MenuPlannerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB4CF47274072DB0048BF0D /* MenuPlannerCollectionCell.xib */; };
 		7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */; };
@@ -70,8 +78,6 @@
 		7FC51B6C2769BCDB00C63682 /* PlannerDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC51B6B2769BCDB00C63682 /* PlannerDetailsPresenter.swift */; };
 		7FC51B6E2769CBBB00C63682 /* ActivityMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC51B6D2769CBBA00C63682 /* ActivityMenuPresenter.swift */; };
 		7FC51B702769D0D400C63682 /* TourMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC51B6F2769D0D400C63682 /* TourMenuPresenter.swift */; };
-		7FC51B7F2769DAAD00C63682 /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC51B7D2769DAAD00C63682 /* Activity+CoreDataClass.swift */; };
-		7FC51B802769DAAD00C63682 /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC51B7E2769DAAD00C63682 /* Activity+CoreDataProperties.swift */; };
 		7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */; };
 		7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */; };
 		7FCF5E7126C338F000FF7E18 /* BaseDiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF5E7026C338F000FF7E18 /* BaseDiscoverVC.swift */; };
@@ -84,8 +90,9 @@
 		7FD05BCA27696F2C00DB9028 /* BasePlannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD05BC927696F2C00DB9028 /* BasePlannerPresenter.swift */; };
 		7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */; };
 		7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9B05F26D4D036007E385B /* Itenaries.swift */; };
-		7FDAAD72276507600031E672 /* Planner+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAAD6E276507600031E672 /* Planner+CoreDataClass.swift */; };
-		7FDAAD73276507600031E672 /* Planner+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAAD6F276507600031E672 /* Planner+CoreDataProperties.swift */; };
+		7FE1BFC4276C6A4800AE8AC7 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE1BFC3276C6A4800AE8AC7 /* AnalyticsEngine.swift */; };
+		7FE1BFC6276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE1BFC5276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift */; };
+		7FE1BFC8276C719A00AE8AC7 /* MixPanelAnalyticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE1BFC7276C719A00AE8AC7 /* MixPanelAnalyticManager.swift */; };
 		7FE5F84926DD99650083F350 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5F84826DD99650083F350 /* Constants.swift */; };
 		A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A30EBDD2DEBA2261601004 /* Pods_Travl_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -125,6 +132,12 @@
 		7F217A1A26E914210057A40C /* ItenaryInfoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItenaryInfoCollectionCell.xib; sourceTree = "<group>"; };
 		7F217A1D26E916540057A40C /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		7F217A1E26E916540057A40C /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		7F21B86C276B61E100F57E61 /* Planner+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planner+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F21B86D276B61E100F57E61 /* Planner+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Planner+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F21B874276B6EEC00F57E61 /* DateFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensions.swift; sourceTree = "<group>"; };
+		7F21B876276B7BC300F57E61 /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F21B877276B7BC300F57E61 /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F21B87A276B7F4B00F57E61 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		7F21D8F026E2276400C0AF7F /* ItenaryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryDetailsVC.swift; sourceTree = "<group>"; };
 		7F2D26A32749D9920031B8EA /* ActivityCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionCell.swift; sourceTree = "<group>"; };
 		7F2D26A52749D9BC0031B8EA /* ActivityMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMenuVC.swift; sourceTree = "<group>"; };
@@ -153,6 +166,8 @@
 		7F8142BD275913860039E7AB /* ActivityInfoCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityInfoCellTableViewCell.xib; sourceTree = "<group>"; };
 		7FA7FBB9276A2C9300D0EA63 /* DiscoverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverInteractor.swift; sourceTree = "<group>"; };
 		7FA8A7CC275206B300AF99BD /* Prototype.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Prototype.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7FAD1E08276B3AC7001B85A3 /* PlannerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerInteractor.swift; sourceTree = "<group>"; };
+		7FAD1E0A276B3B84001B85A3 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		7FB4CF46274072DB0048BF0D /* MenuPlannerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPlannerCollectionCell.swift; sourceTree = "<group>"; };
 		7FB4CF47274072DB0048BF0D /* MenuPlannerCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuPlannerCollectionCell.xib; sourceTree = "<group>"; };
 		7FBE4C28270723ED004E26A9 /* BasePlannerImageFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerImageFooter.swift; sourceTree = "<group>"; };
@@ -165,8 +180,6 @@
 		7FC51B6B2769BCDB00C63682 /* PlannerDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerDetailsPresenter.swift; sourceTree = "<group>"; };
 		7FC51B6D2769CBBA00C63682 /* ActivityMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMenuPresenter.swift; sourceTree = "<group>"; };
 		7FC51B6F2769D0D400C63682 /* TourMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMenuPresenter.swift; sourceTree = "<group>"; };
-		7FC51B7D2769DAAD00C63682 /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Activity+CoreDataClass.swift"; path = "Travl.iOS/Model/Activity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7FC51B7E2769DAAD00C63682 /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Activity+CoreDataProperties.swift"; path = "Travl.iOS/Model/Activity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travl.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FCF5E6C26C338F000FF7E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FCF5E6E26C338F000FF7E18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,8 +194,9 @@
 		7FD05BC927696F2C00DB9028 /* BasePlannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerPresenter.swift; sourceTree = "<group>"; };
 		7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryVC.swift; sourceTree = "<group>"; };
 		7FD9B05F26D4D036007E385B /* Itenaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itenaries.swift; sourceTree = "<group>"; };
-		7FDAAD6E276507600031E672 /* Planner+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Planner+CoreDataClass.swift"; path = "Travl.iOS/Planner+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		7FDAAD6F276507600031E672 /* Planner+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Planner+CoreDataProperties.swift"; path = "Travl.iOS/Planner+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		7FE1BFC3276C6A4800AE8AC7 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
+		7FE1BFC5276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixPanelAnalyticEngine.swift; sourceTree = "<group>"; };
+		7FE1BFC7276C719A00AE8AC7 /* MixPanelAnalyticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixPanelAnalyticManager.swift; sourceTree = "<group>"; };
 		7FE5F84826DD99650083F350 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9CBD587F16BCBD11297A4B31 /* Pods-Travl.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travl.iOS.debug.xcconfig"; path = "Target Support Files/Pods-Travl.iOS/Pods-Travl.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F6C44C0275C296300B9EC04 /* Kingfisher in Frameworks */,
+				7FA7FBBE276A5EE400D0EA63 /* Mixpanel in Frameworks */,
 				A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */,
 				7F1E3C0026DDB14C0027583A /* FloatingPanel in Frameworks */,
 				7F9F9839274CE5EE000E7CD6 /* IQKeyboardManagerSwift in Frameworks */,
@@ -258,10 +273,11 @@
 		7F07BB142762FCE900BBA7C2 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				7FC51B7D2769DAAD00C63682 /* Activity+CoreDataClass.swift */,
-				7FC51B7E2769DAAD00C63682 /* Activity+CoreDataProperties.swift */,
-				7FDAAD6E276507600031E672 /* Planner+CoreDataClass.swift */,
-				7FDAAD6F276507600031E672 /* Planner+CoreDataProperties.swift */,
+				7F21B876276B7BC300F57E61 /* Activity+CoreDataClass.swift */,
+				7F21B877276B7BC300F57E61 /* Activity+CoreDataProperties.swift */,
+				7F21B86C276B61E100F57E61 /* Planner+CoreDataClass.swift */,
+				7F21B86D276B61E100F57E61 /* Planner+CoreDataProperties.swift */,
+				7FD05BC7276960D400DB9028 /* CoreDataManager.swift */,
 				7F07BB112762FCD700BBA7C2 /* Travl.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -317,8 +333,8 @@
 		7F13728326CBE6F200318991 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				7FA7FBB8276A2C7B00D0EA63 /* Interactor */,
 				7F13728426CBE70A00318991 /* NetworkManager.swift */,
+				7FA7FBB8276A2C7B00D0EA63 /* Interactor */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -328,6 +344,7 @@
 			children = (
 				7F13728626CBE72B00318991 /* TError.swift */,
 				7F13728926CBEA5100318991 /* Result.swift */,
+				7F21B87A276B7F4B00F57E61 /* Config.xcconfig */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -444,6 +461,7 @@
 				7F529F8426CEB768006E7FB7 /* UIImageViewExtensions.swift */,
 				7F4CE93F26DB819600CCBCC0 /* UIViewExtensions.swift */,
 				7F4D059A275E42F700B254DF /* UIColor+Extensions.swift */,
+				7F21B874276B6EEC00F57E61 /* DateFormatterExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -460,12 +478,13 @@
 		7F717FB126CE3C170066183C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FE1BFC2276C697C00AE8AC7 /* Analytics */,
 				7F13728326CBE6F200318991 /* Networking */,
 				7F07BB142762FCE900BBA7C2 /* Core Data */,
 				7F717FB226CE3C480066183C /* Locations.swift */,
 				7FD9B05F26D4D036007E385B /* Itenaries.swift */,
 				7F2D26A72749DF2F0031B8EA /* Menu.swift */,
-				7FD05BC7276960D400DB9028 /* CoreDataManager.swift */,
+				7FAD1E0A276B3B84001B85A3 /* Images.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				7FA7FBB9276A2C9300D0EA63 /* DiscoverInteractor.swift */,
+				7FAD1E08276B3AC7001B85A3 /* PlannerInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -651,6 +671,16 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		7FE1BFC2276C697C00AE8AC7 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				7FE1BFC3276C6A4800AE8AC7 /* AnalyticsEngine.swift */,
+				7FE1BFC5276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift */,
+				7FE1BFC7276C719A00AE8AC7 /* MixPanelAnalyticManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -692,6 +722,7 @@
 				7F1E3BFF26DDB14C0027583A /* FloatingPanel */,
 				7F9F9838274CE5EE000E7CD6 /* IQKeyboardManagerSwift */,
 				7F6C44BF275C296300B9EC04 /* Kingfisher */,
+				7FA7FBBD276A5EE400D0EA63 /* Mixpanel */,
 			);
 			productName = Travl.iOS;
 			productReference = 7FCF5E6926C338F000FF7E18 /* Travl.iOS.app */;
@@ -728,6 +759,7 @@
 				7F1E3BFE26DDB14C0027583A /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				7F9F9837274CE5EE000E7CD6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				7F6C44BE275C296300B9EC04 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7FA7FBBC276A5EE400D0EA63 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = 7FCF5E6A26C338F000FF7E18 /* Products */;
 			projectDirPath = "";
@@ -853,6 +885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD05BCA27696F2C00DB9028 /* BasePlannerPresenter.swift in Sources */,
+				7FE1BFC6276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift in Sources */,
 				7FB4CF48274072DB0048BF0D /* MenuPlannerCollectionCell.swift in Sources */,
 				7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */,
 				7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */,
@@ -867,17 +900,20 @@
 				7F217A1B26E914210057A40C /* ItenaryInfoCollectionCell.swift in Sources */,
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F2D26A42749D9920031B8EA /* ActivityCollectionCell.swift in Sources */,
-				7FC51B802769DAAD00C63682 /* Activity+CoreDataProperties.swift in Sources */,
 				7F2D26A82749DF2F0031B8EA /* Menu.swift in Sources */,
+				7FE1BFC4276C6A4800AE8AC7 /* AnalyticsEngine.swift in Sources */,
 				7FBE4C39270732B2004E26A9 /* CreatePlannerVC.swift in Sources */,
 				7F4D059B275E42F700B254DF /* UIColor+Extensions.swift in Sources */,
 				7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */,
 				7F1226A52755FBBF0058675F /* ActivityMenuContainerVC.swift in Sources */,
+				7FE1BFC8276C719A00AE8AC7 /* MixPanelAnalyticManager.swift in Sources */,
+				7FAD1E0B276B3B84001B85A3 /* Images.swift in Sources */,
 				7FD05BC8276960D400DB9028 /* CoreDataManager.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
 				7FCF5E7126C338F000FF7E18 /* BaseDiscoverVC.swift in Sources */,
 				7F34A02826F0B88E0074F139 /* ItenaryMapViewVC.swift in Sources */,
 				7FE5F84926DD99650083F350 /* Constants.swift in Sources */,
+				7F21B878276B7BC300F57E61 /* Activity+CoreDataClass.swift in Sources */,
 				7F31DE422755E54C000E0A63 /* ActivityListCell.swift in Sources */,
 				7F18981A27071CD7007AA48F /* BasePlannerTableHeader.swift in Sources */,
 				7F45C5E326EE3485008A27C1 /* MapPreviewCell.swift in Sources */,
@@ -888,24 +924,26 @@
 				7FA7FBBA276A2C9300D0EA63 /* DiscoverInteractor.swift in Sources */,
 				7F009E3D272B76F1003374A1 /* PlannerDetailsVC.swift in Sources */,
 				7F0774CA273E42AF0033853A /* PlannerDateCell.swift in Sources */,
+				7F21B86E276B61E100F57E61 /* Planner+CoreDataClass.swift in Sources */,
+				7F21B86F276B61E100F57E61 /* Planner+CoreDataProperties.swift in Sources */,
 				7F009E39272B7622003374A1 /* CreatePlannerPresenter.swift in Sources */,
 				7F5139FF2707C2AA002D6880 /* ItenaryPresenter.swift in Sources */,
 				7F71594C2725829D0077F46E /* PlannerItemsCell.swift in Sources */,
 				7F717FB326CE3C480066183C /* Locations.swift in Sources */,
 				7F13728126CBDC4C00318991 /* R.generated.swift in Sources */,
 				7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */,
-				7FC51B7F2769DAAD00C63682 /* Activity+CoreDataClass.swift in Sources */,
 				7FC51B6E2769CBBB00C63682 /* ActivityMenuPresenter.swift in Sources */,
 				7F53D6C22700A2FD00970CEE /* BaseDiscoverPresenter.swift in Sources */,
 				7FCF5E6D26C338F000FF7E18 /* AppDelegate.swift in Sources */,
-				7FDAAD72276507600031E672 /* Planner+CoreDataClass.swift in Sources */,
 				7F21D8F126E2276400C0AF7F /* ItenaryDetailsVC.swift in Sources */,
 				7F529F8526CEB768006E7FB7 /* UIImageViewExtensions.swift in Sources */,
 				7F13728A26CBEA5100318991 /* Result.swift in Sources */,
+				7F21B875276B6EEC00F57E61 /* DateFormatterExtensions.swift in Sources */,
+				7FAD1E09276B3AC7001B85A3 /* PlannerInteractor.swift in Sources */,
 				7FC51B6C2769BCDB00C63682 /* PlannerDetailsPresenter.swift in Sources */,
-				7FDAAD73276507600031E672 /* Planner+CoreDataProperties.swift in Sources */,
 				7FCF5E6F26C338F000FF7E18 /* SceneDelegate.swift in Sources */,
 				7F1E3C0226DDB2F40027583A /* ItenarySheetVC.swift in Sources */,
+				7F21B879276B7BC300F57E61 /* Activity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1037,7 @@
 		};
 		7FCF5E7B26C338F800FF7E18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F21B87A276B7F4B00F57E61 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1060,6 +1099,7 @@
 		};
 		7FCF5E7C26C338F800FF7E18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F21B87A276B7F4B00F57E61 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1121,6 +1161,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CX2G82J2TK;
 				INFOPLIST_FILE = Travl.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1145,6 +1186,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CX2G82J2TK;
 				INFOPLIST_FILE = Travl.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1218,6 +1260,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		7FA7FBBC276A5EE400D0EA63 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1235,6 +1285,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F9F9837274CE5EE000E7CD6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		7FA7FBBD276A5EE400D0EA63 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FA7FBBC276A5EE400D0EA63 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 

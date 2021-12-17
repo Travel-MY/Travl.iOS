@@ -8,7 +8,6 @@
 import UIKit
 
 final class CreatePlannerVC : UIViewController {
-    
     //MARK: - Outlets
     @IBOutlet weak var destinationTextfield: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
@@ -17,6 +16,7 @@ final class CreatePlannerVC : UIViewController {
     
     //MARK: - Variables
     private let presenter = CreatePlannerPresenter()
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
     private lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
@@ -27,12 +27,7 @@ final class CreatePlannerVC : UIViewController {
         picker.maximumDate = Calendar.current.date(byAdding: .year, value: 2, to: Date())
         return picker
     }()
-    private lazy var dateFormatter : DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateStyle = .medium
-        return formatter
-    }()
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,25 +38,28 @@ final class CreatePlannerVC : UIViewController {
     //MARK: - Action
     @IBAction func createPlannerTap(_ sender: UIBarButtonItem) {
         if let destination = destinationTextfield.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
-            presenter.didTapCreatePlanner(destination, startDate, endDate)
+            let sDate = DateFormatter().convertStringToDate(startDate)
+            let eDate = DateFormatter().convertStringToDate(endDate)
+            presenter.didTapCreatePlanner(destination, sDate, eDate)
         }
     }
     
     @objc func selectNextDate() {
-        startDateTextField.text = dateFormatter.string(from: datePicker.date)
+        startDateTextField.text = DateFormatter().convertDateToString(datePicker.date)
         startDateTextField.resignFirstResponder()
         endDateTextField.becomeFirstResponder()
     }
     
     @objc func doneSelectDate() {
         createButton.isEnabled = true
-        endDateTextField.text = dateFormatter.string(from: datePicker.date)
+        endDateTextField.text = DateFormatter().convertDateToString(datePicker.date)
         endDateTextField.resignFirstResponder()
     }
 }
 //MARK: - Presenter Delegate
 extension CreatePlannerVC : CreatePlannerPresenterDelegate {
     func presentActionForCreatePlanner(_ CreatePlannerPresenter: CreatePlannerPresenter) {
+    analytic.log(.addNewPlanner)
        navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -79,7 +77,6 @@ extension CreatePlannerVC : UITextFieldDelegate {
 }
 //MARK: - Private Methods
 extension CreatePlannerVC {
-    
     private func configureDatePicker() {
         if !destinationTextfield.text!.isEmpty, !startDateTextField.text!.isEmpty, !endDateTextField.text!.isEmpty {
             createButton.isEnabled = true
