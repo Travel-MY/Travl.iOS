@@ -9,17 +9,15 @@ import UIKit
 #warning("""
  TODO :
 1. Error Handling
-2. Pull to refresh
-3. Analytics
+2. Analytics
 """)
 final class BasePlannerVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var basePlannerTableView: UITableView!
     //MARK: - Variables
     private var plannerData = [Planner]()
-    private var footerImages = [Images]()
-    let presenter = BasePlannerPresenter()
-    let interactor = PlannerInteractor()
+    private let presenter = BasePlannerPresenter()
+    private let refreshControl = UIRefreshControl()
     
     lazy var footer : BasePlannerImageFooter = {
         let footer = Bundle.main.loadNibNamed(R.nib.basePlannerImageFooter.name, owner: nil, options: nil)?.first as! BasePlannerImageFooter
@@ -122,6 +120,7 @@ extension BasePlannerVC : BasePlannerPresenterDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.plannerData = data
             self?.basePlannerTableView.reloadData()
+            self?.refreshControl.endRefreshing()
         }
     }
     
@@ -136,12 +135,13 @@ extension BasePlannerVC {
     
     private func renderView() {
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor : UIColor.primarySeaBlue]
-        
+        self.extendedLayoutIncludesOpaqueBars = true
         basePlannerTableView.delegate = self
         basePlannerTableView.dataSource = self
+        basePlannerTableView.refreshControl = refreshControl
+        basePlannerTableView.refreshControl?.addTarget(self, action: #selector(refreshContent(_:)), for: .valueChanged)
         basePlannerTableView.separatorStyle = .none
         basePlannerTableView.estimatedRowHeight = 110
-        basePlannerTableView.rowHeight = UITableView.automaticDimension
     }
     
     private func registerCustomNib() {
@@ -151,6 +151,13 @@ extension BasePlannerVC {
         basePlannerTableView.tableFooterView = footer
         footer.setViewDelegate(delegate: self)
         header.setViewDelegate(delegate: self)
+    }
+    
+    @objc private func refreshContent(_ sender : UIRefreshControl) {
+        plannerData = []
+        basePlannerTableView.reloadData()
+   refreshControl.beginRefreshing()
+        presenter.fetchPlanner()
     }
 }
 

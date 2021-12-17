@@ -15,6 +15,7 @@ final class BaseDiscoverVC : UIViewController {
     private var locationResult = [Location]()
     private var selectedAtRow : Int!
     private let presenter = BaseDiscoverPresenter()
+    private let refreshControl = UIRefreshControl()
     
     //MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -51,29 +52,23 @@ extension BaseDiscoverVC : UICollectionViewDelegate {
 
 //MARK:- Data Source
 extension BaseDiscoverVC : UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return locationResult.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.discoverCell.identifier, for: indexPath) as! DiscoverCell
         let listOfLocations = locationResult[indexPath.row]
-        
         cell.cellContent(for: listOfLocations)
-        
         return cell
     }
 }
 
-//MARK:- FlowLayoutDelegate
+//MARK: - FlowLayoutDelegate
 extension BaseDiscoverVC : UICollectionViewDelegateFlowLayout {
     
     // Ask delegate for size of specified cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let width = view.frame.size.width
         let height = view.frame.size.height
         return CGSize(width: width * 0.4, height: height * 0.3)
@@ -84,7 +79,7 @@ extension BaseDiscoverVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
-//MARK:- DiscoverPresenterDelegate
+//MARK: - DiscoverPresenterDelegate
 extension BaseDiscoverVC : BaseDiscoverPresenterDelegate {
     
     func presentToNextScreen(atCellNumber: Int) {
@@ -93,10 +88,10 @@ extension BaseDiscoverVC : BaseDiscoverPresenterDelegate {
     }
 
     func presentLocation(data: [Location]) {
-        locationResult = data
-        
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.locationResult = data
             self?.collectionView.reloadData()
+            self?.refreshControl.endRefreshing()
         }
     }
 }
@@ -111,5 +106,14 @@ extension BaseDiscoverVC {
         collectionView.register(UINib(nibName: R.nib.discoverCell.name, bundle: nil), forCellWithReuseIdentifier: R.reuseIdentifier.discoverCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.refreshControl = refreshControl
+        collectionView.refreshControl?.addTarget(self, action: #selector(refreshContent(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshContent(_ sender : UIRefreshControl) {
+        locationResult = []
+        collectionView.reloadData()
+        collectionView.refreshControl?.beginRefreshing()
+        presenter.getLocations()
     }
 }
