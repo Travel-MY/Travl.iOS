@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let mixPanelKey = Bundle.main.infoDictionary?["API_KEY_MIXPANEL"] as? String {
             print("MIXPANELKEY : \(mixPanelKey)")
             Mixpanel.initialize(token: mixPanelKey)
+            Mixpanel.mainInstance().loggingEnabled = true
         }
         return true
     }

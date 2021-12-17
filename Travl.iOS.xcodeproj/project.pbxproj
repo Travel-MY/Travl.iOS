@@ -90,6 +90,9 @@
 		7FD05BCA27696F2C00DB9028 /* BasePlannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD05BC927696F2C00DB9028 /* BasePlannerPresenter.swift */; };
 		7FD9716826D0D80D00F7D71C /* ItenaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */; };
 		7FD9B06026D4D036007E385B /* Itenaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9B05F26D4D036007E385B /* Itenaries.swift */; };
+		7FE1BFC4276C6A4800AE8AC7 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE1BFC3276C6A4800AE8AC7 /* AnalyticsEngine.swift */; };
+		7FE1BFC6276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE1BFC5276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift */; };
+		7FE1BFC8276C719A00AE8AC7 /* MixPanelAnalyticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE1BFC7276C719A00AE8AC7 /* MixPanelAnalyticManager.swift */; };
 		7FE5F84926DD99650083F350 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE5F84826DD99650083F350 /* Constants.swift */; };
 		A5AC259A73B4282051B2407E /* Pods_Travl_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A30EBDD2DEBA2261601004 /* Pods_Travl_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -191,6 +194,9 @@
 		7FD05BC927696F2C00DB9028 /* BasePlannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePlannerPresenter.swift; sourceTree = "<group>"; };
 		7FD9716726D0D80D00F7D71C /* ItenaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItenaryVC.swift; sourceTree = "<group>"; };
 		7FD9B05F26D4D036007E385B /* Itenaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itenaries.swift; sourceTree = "<group>"; };
+		7FE1BFC3276C6A4800AE8AC7 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
+		7FE1BFC5276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixPanelAnalyticEngine.swift; sourceTree = "<group>"; };
+		7FE1BFC7276C719A00AE8AC7 /* MixPanelAnalyticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixPanelAnalyticManager.swift; sourceTree = "<group>"; };
 		7FE5F84826DD99650083F350 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9CBD587F16BCBD11297A4B31 /* Pods-Travl.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travl.iOS.debug.xcconfig"; path = "Target Support Files/Pods-Travl.iOS/Pods-Travl.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,6 +478,7 @@
 		7F717FB126CE3C170066183C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FE1BFC2276C697C00AE8AC7 /* Analytics */,
 				7F13728326CBE6F200318991 /* Networking */,
 				7F07BB142762FCE900BBA7C2 /* Core Data */,
 				7F717FB226CE3C480066183C /* Locations.swift */,
@@ -662,6 +669,16 @@
 				7FC05AB927259935008724B6 /* Planner */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		7FE1BFC2276C697C00AE8AC7 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				7FE1BFC3276C6A4800AE8AC7 /* AnalyticsEngine.swift */,
+				7FE1BFC5276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift */,
+				7FE1BFC7276C719A00AE8AC7 /* MixPanelAnalyticManager.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -868,6 +885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD05BCA27696F2C00DB9028 /* BasePlannerPresenter.swift in Sources */,
+				7FE1BFC6276C6F1600AE8AC7 /* MixPanelAnalyticEngine.swift in Sources */,
 				7FB4CF48274072DB0048BF0D /* MenuPlannerCollectionCell.swift in Sources */,
 				7F13728526CBE70A00318991 /* NetworkManager.swift in Sources */,
 				7F4CE94026DB819600CCBCC0 /* UIViewExtensions.swift in Sources */,
@@ -883,10 +901,12 @@
 				7FCF5E9326C33D5700FF7E18 /* DiscoverCell.swift in Sources */,
 				7F2D26A42749D9920031B8EA /* ActivityCollectionCell.swift in Sources */,
 				7F2D26A82749DF2F0031B8EA /* Menu.swift in Sources */,
+				7FE1BFC4276C6A4800AE8AC7 /* AnalyticsEngine.swift in Sources */,
 				7FBE4C39270732B2004E26A9 /* CreatePlannerVC.swift in Sources */,
 				7F4D059B275E42F700B254DF /* UIColor+Extensions.swift in Sources */,
 				7FBE4C2A270723ED004E26A9 /* BasePlannerImageFooter.swift in Sources */,
 				7F1226A52755FBBF0058675F /* ActivityMenuContainerVC.swift in Sources */,
+				7FE1BFC8276C719A00AE8AC7 /* MixPanelAnalyticManager.swift in Sources */,
 				7FAD1E0B276B3B84001B85A3 /* Images.swift in Sources */,
 				7FD05BC8276960D400DB9028 /* CoreDataManager.swift in Sources */,
 				7F13728726CBE72B00318991 /* TError.swift in Sources */,
@@ -1141,6 +1161,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CX2G82J2TK;
 				INFOPLIST_FILE = Travl.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1165,6 +1186,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CX2G82J2TK;
 				INFOPLIST_FILE = Travl.iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
