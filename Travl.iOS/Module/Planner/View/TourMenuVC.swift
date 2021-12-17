@@ -39,16 +39,15 @@ final class TourMenuVC: UIViewController {
     private var dateFormatter = DateFormatter()
     private var plannerData : Planner?
     private let presenter = TourMenuPresenter()
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
+
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        analytic.log(.createActivitiesScreenView)
         renderView()
         configureDate()
     }
-    
     
     //MARK: - Actions
     @IBAction func saveTap(_ sender: UIBarButtonItem) {
@@ -107,6 +106,7 @@ extension TourMenuVC :TourMenuPresenterDelegate {
         presenter.saveNewActivity(category :title!,name: nameTextField.text!, address: addressTextField.text!, startDate: startDateTextField.text!, endDate: endsDateTextField.text!, parentPlanner: plannerData!, phoneNumber: phoneTextField.text ?? "N/A", website: websiteTextField.text ?? "N/A", notes: notesTextField.text ?? "N/A")
         navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Dismiss"), object: nil, userInfo: [:]))
+        analytic.log(.addNewActivities)
     }
 }
 

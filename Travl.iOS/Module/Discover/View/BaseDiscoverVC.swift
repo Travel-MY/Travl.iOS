@@ -16,6 +16,7 @@ final class BaseDiscoverVC : UIViewController {
     private var selectedAtRow : Int!
     private let presenter = BaseDiscoverPresenter()
     private let refreshControl = UIRefreshControl()
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
     
     //MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -28,14 +29,6 @@ final class BaseDiscoverVC : UIViewController {
         presenter.getLocations()
         renderView()
     }
-}
-
-//MARK: - Delegate
-extension BaseDiscoverVC : UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didTapLocation(atIndex : indexPath.row)
-    }
     
     //MARK:- Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +40,15 @@ extension BaseDiscoverVC : UICollectionViewDelegate {
         
         // Remove tab bar when push to other vc
         destinationVC.hidesBottomBarWhenPushed = true
+        analytic.log(.viewDiscoverLocations(index: selectedAtRow, name: locationResult[selectedAtRow].itenaryName))
+    }
+}
+
+//MARK: - Delegate
+extension BaseDiscoverVC : UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didTapLocation(atIndex : indexPath.row)
     }
 }
 

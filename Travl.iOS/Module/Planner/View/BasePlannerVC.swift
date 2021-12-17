@@ -9,7 +9,7 @@ import UIKit
 #warning("""
  TODO :
 1. Error Handling
-2. Analytics
+2. Open Map App when get locations
 """)
 final class BasePlannerVC: UIViewController {
     //MARK: - Outlets
@@ -18,6 +18,7 @@ final class BasePlannerVC: UIViewController {
     private var plannerData = [Planner]()
     private let presenter = BasePlannerPresenter()
     private let refreshControl = UIRefreshControl()
+    private let analytics = AnalyticManager(engine: MixPanelAnalyticEngine())
     
     lazy var footer : BasePlannerImageFooter = {
         let footer = Bundle.main.loadNibNamed(R.nib.basePlannerImageFooter.name, owner: nil, options: nil)?.first as! BasePlannerImageFooter
@@ -38,6 +39,7 @@ final class BasePlannerVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchPlanner()
+        analytics.log(.plannerScreenViewed)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,6 +102,7 @@ extension BasePlannerVC : UITableViewDelegate {
 extension BasePlannerVC : BasePlannerTableHeaderDelegate {
     func didTapTripButton(view: Any) {
         performSegue(withIdentifier: Constants.SegueIdentifier.goToCreatePlanner, sender: self)
+        analytics.log(.createPlannerScreenView)
     }
 }
 //MARK: - Table Footer Delegate
@@ -107,6 +110,7 @@ extension BasePlannerVC : BasePlannerImageFooterDelegate {
     func presentActionForFooterTap(_ BasePlannerImageFooter: BasePlannerImageFooter) {
         // Open discover tab when footer get selected
         tabBarController?.selectedIndex = 0
+        analytics.log(.viewGetInpiredSlider)
     }
 }
 //MARK: - Presenter Delegate
@@ -114,6 +118,7 @@ extension BasePlannerVC : BasePlannerPresenterDelegate {
 
     func presentToPlannerDetails(_ BasePlannerPresenter: BasePlannerPresenter, index: Int) {
         performSegue(withIdentifier: Constants.SegueIdentifier.goToPlannerDetails, sender: self)
+        analytics.log(.viewCreatedPlanner(index: index))
     }
     
     func presentFetchPlanner(_ BasePlannerPresenter: BasePlannerPresenter, data: [Planner]) {

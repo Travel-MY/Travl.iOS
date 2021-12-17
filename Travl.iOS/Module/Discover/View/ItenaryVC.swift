@@ -27,6 +27,8 @@ final class ItenaryVC : UIViewController {
     private var fpc : FloatingPanelController!
     private let discoverInteractor = DiscoverInteractor()
     
+  
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()

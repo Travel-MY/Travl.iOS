@@ -17,6 +17,7 @@ final class PlannerDetailsVC: UIViewController {
     private var activityData = [Activity]()
     private var selectedRow : Int!
     private let presenter = PlannerDetailsPresenter()
+    private let analytics = AnalyticManager(engine: MixPanelAnalyticEngine())
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -28,6 +29,8 @@ final class PlannerDetailsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchActivities(forDestination: selectedPlanner.destination)
         print("Key stored in User Defaults is : \( String(describing: UserDefaults.standard.string(forKey: "parentPlanner")))")
+        analytics.log(.plannerDetailsScreenViewed)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,6 +118,7 @@ extension PlannerDetailsVC : PlannerDetailsPresenterDelegate {
         if section == 1 {
             selectedRow = index
             performSegue(withIdentifier: Constants.SegueIdentifier.goToALDetails, sender: self)
+            analytics.log(.viewCreatedActivities(index: index))
         }
     }
     

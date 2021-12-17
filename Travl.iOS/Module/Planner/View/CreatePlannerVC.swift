@@ -16,6 +16,7 @@ final class CreatePlannerVC : UIViewController {
     
     //MARK: - Variables
     private let presenter = CreatePlannerPresenter()
+    private let analytic = AnalyticManager(engine: MixPanelAnalyticEngine())
     private lazy var datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
@@ -58,6 +59,7 @@ final class CreatePlannerVC : UIViewController {
 //MARK: - Presenter Delegate
 extension CreatePlannerVC : CreatePlannerPresenterDelegate {
     func presentActionForCreatePlanner(_ CreatePlannerPresenter: CreatePlannerPresenter) {
+    analytic.log(.addNewPlanner)
        navigationController?.popToRootViewController(animated: true)
     }
 }
