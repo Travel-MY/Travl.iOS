@@ -83,19 +83,26 @@ extension BaseDiscoverVC : UICollectionViewDelegateFlowLayout {
 
 //MARK: - DiscoverPresenterDelegate
 extension BaseDiscoverVC : BaseDiscoverPresenterDelegate {
-    
-    func presentToNextScreen(atCellNumber: Int) {
-        selectedAtRow = atCellNumber
-        self.performSegue(withIdentifier: R.segue.baseDiscoverVC.goToDetails, sender: self)
-    }
-
-    func presentLocation(data: [Location]) {
+    func presentLocation(_BaseDiscoverPresenter: BaseDiscoverPresenter, data: [Location]) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             self?.locationResult = data
             self?.collectionView.reloadData()
             self?.refreshControl.endRefreshing()
         }
     }
+    
+    func presentToNextScreen(_BaseDiscoverPresenter: BaseDiscoverPresenter, atCellNumber: Int) {
+        selectedAtRow = atCellNumber
+        self.performSegue(withIdentifier: R.segue.baseDiscoverVC.goToDetails, sender: self)
+    }
+    
+    func presentFailureMessageFromLocation(_BaseDiscoverPresenter: BaseDiscoverPresenter, error: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController().createDefaultAlertForFailure(message: error)
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 //MARK: - Private methods

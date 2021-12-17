@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ItenaryPresenterDelegate : AnyObject {
-    func presentItenaryData(with data : [[Days]])
+    func presentItenaryData(_ItenaryPresenter : ItenaryPresenter, with data : [[Days]])
+    func presentFailureMessageFromItenary(_ItenaryPresenter : ItenaryPresenter, error : TError)
 }
 
 final class ItenaryPresenter {
@@ -24,9 +25,10 @@ final class ItenaryPresenter {
         discoverInteractor.fetchItenaries(location) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.delegate?.presentItenaryData(with: data)
+                self?.delegate?.presentItenaryData(_ItenaryPresenter: self!, with: data)
             case .failure(let error):
                 print(error.localizedDescription)
+                self?.delegate?.presentFailureMessageFromItenary(_ItenaryPresenter: self!, error: error)
             }
         }
     }

@@ -6,11 +6,7 @@
 //
 
 import UIKit
-#warning("""
- TODO :
-1. Error Handling
-2. Open Map App when get locations
-""")
+
 final class BasePlannerVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var basePlannerTableView: UITableView!
@@ -41,7 +37,7 @@ final class BasePlannerVC: UIViewController {
         presenter.fetchPlanner()
         analytics.log(.plannerScreenViewed)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == R.segue.basePlannerVC.goToPlannerDetails.identifier {
             let plannerActivities = segue.destination as! PlannerDetailsVC
@@ -83,7 +79,7 @@ extension BasePlannerVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-       let action =  UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, didSwipeRow in
+        let action =  UIContextualAction(style: .destructive, title: "Delete") { [weak self] action, view, didSwipeRow in
             if let plannerToRemove = self?.plannerData[indexPath.row] {
                 self?.presenter.removePlanner(plannerToRemove)
                 self?.presenter.fetchPlanner()
@@ -134,6 +130,20 @@ extension BasePlannerVC : BasePlannerPresenterDelegate {
             self!.footer.setFooterImages(data)
         }
     }
+    
+    func presentFailureMessageFromImages(_BasePlannerPresenter: BasePlannerPresenter, error: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController().createDefaultAlertForFailure(.InternetConnection, message: error)
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func presentFailureMessageFromPlanner(_BasePlannerPresenter: BasePlannerPresenter, error: String) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController().createDefaultAlertForFailure(.DatabaseConnection, message: error)
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 //MARK: - Private methods
 extension BasePlannerVC {
@@ -161,8 +171,9 @@ extension BasePlannerVC {
     @objc private func refreshContent(_ sender : UIRefreshControl) {
         plannerData = []
         basePlannerTableView.reloadData()
-   refreshControl.beginRefreshing()
+        refreshControl.beginRefreshing()
         presenter.fetchPlanner()
+        presenter.fetchImages()
     }
 }
 

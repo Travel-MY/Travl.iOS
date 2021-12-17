@@ -8,8 +8,9 @@
 import Foundation
 
 protocol BaseDiscoverPresenterDelegate : AnyObject {
-    func presentLocation(data : [Location])
-    func presentToNextScreen(atCellNumber : Int)
+    func presentLocation(_BaseDiscoverPresenter : BaseDiscoverPresenter, data : [Location])
+    func presentToNextScreen(_BaseDiscoverPresenter : BaseDiscoverPresenter, atCellNumber : Int)
+    func presentFailureMessageFromLocation(_BaseDiscoverPresenter : BaseDiscoverPresenter, error : String)
 }
 
 final class BaseDiscoverPresenter {
@@ -24,14 +25,15 @@ final class BaseDiscoverPresenter {
         discoverInteractor.fetchLocations { [weak self] result in
             switch result {
             case .success(let data):
-                self?.delegate?.presentLocation(data: data.locations)
+                self?.delegate?.presentLocation(_BaseDiscoverPresenter: self!, data: data.locations)
             case .failure(let error):
                 print(error.localizedDescription)
+                self?.delegate?.presentFailureMessageFromLocation(_BaseDiscoverPresenter: self!, error: error.localizedDescription)
             }
         }
     }
     
     func didTapLocation(atIndex : Int) {
-        delegate?.presentToNextScreen(atCellNumber: atIndex)
+        delegate?.presentToNextScreen(_BaseDiscoverPresenter: self, atCellNumber: atIndex)
     }
 }
