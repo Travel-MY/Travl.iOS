@@ -28,6 +28,21 @@
 5. Swift Package Manager(SPM) & Cocoapods - to integrate and manage third party library
 6.  [TestFlight](https://testflight.apple.com/join/YMFDabsO) - to distribute the app to beta testers 
 
+
+## Requirements
+
+- MacOS Catalina or later
+- Xcode 11+
+- Swift 5.0+
+
+## Installation
+
+1. Open terminal, navigate to project folder
+2. Enter pod install (make sure cocoapods already been installed in your mac)
+3. Quit terminal, open project folder
+4. Open .xcworkspace file 
+5. Build the project and run
+
 ## Contributors
 
 1. [Ikmal Azman](https://github.com/esikmalazman) - iOS development
