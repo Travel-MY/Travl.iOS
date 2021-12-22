@@ -33,4 +33,5 @@
 1. [Ikmal Azman](https://github.com/esikmalazman) - iOS development
 2. [Ainin Sofiya](https://github.com/asofiyatukiran[) - API development
 3. [Wan Hani](https://github.com/Syxfixh) - QA & Software tester
+4. [Mr. Hazmin](https://www.linkedin.com/in/ts-ainul-hazmin-p-tech-9386419b/) - Project supervisor
 
