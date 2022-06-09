@@ -42,16 +42,9 @@ final class BasePlannerPresenter {
         coreDataManager.removeObjectContext(planner, completion: {})
     }
     
-    func fetchImages() {
-        plannerInteractor.fetchFooterImages { [weak self] result in
-            switch result {
-            case .success(let data):
-                let images = data.images
-                self?.delegate?.presentFetchImages(self!, data: images)
-            case .failure(let error):
-                self?.delegate?.presentFailureMessageFromImages(_BasePlannerPresenter: self!, error: error.rawValue)
-            }
-        }
+    func fetchImages() async throws {
+        let imageResponse = try await plannerInteractor.fetchFooterImages()
+        delegate?.presentFetchImages(self, data: imageResponse.images)
     }
     
     func didTapPlannerRow(atIndex index : Int) {
