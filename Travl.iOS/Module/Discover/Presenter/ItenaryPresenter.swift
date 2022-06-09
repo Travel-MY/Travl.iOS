@@ -21,15 +21,8 @@ final class ItenaryPresenter {
         self.delegate = delegate
     }
     
-    func getItenaries(forLocation location: String) {
-        discoverInteractor.fetchItenaries(location) { [weak self] result in
-            switch result {
-            case .success(let data):
-                self?.delegate?.presentItenaryData(_ItenaryPresenter: self!, with: data)
-            case .failure(let error):
-                print(error.localizedDescription)
-                self?.delegate?.presentFailureMessageFromItenary(_ItenaryPresenter: self!, error: error)
-            }
-        }
+    func getItenaries(forLocation location: String) async throws {
+        let itenaries = try await discoverInteractor.fetchItenaries(location)
+        delegate?.presentItenaryData(_ItenaryPresenter: self, with: itenaries.itenaries.days)
     }
 }

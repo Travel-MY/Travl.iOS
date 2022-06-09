@@ -27,7 +27,7 @@ final class ItenaryVC : UIViewController {
     private var fpc : FloatingPanelController!
     private let discoverInteractor = DiscoverInteractor()
     
-  
+    
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -37,7 +37,10 @@ final class ItenaryVC : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        presenter.getItenaries(forLocation: locationName?.itenaryName ?? "")
+        super.viewWillAppear(animated)
+        Task {
+            try await presenter.getItenaries(forLocation: locationName?.itenaryName ?? "")
+        }   
     }
     
     //MARK: - Action
@@ -48,7 +51,7 @@ final class ItenaryVC : UIViewController {
 
 //MARK: - Presenter Delegate
 extension ItenaryVC : ItenaryPresenterDelegate {
-
+    
     func presentItenaryData(_ItenaryPresenter: ItenaryPresenter, with data: [[Days]]) {
         self.delegate?.didSendItenaryData(self, with: data)
     }
