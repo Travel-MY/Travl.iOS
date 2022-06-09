@@ -11,16 +11,8 @@ final class PlannerInteractor {
     //MARK: - Variables
     private let networkManager = NetworkManager()
     
-    func fetchFooterImages(completion :@escaping ((Result<ImagesResponse, TError>)->Void)) {
-        networkManager.fetchData(endpoint: .images) { (_ result : Result<ImagesResponse, TError>) in
-            switch result {
-            case .success(let data):
-                print("Image Data : \(data.images)")
-                completion(.success(data))
-            case .failure(let error):
-                print("ERROR : \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }
+    func fetchFooterImages()async throws -> ImagesResponse {
+        let imageResponse : ImagesResponse = try await networkManager.fetchData(endpoint: .images, queryString: "")
+        return imageResponse
     }
 }
