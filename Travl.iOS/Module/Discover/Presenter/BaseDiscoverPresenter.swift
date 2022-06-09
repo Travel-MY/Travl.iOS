@@ -21,16 +21,18 @@ final class BaseDiscoverPresenter {
     func setViewDelegate(delegate : BaseDiscoverPresenterDelegate) {
         self.delegate = delegate
     }
-    func getLocations() {
-        discoverInteractor.fetchLocations { [weak self] result in
-            switch result {
-            case .success(let data):
-                self?.delegate?.presentLocation(_BaseDiscoverPresenter: self!, data: data.locations)
-            case .failure(let error):
-                print(error.localizedDescription)
-                self?.delegate?.presentFailureMessageFromLocation(_BaseDiscoverPresenter: self!, error: error.localizedDescription)
-            }
-        }
+    func getLocations() async throws {
+        let locations = try await discoverInteractor.fetchLocations()
+        delegate?.presentLocation(_BaseDiscoverPresenter: self, data: locations.locations)
+//        discoverInteractor.fetchLocations { [weak self] result in
+//            switch result {
+//            case .success(let data):
+//                self?.delegate?.presentLocation(_BaseDiscoverPresenter: self!, data: data.locations)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                self?.delegate?.presentFailureMessageFromLocation(_BaseDiscoverPresenter: self!, error: error.localizedDescription)
+//            }
+//        }
     }
     
     func didTapLocation(atIndex : Int) {

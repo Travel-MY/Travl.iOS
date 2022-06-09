@@ -26,7 +26,10 @@ final class BaseDiscoverVC : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getLocations()
+        Task {
+            try await         presenter.getLocations()
+        }
+
         renderView()
     }
     
@@ -123,6 +126,9 @@ extension BaseDiscoverVC {
         locationResult = []
         collectionView.reloadData()
         collectionView.refreshControl?.beginRefreshing()
-        presenter.getLocations()
+        Task {
+           try await presenter.getLocations()
+        }
+
     }
 }

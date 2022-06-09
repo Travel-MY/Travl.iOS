@@ -31,7 +31,10 @@ final class BasePlannerVC: UIViewController {
         renderView()
         registerCustomNib()
         presenter.setViewDelegate(delegate: self)
-        presenter.fetchImages()
+        Task {
+            try await presenter.fetchImages()
+        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchPlanner()
@@ -111,7 +114,7 @@ extension BasePlannerVC : BasePlannerImageFooterDelegate {
 }
 //MARK: - Presenter Delegate
 extension BasePlannerVC : BasePlannerPresenterDelegate {
-
+    
     func presentToPlannerDetails(_ BasePlannerPresenter: BasePlannerPresenter, index: Int) {
         performSegue(withIdentifier: Constants.SegueIdentifier.goToPlannerDetails, sender: self)
         analytics.log(.viewCreatedPlanner(index: index))
@@ -173,7 +176,10 @@ extension BasePlannerVC {
         basePlannerTableView.reloadData()
         refreshControl.beginRefreshing()
         presenter.fetchPlanner()
-        presenter.fetchImages()
+        
+        Task {
+            try await  presenter.fetchImages()
+        }
     }
 }
 
